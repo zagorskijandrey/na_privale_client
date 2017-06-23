@@ -1,0 +1,10 @@
+<md-list>
+  <md-list-item *ngFor="let message of messages">
+    <!--<md-icon md-list-icon>folder</md-icon>-->
+    <h4 md-line>{{message.what}}</h4>
+    <h4 md-line>{{message.who}}</h4>
+    <h4 md-line>{{message.when}}</h4>
+    <!--<p md-line> {{folder.updated | date}} </p>-->
+    <md-divider></md-divider>
+  </md-list-item>
+</md-list>

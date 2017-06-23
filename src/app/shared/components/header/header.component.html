@@ -1,0 +1,69 @@
+<md-toolbar style="background-color: #607D8B; color: white">
+  <span id="title">{{ 'header.brand'| translate }}</span>
+
+  <!-- navigation menu should be on the far right of the toolbar -->
+  <span class="fill-space"></span>
+  <button md-icon-button [md-menu-trigger-for]="menu">
+    <md-icon>more_vert</md-icon>
+  </button>
+
+  <md-menu #menu="mdMenu" x-position="before">
+    <button md-menu-item routerLink="/home"> Home </button>
+    <button md-menu-item routerLink="/map"> Map </button>
+  </md-menu>
+</md-toolbar>
+
+<!--<nav md-tab-nav-bar style="background-color: #607D8B; color: white">-->
+  <!--<md-tab-group>-->
+  <!--<a md-tab-link-->
+         <!--[routerLink]="'/story'">-->
+    <!--<md-tab id="tab1" aria-controls="tab1-content">-->
+      <!--<ng-template md-tab-label>-->
+        <!--&lt;!&ndash;<a routerLink="'/story'"></a>&ndash;&gt;-->
+        <!--<div style="color: white"><em>Подводная охота</em></div>-->
+      <!--</ng-template>-->
+    <!--</md-tab>-->
+  <!--46-->
+<!--</a>-->
+  <!--<a md-tab-link-->
+     <!--[routerLink]="'/home'">-->
+   <!--77-->
+  <!--</a>-->
+  <!--</md-tab-group>-->
+<!--</nav>-->
+
+
+<md-tab-group md-stretch-tabs class="md-primary" style="background-color: #607D8B; color: white">
+  <!--<a [routerLink]="'/story'">-->
+  <!--<button routerLink="/story">-->
+  <a routerLink="/story">
+    <md-tab id="tab1" aria-controls="tab1-content">
+      <!--<template md-tab-label>a very very loooong label</template>-->
+      <ng-template md-tab-label>
+        <!--<a routerLink="'/story'"></a>-->
+        <div style="color: white"><em>Подводная охота</em></div>
+      </ng-template>
+      <ng-template md-tab-content>
+        <router-outlet></router-outlet>
+      </ng-template>
+    </md-tab>
+  </a>
+  <!--</button>-->
+  <!--<md-tab id="tab1" aria-controls="tab1-content" routerLink="/story">-->
+
+      <!--&lt;!&ndash;<template md-tab-label>a very very loooong label</template>&ndash;&gt;-->
+      <!--<ng-template md-tab-label>-->
+        <!--&lt;!&ndash;<a routerLink="'/story'"></a>&ndash;&gt;-->
+        <!--<div style="color: white"><em>Подводная охота</em></div>-->
+      <!--</ng-template>-->
+    <!--<ng-template md-tab-content>-->
+      <!--<router-outlet></router-outlet>-->
+    <!--</ng-template>-->
+    <!--</md-tab>-->
+  <!--</a>-->
+  <!--<md-tab label="Подводная охота" style="color: white" id="tab1" aria-controls="tab1-content" routerLink="/na.privale">-->
+  <!--</md-tab>-->
+  <md-tab label="Рыбалка" id="tab2" aria-controls="tab2-content">
+    <a routerLink="/home"></a>
+  </md-tab>
+</md-tab-group>

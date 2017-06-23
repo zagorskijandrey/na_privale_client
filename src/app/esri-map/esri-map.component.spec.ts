@@ -11,7 +11,7 @@ describe('EsriMapComponent', () => {
   let fixture: ComponentFixture<EsriMapComponent>;
 
   beforeEach(async(() => {
-    // provide a mock map class to the component via a mock route
+    // provide a mock map class to the components via a mock route
     TestBed.configureTestingModule({
       declarations: [
         EsriMapComponent

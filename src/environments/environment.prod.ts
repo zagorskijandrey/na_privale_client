@@ -1,3 +1,5 @@
+const url = '/';
 export const environment = {
-  production: true
-};
+  production: true,
+  baseUrl: url,
+  api: url};

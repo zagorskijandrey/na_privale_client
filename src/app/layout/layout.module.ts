@@ -9,8 +9,6 @@ import {
   MdButtonModule, MdCardModule, MdCommonModule, MdIconModule, MdListItem, MdListModule, MdMenuModule, MdTabNav,
   MdTabsModule, MdToolbarModule
 } from '@angular/material';
-import {StoryListComponent} from './story/story-list/story-list.component';
-import {StoryModule} from './story/story.module';
 
 @NgModule({
   imports: [

@@ -5,7 +5,7 @@ import { EsriMapComponent } from './esri-map.component';
 
 export const MAP_ROUTES: Routes = [
   { path: '', component: EsriMapComponent }
-]
+];
 
 @NgModule({
   imports: [

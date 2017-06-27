@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Story} from '../../../shared/models/story';
+import {StoryService} from '../../../shared/services/story.service';
 
 @Component({
   selector: 'app-story-list',
@@ -6,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./story-list.component.css']
 })
 export class StoryListComponent implements OnInit {
-
+  stories: Array<Story>;
   messages: any[] = [{
     face : 'imagePath',
     what: 'Brunch this weekend?',
@@ -22,9 +24,10 @@ export class StoryListComponent implements OnInit {
       notes: 'I\'ll be in your neighborhood doing errands'
     }];
 
-  constructor() { }
+  constructor(private storyService: StoryService) { }
 
   ngOnInit() {
+    this.storyService.getFishingStories().subscribe(story => Object.assign(new Story, story));
   }
 
 }

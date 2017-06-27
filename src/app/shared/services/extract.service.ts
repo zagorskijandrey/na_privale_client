@@ -8,23 +8,24 @@ import {Observable} from 'rxjs/Observable';
 export abstract class ExtractService {
 
   protected getResponseBody(response: Response): any {
-    let message = '';
+    // let message = '';
     if (response.ok && response.text()) {
       const data = response.json();
-      if (data && data.status === 'OK' && data.body) {
-        return data.body;
-      } else {
-        if (data && data.error_message) {
-          if (isArray(data.error_message) && data.error_message.length === 1) {
-            message = data.error_message[0];
-            message = isString(message) ? message : JSON.stringify(message);
-          } else {
-            message = JSON.stringify(data.error_message);
-          }
-        }
-      }
+      return data.body;
+      // if (data && data.status === 'OK' && data.body) {
+      //   return data.body;
+      // } else {
+      //   if (data && data.error_message) {
+      //     if (isArray(data.error_message) && data.error_message.length === 1) {
+      //       message = data.error_message[0];
+      //       message = isString(message) ? message : JSON.stringify(message);
+      //     } else {
+      //       message = JSON.stringify(data.error_message);
+      //     }
+      //   }
+      // }
     }
-    throw Error(message);
+    // throw Error(message);
   }
 
   protected handleError(error: any) {

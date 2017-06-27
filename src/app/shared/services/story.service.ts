@@ -16,15 +16,22 @@ export class StoryService extends ExtractService {
     super();
   }
 
+  getFishingStories(): Observable<Array<Story>> {
+    return this.http.get(environment.api + 'fishingStories').map(this.getStoryWithResponse.bind(this)).catch(this.handleError.bind(this));
+  }
+
   getFishingStory(id: number): Observable<Story> {
-    return this.http.get(environment.api + 'fishingStory?id=' + id).map(this.getStoryWithResponse).catch(this.handleError);
-}
+    return this.http.get(environment.api + 'fishingStory?id=' + id).map(this.getStoryWithResponse.bind(this)).catch(this.handleError.bind(this));
+  }
 
   getHunterStory(id: number): Observable<Story> {
-    return this.http.get(environment.api + 'fishHunterStory?id=' + id).map(this.getStoryWithResponse).catch(this.handleError);
+    return this.http.get(environment.api + 'fishHunterStory?id=' + id).map(this.getStoryWithResponse.bind(this)).catch(this.handleError.bind(this));
   }
 
   private getStoryWithResponse(res: Response): Story {
-    return this.getResponseBody(res);
+    const body = this.getResponseBody(res);
+    return Object.assign(new Story, body);
   }
+
+  // private getStoriesWithResponse(res: Response)
 }

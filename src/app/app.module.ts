@@ -9,6 +9,7 @@ import 'hammerjs';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
+import {StoryService} from './shared/services/story.service';
 
 // hammerjs is a required import for some of the features in Angular Material
 
@@ -20,6 +21,9 @@ export function HttpLoaderFactory(http: Http) {
   declarations: [
     AppComponent,
     HomeComponent
+  ],
+  providers: [
+    StoryService
   ],
   imports: [
     BrowserModule,

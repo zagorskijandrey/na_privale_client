@@ -1,10 +1,40 @@
-<md-list>
-  <md-list-item *ngFor="let message of messages">
-    <!--<md-icon md-list-icon>folder</md-icon>-->
-    <h4 md-line>{{message.what}}</h4>
-    <h4 md-line>{{message.who}}</h4>
-    <h4 md-line>{{message.when}}</h4>
-    <!--<p md-line> {{folder.updated | date}} </p>-->
+<!--<md-list>-->
+  <!--<md-list-item *ngFor="let story of stories">
+    &lt;!&ndash;<md-icon md-list-icon>folder</md-icon>&ndash;&gt;
+    <md-card>
+      <md-card-title>
+        {{story.name}}
+      </md-card-title>
+      <md-card-content>
+        {{story.story}}
+      </md-card-content>
+      <md-card-actions>
+        <button md-button>{{story.id}}</button>
+      </md-card-actions>
+      </md-card>
+    &lt;!&ndash;<h4 md-line>{{story.id}}</h4>&ndash;&gt;
+    &lt;!&ndash;<h4 md-line>{{story.name}}</h4>&ndash;&gt;
+    &lt;!&ndash;<h4 md-line>{{story.story}}</h4>&ndash;&gt;
+    &lt;!&ndash;<p md-line> {{folder.updated | date}} </p>&ndash;&gt;
     <md-divider></md-divider>
-  </md-list-item>
-</md-list>
+  </md-list-item>-->
+  <!--<md-grid-list cols="2" rowHeight="2:1" gutterSize="15px">-->
+    <!--<md-grid-tile layout-wrap *ngFor="let story of stories">-->
+      <!--<md-card flex layout-fill>-->
+        <!--<md-card-header>test1</md-card-header>-->
+        <!--<md-card-content>-->
+          <!--{{story.story}}</md-card-content>-->
+      <!--</md-card>-->
+    <!--</md-grid-tile>-->
+  <!--</md-grid-list>-->
+<!--</md-list>-->
+<md-card *ngFor="let story of stories">
+  <h4 md-line><md-card-header>{{story.name}}</md-card-header></h4>
+  <md-card-content>
+    {{story.story}}
+  </md-card-content>
+  <span layout="row"><hr flex/></span>
+  <md-card-actions>
+    <button value="{{story.id}}" routerLink="describe/:value" md-button>Читать</button>
+  </md-card-actions>
+</md-card>

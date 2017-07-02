@@ -1,3 +1,9 @@
-<p>
-  story-describe works!
-</p>
+<md-card>
+  <h4 md-line><md-card-header>{{story.name}}</md-card-header></h4>
+  <md-card-content>
+    {{story.story}}
+  </md-card-content>
+  <md-card-actions>
+    <button value="{{story.id}}" routerLink="story" md-button>Закрыть</button>
+  </md-card-actions>
+</md-card>

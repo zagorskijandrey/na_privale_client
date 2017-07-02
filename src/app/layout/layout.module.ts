@@ -21,7 +21,8 @@ import {
     MdIconModule,
     MdCommonModule,
     MdToolbarModule,
-    MdButtonModule
+    MdButtonModule,
+    MdListModule
   ],
   declarations: [
     LayoutComponent,

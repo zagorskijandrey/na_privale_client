@@ -27,7 +27,7 @@ export class StoryListComponent implements OnInit {
   constructor(private storyService: StoryService) { }
 
   ngOnInit() {
-    this.storyService.getFishingStories().subscribe(story => Object.assign(new Story, story));
+    this.storyService.getFishingStories().subscribe(story => this.stories = story);
   }
 
 }

@@ -14,3 +14,8 @@ html, body {
 .fill-space {
   flex: 1 1 auto;
 }
+
+@font-face {
+  font-family: "story_font";
+  src: url("assets/fonts/10369.ttf");
+}

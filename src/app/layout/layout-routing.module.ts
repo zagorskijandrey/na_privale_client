@@ -7,6 +7,7 @@ const routes: Routes = [{
   path: '', component: LayoutComponent,
   children: [
     {path: 'story', loadChildren: './story/story.module#StoryModule'},
+    { path: 'map', loadChildren: './map/map.module#MapModule' }
     // { path: 'map', loadChildren: './esri-map/esri-map.module#EsriMapModule' },
     // {path: 'map', loadChildren: './e'}
     // {path: 'info', loadChildren: './info/info.module#InfoModule'},

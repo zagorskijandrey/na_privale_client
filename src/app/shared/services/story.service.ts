@@ -35,8 +35,8 @@ export class StoryService extends ExtractService {
 
   private getStoriesWithResponse(res: Response): Array<Story> {
     const body = this.getResponseBody(res).stories;
-    const arrayStory = new Array();
-    for (let i=0; i<body.length; i++){
+    const arrayStory = new Array<Story>();
+    for (let i = 0; i < body.length; i++) {
       arrayStory.push(Object.assign(new Story(), body[i]));
     }
     return arrayStory;

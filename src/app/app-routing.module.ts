@@ -6,7 +6,7 @@ import { HomeComponent } from './home/home.component';
 const APP_ROUTES: Routes = [
   { path: '', loadChildren: './layout/layout.module#LayoutModule' },
   { path: 'home', component: HomeComponent },
-  { path: 'map', loadChildren: './esri-map/esri-map.module#EsriMapModule' },
+  // { path: 'map', loadChildren: './esri-map/esri-map.module#EsriMapModule' },
   { path: '**', redirectTo: '/home' }
 ];
 

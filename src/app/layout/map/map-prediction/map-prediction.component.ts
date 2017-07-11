@@ -11,6 +11,7 @@ export class MapPredictionComponent implements OnInit {
   zoom = 7;
   lng = 31;
   lat = 49;
+  marker = '../../../../assets/images/markers/';
   regions: Region[];
   constructor(private regionService: RegionService) {
   }

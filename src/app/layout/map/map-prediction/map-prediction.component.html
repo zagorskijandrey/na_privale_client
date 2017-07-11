@@ -1,7 +1,7 @@
 <!-- this creates a google map on the page with the given lat/lng from -->
 <!-- the component as the initial center of the map: -->
 <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
-  <agm-marker *ngFor="let m of regions; let i = index" [iconUrl]="'../../../../assets/images/markers/free-map-marker-icon-blue-darker.png'" [latitude]="m.latitude" [longitude]="m.longitude" [label]="m.prediction | predictionPipe" (markerClick)="clickedMarker(m.prediction, i)">
+  <agm-marker *ngFor="let m of regions; let i = index" [iconUrl]="marker | markerSetPipe : m.prediction" [latitude]="m.latitude" [longitude]="m.longitude" [label]="m.prediction | predictionPipe" (markerClick)="clickedMarker(m.prediction, i)">
     <agm-info-window>
     {{m.latitude + " " + m.longitude}}&#010;
     {{i}}&#010;

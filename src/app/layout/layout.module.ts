@@ -6,7 +6,7 @@ import {LayoutComponent} from './layout.component';
 import {TranslateModule} from '@ngx-translate/core';
 import {HeaderComponent} from '../shared/components/header/header.component';
 import {
-  MdButtonModule, MdCardModule, MdCommonModule, MdIconModule, MdListItem, MdListModule, MdMenuModule, MdTabNav,
+  MdButtonModule, MdCardModule, MdCommonModule, MdIconModule, MdListModule, MdMenuModule,
   MdTabsModule, MdToolbarModule
 } from '@angular/material';
 
@@ -22,7 +22,7 @@ import {
     MdCommonModule,
     MdToolbarModule,
     MdButtonModule,
-    MdListModule
+    MdListModule,
   ],
   declarations: [
     LayoutComponent,

@@ -22,5 +22,8 @@ export class HeaderComponent implements OnInit {
     if (this.selectedTab === 1) {
       this.router.navigate(['/story/describe']);
     }
+    if (this.selectedTab === 2) {
+      this.router.navigate(['/login']);
+    }
   }
 }

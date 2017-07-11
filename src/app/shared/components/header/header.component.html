@@ -29,4 +29,11 @@
       </div>
     </ng-template>
   </md-tab>
+  <md-tab id="owner" aria-controls="tab3-content">
+    <ng-template md-tab-label>
+      <div mdTooltip='test' (click)="selectedTab = 2; choicePath()">
+        <div style="color: white"><em>{{ 'header.tab_group.owner'| translate }}</em></div>
+      </div>
+    </ng-template>
+  </md-tab>
 </md-tab-group>

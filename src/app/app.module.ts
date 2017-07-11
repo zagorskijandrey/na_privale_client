@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import {Http, HttpModule} from '@angular/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
@@ -11,6 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import {StoryService} from './shared/services/story.service';
 import {RegionService} from './shared/services/region.service';
+import {AuthService} from './shared/services/auth.service';
+import {AuthGuard} from './shared/guard/auth.guard';
 
 // hammerjs is a required import for some of the features in Angular Material
 
@@ -24,12 +25,13 @@ export function HttpLoaderFactory(http: Http) {
     HomeComponent
   ],
   providers: [
+    AuthGuard,
+    AuthService,
     StoryService,
     RegionService
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     HttpModule,
     AppRoutingModule,
     BrowserAnimationsModule,

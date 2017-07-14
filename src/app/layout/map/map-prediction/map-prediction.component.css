@@ -1,5 +1,6 @@
-agm-map {
-  height: 80vh;
+agm-map{
+  height: 87vh;
+  width: 100%;
 }
 agm-marker {
   text-decoration-color: white;

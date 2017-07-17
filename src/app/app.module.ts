@@ -7,7 +7,6 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import 'hammerjs';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HomeComponent } from './home/home.component';
 import {StoryService} from './shared/services/story.service';
 import {RegionService} from './shared/services/region.service';
 import {AuthService} from './shared/services/auth.service';
@@ -21,8 +20,7 @@ export function HttpLoaderFactory(http: Http) {
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent
+    AppComponent
   ],
   providers: [
     AuthGuard,

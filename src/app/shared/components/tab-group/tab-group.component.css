@@ -1,0 +1,14 @@
+md-tab-group{
+  padding-top: 60px;
+  position: relative;
+  z-index: 25;
+}
+.mat-tab-label{
+  position: absolute;
+  z-index: 20;
+  min-width: 25px !important;
+  padding: 5px;
+  font-family: story_font;
+  background-color: #607D8B;
+  color: white;
+}

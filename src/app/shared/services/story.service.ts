@@ -17,11 +17,15 @@ export class StoryService extends ExtractService {
   }
 
   getFishingStories(): Observable<Array<Story>> {
-    return this.http.get(environment.api + 'fishingStories').map(this.getStoriesWithResponse.bind(this)).catch(this.handleError.bind(this));
+    return this.http.get(environment.api + 'f_stories').map(this.getStoriesWithResponse.bind(this)).catch(this.handleError.bind(this));
   }
 
   getFishingStory(id: number): Observable<Story> {
     return this.http.get(environment.api + 'fishingStory?id=' + id).map(this.getStoryWithResponse.bind(this)).catch(this.handleError.bind(this));
+  }
+
+  getHunterStories(): Observable<Array<Story>> {
+    return this.http.get(environment.api + 'h_stories').map(this.getStoriesWithResponse.bind(this)).catch(this.handleError.bind(this));
   }
 
   getHunterStory(id: number): Observable<Story> {

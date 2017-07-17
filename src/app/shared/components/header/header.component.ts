@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,23 +6,10 @@ import {Router} from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  public selectedTab: number;
 
-  constructor(public router: Router) {
+  constructor() {
   }
 
   ngOnInit() {
-  }
-
-  choicePath() {
-    if (this.selectedTab === 0) {
-      this.router.navigate(['/story']);
-    }
-    if (this.selectedTab === 1) {
-      this.router.navigate(['/story/describe']);
-    }
-    if (this.selectedTab === 2) {
-      this.router.navigate(['/login']);
-    }
   }
 }

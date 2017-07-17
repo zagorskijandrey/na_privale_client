@@ -14,6 +14,7 @@ export class StoryDescribeComponent implements OnInit {
   constructor(private storyService: StoryService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.story = new Story();
     const id = this.route.snapshot.params['id'];
     this.describeStory(id);
   }

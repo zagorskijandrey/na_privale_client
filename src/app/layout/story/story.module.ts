@@ -4,13 +4,14 @@ import { CommonModule } from '@angular/common';
 import { StoryRoutingModule } from './story-routing.module';
 import { StoryDescribeComponent } from './story-describe/story-describe.component';
 import {StoryListComponent} from './story-list/story-list.component';
-import {MdListModule} from '@angular/material';
+import {MdListModule, MdButtonModule} from '@angular/material';
 
 @NgModule({
   imports: [
     CommonModule,
     StoryRoutingModule,
-    MdListModule
+    MdListModule,
+    MdButtonModule
   ],
   declarations: [StoryListComponent, StoryDescribeComponent]
 })

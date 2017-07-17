@@ -5,6 +5,8 @@ import {LayoutRoutingModule} from './layout-routing.module';
 import {LayoutComponent} from './layout.component';
 import {TranslateModule} from '@ngx-translate/core';
 import {HeaderComponent} from '../shared/components/header/header.component';
+import {TabGroupComponent} from '../shared/components/tab-group/tab-group.component';
+import { HomeComponent } from './home/home.component';
 import {
   MdButtonModule, MdCardModule, MdCommonModule, MdIconModule, MdListModule, MdMenuModule,
   MdTabsModule, MdToolbarModule
@@ -21,12 +23,14 @@ import {
     MdIconModule,
     MdCommonModule,
     MdToolbarModule,
-    MdButtonModule,
     MdListModule,
+    MdButtonModule
   ],
   declarations: [
     LayoutComponent,
-    HeaderComponent
+    HeaderComponent,
+    TabGroupComponent,
+    HomeComponent
   ]
 })
 export class LayoutModule {

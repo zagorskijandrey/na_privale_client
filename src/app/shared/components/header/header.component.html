@@ -2,7 +2,6 @@
   <img src="../../../../assets/images/rybak_brand.png" width="100" height="50" alt="">
   <span id="title">{{ 'header.brand'| translate }}</span>
 
-  <!-- navigation menu should be on the far right of the toolbar -->
   <span class="fill-space"></span>
   <button md-icon-button [md-menu-trigger-for]="menu">
     <md-icon>more_vert</md-icon>
@@ -13,27 +12,3 @@
     <button md-menu-item routerLink="/map">{{ 'header.menu.map'| translate }}</button>
   </md-menu>
 </md-toolbar>
-
-<md-tab-group md-stretch-tabs class="md-primary" style="background-color: #607D8B; color: white">
-  <md-tab id="hunter" aria-controls="tab1-content">
-    <ng-template md-tab-label>
-      <div mdTooltip='test' (click)="selectedTab = 0; choicePath()">
-        <div style="color: white"><em>{{ 'header.tab_group.fish_hunter'| translate }}</em></div>
-      </div>
-    </ng-template>
-  </md-tab>
-  <md-tab id="fishing" aria-controls="tab2-content">
-    <ng-template md-tab-label>
-      <div mdTooltip='test' (click)="selectedTab = 1; choicePath()">
-        <div style="color: white"><em>{{ 'header.tab_group.fishing'| translate }}</em></div>
-      </div>
-    </ng-template>
-  </md-tab>
-  <md-tab id="owner" aria-controls="tab3-content">
-    <ng-template md-tab-label>
-      <div mdTooltip='test' (click)="selectedTab = 2; choicePath()">
-        <div style="color: white"><em>{{ 'header.tab_group.owner'| translate }}</em></div>
-      </div>
-    </ng-template>
-  </md-tab>
-</md-tab-group>

@@ -5,4 +5,5 @@ export class Story {
   id: string;
   name: string;
   text: string;
+  author: string;
 }

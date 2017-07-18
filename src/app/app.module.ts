@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {Http, HttpModule} from '@angular/http';
+import {Http, HttpModule, RequestOptions} from '@angular/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
@@ -11,11 +11,22 @@ import {StoryService} from './shared/services/story.service';
 import {RegionService} from './shared/services/region.service';
 import {AuthService} from './shared/services/auth.service';
 import {AuthGuard} from './shared/guard/auth.guard';
+import {AuthConfig, AuthHttp} from 'angular2-jwt';
 
 // hammerjs is a required import for some of the features in Angular Material
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, '/assets/i18n/', '.json');
+}
+
+export function authHttpServiceFactory(http: Http, options: RequestOptions) {
+  return new AuthHttp(new AuthConfig({
+      globalHeaders: [
+        {'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'},
+        {'cache-control': 'no-cache'}
+      ]
+    }
+  ), http, options);
 }
 
 @NgModule({
@@ -26,7 +37,12 @@ export function HttpLoaderFactory(http: Http) {
     AuthGuard,
     AuthService,
     StoryService,
-    RegionService
+    RegionService,
+    {
+      provide: AuthHttp,
+      useFactory: authHttpServiceFactory,
+      deps: [Http, RequestOptions]
+    }
   ],
   imports: [
     BrowserModule,

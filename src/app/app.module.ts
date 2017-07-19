@@ -21,8 +21,12 @@ export function HttpLoaderFactory(http: Http) {
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({
+      headerName: 'Authorization',
+      tokenName: 'token',
+      tokenGetter: (() => sessionStorage.getItem('token')),
+      noJwtError: false,
       globalHeaders: [
-        {'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'},
+        {'Content-Type': 'application/json; charset=utf-8'},
         {'cache-control': 'no-cache'}
       ]
     }

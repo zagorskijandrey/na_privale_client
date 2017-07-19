@@ -3,7 +3,7 @@
  */
 import {Injectable} from '@angular/core';
 import {ExtractService} from './extract.service';
-import {Http, Headers, RequestOptions, Response, RequestMethod} from '@angular/http';
+import {Response} from '@angular/http';
 import {AuthHttp} from 'angular2-jwt';
 import {Observable} from 'rxjs/Observable';
 import {Region} from '../models/region';
@@ -18,10 +18,11 @@ export class RegionService extends ExtractService {
   }
 
   getRegions(): Observable<Array<Region>> {
-    // const headers = new Headers();
-    // const t = localStorage.getItem('token');
-    // headers.append('Authorization', t);
-    // const options = new RequestOptions({method: RequestMethod.Get, headers: headers});
+    const headers = new Headers();
+    // headers.append('token', sessionStorage.getItem('token'));
+    const ob = new Array<Object>();
+    ob.push('token');
+    this.authHttp.setGlobalHeaders(ob, sessionStorage.getItem('token'));
     return this.authHttp.get(environment.api + 'mapFishingPrediction')
       .map(this.getRegionsWithResponse.bind(this)).catch(this.handleError.bind(this));
   }

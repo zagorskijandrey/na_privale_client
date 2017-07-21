@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Story} from '../../../shared/models/story';
 import {StoryService} from '../../../shared/services/story.service';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-story-list',
@@ -9,8 +9,8 @@ import {Router} from "@angular/router";
   styleUrls: ['./story-list.component.css']
 })
 export class StoryListComponent implements OnInit {
-  stories:Array<Story>;
-  constructor(public router:Router, private storyService:StoryService) {
+  stories: Array<Story>;
+  constructor(public router: Router, private storyService: StoryService) {
   }
 
   ngOnInit() {

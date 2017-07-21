@@ -23,7 +23,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({
       headerName: 'Authorization',
       tokenName: 'token',
-      tokenGetter: (() => sessionStorage.getItem('token')),
+      tokenGetter: (() => localStorage.getItem('token')),
       noJwtError: false,
       globalHeaders: [
         {'Content-Type': 'application/json; charset=utf-8'},

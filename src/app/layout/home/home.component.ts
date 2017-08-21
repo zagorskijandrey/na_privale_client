@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
     //   this.typingCallback(this, this.typewriter_texts[i], this.typewriter_display);
     // }
     // this.typingCallback(this);
-    this.typingCallback(this);
+    // this.typingCallback(this);
 
   }
 

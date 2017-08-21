@@ -25,7 +25,7 @@ export class TabGroupComponent implements OnInit {
       this.router.navigate(['/h_stories']);
     }
     if (this.selectedTab === 2) {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/signin']);
     }
   }
 }

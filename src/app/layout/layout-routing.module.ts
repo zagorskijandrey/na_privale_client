@@ -11,7 +11,8 @@ const routes: Routes = [{
     { path: 'f_stories', loadChildren: './story/story.module#StoryModule' },
     { path: 'h_stories', loadChildren: './story/story.module#StoryModule' },
     { path: 'map', loadChildren: './map/map.module#MapModule', canActivate: [AuthGuard]},
-    { path: 'login', loadChildren: './login/login.module#LoginModule' },
+    { path: 'signin', loadChildren: './signin/signin.module#SigninModule' },
+    { path: 'signup', loadChildren: './signup/signup.module#SignupModule' },
     { path: 'home', component: HomeComponent}
     // { path: 'map', loadChildren: './esri-map/esri-map.module#EsriMapModule' },
   ]

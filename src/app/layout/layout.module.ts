@@ -11,6 +11,7 @@ import {
   MdButtonModule, MdCardModule, MdCommonModule, MdIconModule, MdListModule, MdMenuModule,
   MdTabsModule, MdToolbarModule
 } from '@angular/material';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   imports: [

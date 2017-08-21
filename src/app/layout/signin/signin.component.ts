@@ -3,11 +3,11 @@ import {User} from '../../shared/models/user';
 import {AuthService} from '../../shared/services/auth.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-signin',
+  templateUrl: './signin.component.html',
+  styleUrls: ['./signin.component.css']
 })
-export class LoginComponent implements OnInit {
+export class SigninComponent implements OnInit {
   public user: User = new User();
   public errorMsg = '';
 

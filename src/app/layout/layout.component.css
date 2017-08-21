@@ -1,6 +1,4 @@
 .main-container{
-  margin-left: 10px;
-  margin-right: 10px;
   position: relative;
   overflow: hidden;
   -webkit-box-flex: 1;
@@ -9,6 +7,6 @@
 }
 @media screen and (max-width: 992px) {
   .main-container {
-    margin-left: 5px !important;
+    margin-left: 0px !important;
   }
 }

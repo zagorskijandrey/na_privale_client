@@ -1,37 +1,41 @@
-<div class="page-wrap height-100 mat-bg-primary">
+<div class="page-wrap">
   <div class="session-form-hold">
     <md-progress-bar aria-valuemax="100" aria-valuemin="0" class="session-progress mat-primary" mode="determinate"
                      role="progressbar" aria-valuenow="0">
-      <div class="mat-progress-bar-background mat-progress-bar-element"></div>
-      <div _ngcontent-c18="" class="mat-progress-bar-buffer mat-progress-bar-element"></div>
-      <div _ngcontent-c18="" class="mat-progress-bar-primary mat-progress-bar-fill mat-progress-bar-element"
+      <div class="mat-progress-bar-background"></div>
+      <div class="mat-progress-bar-buffer"></div>
+      <div class="mat-progress-bar-fill"
            style="transform: scaleX(0);"></div>
-      <div _ngcontent-c18="" class="mat-progress-bar-secondary mat-progress-bar-fill mat-progress-bar-element"></div>
+      <div class="mat-progress-bar-fill"></div>
     </md-progress-bar>
     <md-card class="mat-card">
       <md-card-content class="mat-card-content">
         <div class="text-center pb-1">
           <p class="text-muted">Sign up to use our service</p>
         </div>
-        <form novalidate="" class="ng-untouched ng-pristine ng-invalid">
-          <md-input-container class="full-width mat-input-container ng-untouched ng-pristine ng-invalid">
+        <form>
+          <md-input-container class="full-width mat-input-container">
             <div class="mat-input-wrapper">
-              <div class="mat-input-flex">
-                <div class="mat-input-infix">
-                  <input class="mat-input-element ng-untouched ng-pristine ng-invalid" mdinput name="email"
-                         [(ngModel)]="user.email"
-                         pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" placeholder="Your Email" required=""
-                         type="email" value="" id="md-input-37" aria-invalid="false">
-                  <span class="mat-input-placeholder-wrapper">
-                <label class="mat-input-placeholder mat-empty mat-float"
-                       for="md-input-37">Your Email <span class="mat-placeholder-required">*</span>
-                </label></span>
-                </div>
-              </div>
-              <div class="mat-input-underline">
-                  <span class="mat-input-ripple">
+              <!--<div class="mat-input-flex">-->
+                <!--<div class="mat-input-infix">-->
+                  <input class="mat-input-element" type="email" mdInput [(ngModel)]="user.email" name="email"
+                         pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                         placeholder="Your Email" required value="" id="email" aria-invalid="false">
 
-                  </span></div>
+                  <!--<input class="mat-input-element" mdinput name="email"-->
+                         <!--[(ngModel)]="user.email"-->
+                         <!--pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" placeholder="Your Email" required-->
+                         <!--type="email" value="" id="md-input-37" aria-invalid="false">-->
+                  <!--<span class="mat-input-placeholder-wrapper">-->
+                <!--<label class="mat-input-placeholder mat-float"-->
+                       <!--for="email">Your Email <span class="mat-placeholder-required">*</span>-->
+                <!--</label></span>-->
+                <!--</div>-->
+              <!--</div>-->
+              <!--<div class="mat-input-underline">-->
+                  <!--<span class="mat-input-ripple">-->
+
+                  <!--</span></div>-->
               <!--<div class="mat-input-subscript-wrapper">-->
                 <!--<div class="mat-input-hint-wrapper" style="opacity: 1; transform: translateY(0%);">-->
                   <!--<div class="mat-input-hint-spacer">-->
@@ -43,16 +47,19 @@
           </md-input-container>
 
           <div class="">
-            <md-input-container class="full-width mat-input-container ng-untouched ng-pristine ng-invalid">
+            <md-input-container class="full-width mat-input-container">
               <div class="mat-input-wrapper">
                 <div class="mat-input-flex">
                   <div class="mat-input-infix">
-                    <input appequalvalidator="confirmPassword" [(ngModel)]="user.password"
-                           class="mat-input-element ng-untouched ng-pristine ng-invalid" mdinput="" name="password"
-                           placeholder="Password" required="" reverse="true" type="password" value="" id="md-input-39"
-                           aria-invalid="false">
+                    <input class="mat-input-element" type="password" mdInput [(ngModel)]="user.password" name="password"
+                           placeholder="Password" required value="" id="password" aria-invalid="false">
+
+                    <!--<input appequalvalidator="confirmPassword" [(ngModel)]="user.password"-->
+                           <!--class="mat-input-element" mdinput name="password"-->
+                           <!--placeholder="Password" required reverse="true" type="password" value="" id="md-input-39"-->
+                           <!--aria-invalid="false">-->
                     <span class="mat-input-placeholder-wrapper">
-                <label class="mat-input-placeholder mat-empty mat-float" for="md-input-39">Password
+                <label class="mat-input-placeholder mat-float" for="password">Password
                   <span class="mat-placeholder-required">*</span></label></span></div>
                 </div>
                 <div class="mat-input-underline"><span class="mat-input-ripple"></span></div>
@@ -66,15 +73,18 @@
           </div>
 
           <div class="">
-            <md-input-container class="full-width mat-input-container ng-untouched ng-pristine ng-invalid">
+            <md-input-container class="full-width mat-input-container">
               <div class="mat-input-wrapper">
                 <div class="mat-input-flex">
                   <div class="mat-input-infix">
-                    <input appequalvalidator="password" [(ngModel)]="user.password" class="mat-input-element ng-untouched ng-pristine ng-invalid"
-                           mdinput name="confirmPassword" placeholder="Confirm Password" required="" type="password"
-                           value="" id="md-input-41" aria-invalid="false">
+                    <input class="mat-input-element" type="password" mdInput [(ngModel)]="user.password" name="confirm_password"
+                           placeholder="Confirm Password" required value="" id="confirm_password" aria-invalid="false">
+
+                    <!--<input appequalvalidator="password" [(ngModel)]="user.password" class="mat-input-element"-->
+                           <!--mdinput name="confirmPassword" placeholder="Confirm Password" required type="password"-->
+                           <!--value="" id="md-input-41" aria-invalid="false">-->
                     <span class="mat-input-placeholder-wrapper">
-                <label class="mat-input-placeholder mat-empty mat-float" for="md-input-41">Confirm Password
+                <label class="mat-input-placeholder mat-float" for="confirm_password">Confirm Password
                   <span class="mat-placeholder-required">*</span></label></span></div>
                 </div>
                 <div class="mat-input-underline"><span class="mat-input-ripple"></span></div>
@@ -88,38 +98,38 @@
           </div>
 
           <div class="pb-1">
-            <md-checkbox class="pb-1 mat-checkbox mat-accent ng-untouched ng-pristine ng-invalid" name="isAgreed"
-                         required=""><label class="mat-checkbox-layout" for="input-md-checkbox-5">
-              <div class="mat-checkbox-inner-container">
-                <input class="mat-checkbox-input cdk-visually-hidden" type="checkbox" id="input-md-checkbox-5"
-                       required="" value="undefined" name="isAgreed" tabindex="0" aria-label="">
-                <div class="mat-checkbox-ripple mat-ripple" md-ripple=""></div>
-                <div class="mat-checkbox-frame">
+            <md-checkbox class="pb-1 mat-checkbox mat-accent" name="isAgreed"
+                         required><label class="mat-checkbox-layout">
+              <!--<div class="mat-checkbox-inner-container">-->
+                <!--<input class="cdk-visually-hidden" type="checkbox" id="input-md-checkbox-5"-->
+                       <!--required value="undefined" name="isAgreed" tabindex="0" aria-label="">-->
+                <!--<div class="mat-ripple" md-ripple=""></div>-->
+                <!--<div class="mat-checkbox-frame">-->
 
-                </div>
-                <div class="mat-checkbox-background">
-                  <svg xml:space="preserve" class="mat-checkbox-checkmark" version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path class="mat-checkbox-checkmark-path" d="M4.1,12.7 9,17.6 20.3,6.3" fill="none" stroke="white">
+                <!--</div>-->
+                <!--<div class="mat-checkbox-background">-->
+                  <!--<svg xml:space="preserve" class="mat-checkbox-checkmark" version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path class="mat-checkbox-checkmark-path" d="M4.1,12.7 9,17.6 20.3,6.3" fill="none" stroke="white">-->
 
-              </path>
-              </svg>
-                  <div class="mat-checkbox-mixedmark">
+              <!--</path>-->
+              <!--</svg>-->
+                  <!--<div class="mat-checkbox-mixedmark">-->
 
-                  </div>
-                </div>
-              </div>
+                  <!--</div>-->
+                <!--</div>-->
+              <!--</div>-->
               <span class="mat-checkbox-label"><span style="display:none">&nbsp;</span>I have read and agree to the terms of service.
               </span>
             </label></md-checkbox>
 
           </div>
 
-          <button _ngcontent-c37="" class="mat-primary full-width mb-1 mat-raised-button" md-raised-button=""
+          <button class="mat-primary full-width mb-1 mat-raised-button" md-raised-button=""
                   disabled=""><span class="mat-button-wrapper">Sign up</span>
-            <div class="mat-button-ripple mat-ripple" md-ripple=""></div>
+            <div class="mat-ripple" md-ripple=""></div>
             <div class="mat-button-focus-overlay"></div>
           </button>
-          <div _ngcontent-c37="" class="text-center">
-            <a _ngcontent-c37="" class="mat-primary text-center full-width" href="/sessions/signin">Sign in to existing
+          <div class="text-center">
+            <a class="mat-primary text-center full-width" href="/sessions/signin">Sign in to existing
               account</a>
           </div>
         </form>

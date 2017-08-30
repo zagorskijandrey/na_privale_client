@@ -7,6 +7,7 @@ import {TranslateService} from '@ngx-translate/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  showDialog: Boolean = false;
   constructor(private translate: TranslateService) {
       translate.addLangs(['ua', 'ru', 'en']);
       translate.setDefaultLang('ru');

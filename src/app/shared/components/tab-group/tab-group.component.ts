@@ -2,7 +2,7 @@
  * Created by andrey on 17.07.2017.
  */
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-tab-group',

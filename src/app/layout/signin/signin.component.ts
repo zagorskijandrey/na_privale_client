@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {User} from '../../shared/models/user';
 import {AuthService} from '../../shared/services/auth.service';
+import {ErrorHandlerService} from '../../shared/services/error-handler.service';
 
 @Component({
   selector: 'app-signin',
@@ -11,18 +12,23 @@ export class SigninComponent implements OnInit {
   public user: User = new User();
   public errorMsg = '';
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private errorService: ErrorHandlerService) {
   }
 
   ngOnInit() {
-    this.user.username = '';
-    this.user.password = '';
   }
 
   login() {
-    this.authService.login(this.user.username, this.user.password).subscribe(user => this.user = user);
-    // if(!this._service.login(this.user)) {
-    //   this.errorMsg = 'Failed to login! try again ...';
-    // }
+    this.authService.login(this.user.username, this.user.password).subscribe(user => {
+      this.user = user;
+      }, error => {
+        this.openDialog(error);
+    });
+  }
+
+  private openDialog(error) {
+    this.errorService
+      .confirm('Ошибка регистрации:', error)
+      .subscribe(res => res);
   }
 }

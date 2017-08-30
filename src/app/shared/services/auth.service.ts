@@ -6,13 +6,15 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import {Observable} from 'rxjs/Observable';
 import {User} from '../models/user';
+import {ErrorHandlerService} from "./error-handler.service";
+import {Router} from "@angular/router";
 /**
  * Created by AZagorskyi on 11.07.2017.
  */
 @Injectable()
 export class AuthService extends ExtractService {
-  constructor (protected http: Http) {
-    super();
+  constructor (protected http: Http, protected router: Router) {
+    super(router);
   }
 
   login(username: string, password: string): Observable <User> {

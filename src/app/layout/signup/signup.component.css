@@ -1,5 +1,5 @@
 .mat-input-container {
-  font: 400 inherit/1.125 Roboto, Helvetica Neue, sans-serif
+  /*font: 400 inherit , 1.125 Roboto, Helvetica Neue, sans-serif*/
 }
 
 
@@ -104,7 +104,7 @@
 }
 
 .session-form-hold {
-  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
+  box-shadow: 1px 5px 3px 0 rgba(0, 0, 0, .35), 0 4px 3px 0 rgba(0, 0, 0, .22), 1px 3px 6px 0 rgba(0, 0, 0, .12);
   padding: 10px 10px 10px 10px;
   width: 100%;
   max-width: 400px;

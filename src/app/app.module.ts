@@ -12,6 +12,7 @@ import {RegionService} from './shared/services/region.service';
 import {AuthService} from './shared/services/auth.service';
 import {AuthGuard} from './shared/guard/auth.guard';
 import {AuthConfig, AuthHttp} from 'angular2-jwt';
+import {ErrorHandlerService} from './shared/services/error-handler.service';
 
 // hammerjs is a required import for some of the features in Angular Material
 
@@ -46,7 +47,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
       provide: AuthHttp,
       useFactory: authHttpServiceFactory,
       deps: [Http, RequestOptions]
-    }
+    },
+    ErrorHandlerService
   ],
   imports: [
     BrowserModule,

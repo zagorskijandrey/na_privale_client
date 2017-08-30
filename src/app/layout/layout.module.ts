@@ -6,12 +6,12 @@ import {LayoutComponent} from './layout.component';
 import {TranslateModule} from '@ngx-translate/core';
 import {HeaderComponent} from '../shared/components/header/header.component';
 import {TabGroupComponent} from '../shared/components/tab-group/tab-group.component';
-import { HomeComponent } from './home/home.component';
+import {HomeComponent} from './home/home.component';
 import {
-  MdButtonModule, MdCardModule, MdCommonModule, MdIconModule, MdListModule, MdMenuModule,
+  MdButtonModule, MdCardModule, MdCommonModule, MdDialogModule, MdIconModule, MdListModule, MdMenuModule,
   MdTabsModule, MdToolbarModule
 } from '@angular/material';
-import { SignupComponent } from './signup/signup.component';
+import {DialogModule} from './dialog/dialog.module';
 
 @NgModule({
   imports: [
@@ -25,7 +25,9 @@ import { SignupComponent } from './signup/signup.component';
     MdCommonModule,
     MdToolbarModule,
     MdListModule,
-    MdButtonModule
+    MdButtonModule,
+    MdDialogModule,
+    DialogModule
   ],
   declarations: [
     LayoutComponent,

@@ -1,10 +1,8 @@
-<div>
-  <p>{{ title }}</p>
+<div align="center">
+  <h1 md-dialog-title>{{ title }}</h1>
   <hr>
-  <p>{{ message }}</p>
-  <button type="button" md-raised-button
-          (click)="dialog.closeAll()">OK</button>
-  <button type="button" md-raised-button
-          (click)="dialog.closeAll()">Cancel</button>
-
+  <h4 md-dialog-content>{{ message }}</h4>
+  <button class="full-width  mb-1 mat-raised-button" style="background-color: #9dbcca" md-raised-button (click)="dialog.closeAll()">
+    <span style="color: white">Закрыть</span>
+  </button>
 </div>

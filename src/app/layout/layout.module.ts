@@ -8,7 +8,10 @@ import {HeaderComponent} from '../shared/components/header/header.component';
 import {TabGroupComponent} from '../shared/components/tab-group/tab-group.component';
 import {HomeComponent} from './home/home.component';
 import {
-  MdButtonModule, MdCardModule, MdCommonModule, MdDialogModule, MdIconModule, MdListModule, MdMenuModule,
+  MdButtonModule, MdCardModule, MdCommonModule, MdDatepickerModule, MdDialogModule, MdFormFieldModule, MdIconModule,
+  MdInputModule,
+  MdListModule,
+  MdMenuModule, MdNativeDateModule, MdSelectModule,
   MdTabsModule, MdToolbarModule
 } from '@angular/material';
 import {DialogModule} from './dialog/dialog.module';
@@ -27,7 +30,12 @@ import {DialogModule} from './dialog/dialog.module';
     MdListModule,
     MdButtonModule,
     MdDialogModule,
-    DialogModule
+    DialogModule,
+    MdInputModule,
+    MdFormFieldModule,
+    MdSelectModule,
+    MdDatepickerModule,
+    MdNativeDateModule
   ],
   declarations: [
     LayoutComponent,

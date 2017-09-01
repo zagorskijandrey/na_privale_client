@@ -1,57 +1,40 @@
 <div class="fishing-form">
   <md-card>
     <md-card-content>
-      <form>
-        <table style="width: 100%" cellspacing="0"><tr>
-          <td>
-            <md-form-field style="width: 80%">
-              <input mdInput placeholder="Область" value="">
-            </md-form-field>
-          </td>
-          <td>
-            <md-form-field style="width: 80%">
-              <input mdInput placeholder="Район" value="">
-            </md-form-field>
-          </td>
-          <td>
-            <md-form-field style="width: 80%">
-              <input mdInput placeholder="Село" value="">
-            </md-form-field>
-          </td>
-        </tr></table>
-        <br>
-        <md-form-field style="width: 100%">
-          <textarea mdInput placeholder="Описание" value="" rows="6"></textarea>
-        </md-form-field>
-        <br>
-        <table style="width: 100%" cellspacing="0"><tr>
-          <!--<td style="width: 20%">-->
-            <md-select style="width: 80%" placeholder="Рыба" [(ngModel)]="selectedFish" name="fish">
-              <md-option *ngFor="let fish of fishes" [value]="fish.value">
-                {{fish.viewValue}}
-              </md-option>
-            </md-select>
-          <!--</td>-->
-          <td style="width: 25%">
+      <form style="height: 100vh">
+        <table style="width: 100%" cellspacing="0">
+          <tr>
+            <td>
               <md-form-field style="width: 80%">
-                <input mdInput placeholder="Вес" value="">
+                <input mdInput placeholder="Область" value="">{{fishingPage.province}}
               </md-form-field>
-          </td>
-          <td style="width: 25%">
-            <md-form-field style="width: 80%">
-              <input mdInput placeholder="Длина" value="">
-            </md-form-field>
-          </td>
-          <td style="width: 25%">
-            <md-form-field style="width: 80%">
-              <input mdInput placeholder="Время подхода" value="">
-            </md-form-field>
-          </td>
-        </tr>
+            </td>
+            <td>
+              <md-form-field style="width: 80%">
+                <input mdInput placeholder="Район" value="">{{fishingPage.region}}
+              </md-form-field>
+            </td>
+            <td>
+              <md-form-field style="width: 80%">
+                <input mdInput placeholder="Село" value="">{{fishingPage.hamlet}}
+              </md-form-field>
+            </td>
+          </tr>
         </table>
         <br>
+        <md-form-field style="width: 100%">
+          <textarea mdInput placeholder="Описание" value="" rows="6">{{fishingPage.comment}}</textarea>
+        </md-form-field>
+        <br>
+        <div id="fish_list">
+          <div #dynamicComponentContainerFish></div>
+        </div>
+        <div align="right" (click)="addFish()">
+          <md-icon>add</md-icon>
+        </div>
+        <br>
         <md-form-field class="example-full-width">
-          <input mdInput [mdDatepicker]="picker" placeholder="Дата">
+          <input mdInput [mdDatepicker]="picker" placeholder="Дата" [(ngModel)]="fishingPage.date" name="date">
           <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
           <md-datepicker touchUi="true" #picker></md-datepicker>
         </md-form-field>

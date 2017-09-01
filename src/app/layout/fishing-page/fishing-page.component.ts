@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
+import {DateAdapter, NativeDateAdapter} from '@angular/material';
+import {FishingPage} from '../../shared/models/fishing-page';
+import {FishComponent} from './fish/fish.component';
+import {Fish} from '../../shared/models/fish';
 
 @Component({
   selector: 'app-fishing-page',
@@ -7,17 +11,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FishingPageComponent implements OnInit {
 
-  selectedFish: string = null;
-  fishes: any[] = [{value: 'carp', viewValue: 'карп'},
-    {value: 'bus', viewValue: 'судак'},
-    {value: 'hunter', viewValue: 'щука'}];
-  constructor() {  }
+  @ViewChild('dynamicComponentContainerFish', {read: ViewContainerRef}) dynamicComponentContainer: ViewContainerRef;
+  fishingPage: FishingPage;
 
-  ngOnInit() {
-    // this.fishes = [{value: 'carp', viewValue: 'карп'},
-    //   {value: 'bus', viewValue: 'судак'},
-    //   {value: 'hunter', viewValue: 'щука'}];
-    // this.fishes.sort();
+  constructor(dateAdapter: DateAdapter<NativeDateAdapter>, private componentFactoryResolver: ComponentFactoryResolver) {
+    dateAdapter.setLocale('ru');
   }
 
+  ngOnInit() {
+    this.fishingPage = new FishingPage;
+    this.fishingPage.fishes.push(new Fish());
+
+    const factory = this.componentFactoryResolver.resolveComponentFactory(FishComponent);
+    const ref = this.dynamicComponentContainer.createComponent(factory);
+    ref.instance.fishes = this.fishingPage.fishes;
+    ref.changeDetectorRef.detectChanges();
+  }
+
+  public addFish() {
+    if (this.fishingPage.fishes.length < 5) {
+      this.fishingPage.fishes.push(new Fish());
+
+      const factory = this.componentFactoryResolver.resolveComponentFactory(FishComponent);
+      const ref = this.dynamicComponentContainer.createComponent(factory);
+      ref.instance.fishes = this.fishingPage.fishes;
+      ref.changeDetectorRef.detectChanges();
+    }
+  }
 }

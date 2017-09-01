@@ -1,0 +1,30 @@
+<table style="width: 100%" cellspacing="0"><tr>
+  <!--<td style="width: 20%">-->
+  <md-select style="width: 80%" placeholder="Рыба" [(ngModel)]="fishes[fishes.length - 1].name" name="fish">
+    <md-option *ngFor="let fish of fishes_name" [value]="fish.value">
+      {{fish.viewValue}}
+    </md-option>
+  </md-select>
+  <!--</td>-->
+  <td style="width: 15%">
+    <md-form-field style="width: 80%">
+      <input mdInput placeholder="Вес" value="">{{fishes[fishes.length - 1].weight}}
+    </md-form-field>
+  </td>
+  <td style="width: 15%">
+    <md-form-field style="width: 80%">
+      <input mdInput placeholder="Длина" value="">{{fishes[fishes.length - 1].length}}
+    </md-form-field>
+  </td>
+  <td style="width: 25%">
+    <md-form-field style="width: 80%">
+      <input mdInput placeholder="Наживка" value="">{{fishes[fishes.length - 1].bait}}
+    </md-form-field>
+  </td>
+  <td style="width: 25%">
+    <md-form-field style="width: 80%">
+      <input mdInput placeholder="Время подхода" value="">{{fishes[fishes.length - 1].time}}
+    </md-form-field>
+  </td>
+</tr>
+</table>

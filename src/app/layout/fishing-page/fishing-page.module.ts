@@ -1,12 +1,17 @@
+/**
+ * Created by AZagorskyi on 31.08.2017.
+ */
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FishingPageComponent} from './fishing-page.component';
 import {FishingPageRoutingModule} from './fishing-page-routing.module';
-import {MdDatepickerModule, MdFormFieldModule, MdInputModule, MdSelectModule, MdToolbarModule} from '@angular/material';
+import {
+  MdDatepickerModule, MdFormFieldModule, MdIconModule, MdInputModule, MdSelectModule,
+  MdToolbarModule
+} from '@angular/material';
 import {FormsModule} from '@angular/forms';
-/**
- * Created by AZagorskyi on 31.08.2017.
- */
+import {FishComponent} from './fish/fish.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -16,8 +21,12 @@ import {FormsModule} from '@angular/forms';
     MdToolbarModule,
     MdFormFieldModule,
     MdSelectModule,
-    MdDatepickerModule
+    MdDatepickerModule,
+    MdIconModule
   ],
-  declarations: [FishingPageComponent]
+  declarations: [FishingPageComponent, FishComponent],
+  entryComponents: [
+    FishComponent
+  ]
 })
 export class FishingPageModule { }

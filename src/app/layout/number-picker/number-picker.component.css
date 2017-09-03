@@ -1,0 +1,15 @@
+.num-button-content {
+  text-align: center;
+  width: 35px;
+  height: 35px;
+  border-color: rgba(0, 0, 0, .38);
+  border: 1px solid #ccc;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 0 1px #fff, 1px 1px 3px #ddd;
+  -moz-box-shadow: 0 0 0 1px #fff, 1px 1px 3px #ddd;
+  -ms-box-shadow: 0 0 0 1px #fff, 1px 1px 3px #ddd;
+  box-shadow: 0 0 0 1px #fff, 1px 1px 3px #ddd;
+}

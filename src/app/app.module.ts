@@ -14,6 +14,7 @@ import {AuthGuard} from './shared/guard/auth.guard';
 import {AuthConfig, AuthHttp} from 'angular2-jwt';
 import {ErrorHandlerService} from './shared/services/error-handler.service';
 import {FishingPageService} from "./shared/services/fishing-page.service";
+import {NumberPickerService} from "./shared/services/number-picker.service";
 
 // hammerjs is a required import for some of the features in Angular Material
 
@@ -50,7 +51,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
       deps: [Http, RequestOptions]
     },
     ErrorHandlerService,
-    FishingPageService
+    FishingPageService,
+    NumberPickerService
   ],
   imports: [
     BrowserModule,

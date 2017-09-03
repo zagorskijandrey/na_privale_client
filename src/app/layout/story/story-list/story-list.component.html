@@ -1,10 +1,12 @@
-<md-card *ngFor="let story of stories">
-  <h4 md-line><md-card-header>{{story.name}}</md-card-header></h4>
-  <md-card-content>
-    {{story.story}}
-  </md-card-content>
-  <span layout="row"><hr flex/></span>
-  <md-card-actions>
-    <button [routerLink]="['describe', story.id]" md-raised-button>Дальше...   </button>
-  </md-card-actions>
-</md-card>
+<div class="story-padding">
+  <md-card *ngFor="let story of stories">
+    <h4 md-line><md-card-header>{{story.name}}</md-card-header></h4>
+    <md-card-content>
+      {{story.text}}
+    </md-card-content>
+    <span layout="row"><hr flex/></span>
+    <md-card-actions>
+      <button [routerLink]="['describe', story.id]" md-raised-button>Дальше...   </button>
+    </md-card-actions>
+  </md-card>
+</div>

@@ -23,6 +23,10 @@ export class StoryDescribeComponent implements OnInit {
   private describeStory(id: number) {
     this.storyService.getFishingStory(id).subscribe(story => {
       this.story = story;
+      if (this.story.text){
+        this.story.text = '\t' + this.story.text;
+        this.story.text = this.story.text.replace(/[\n]/g,'\n\t');
+      }
     }, error => {
       this.openDialog(error);
     });

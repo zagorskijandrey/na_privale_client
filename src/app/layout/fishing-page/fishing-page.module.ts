@@ -11,6 +11,7 @@ import {
 } from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import {FishComponent} from './fish/fish.component';
+// import {NumberPickerComponent} from '../number-picker/number-picker.component';
 
 @NgModule({
   imports: [

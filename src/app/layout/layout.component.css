@@ -1,9 +1,11 @@
 .main-container{
   position: relative;
-  overflow: hidden;
+  /*overflow: hidden;*/
   -webkit-box-flex: 1;
   flex: 1 1 auto;
   /*display: flex;*/
+  resize: vertical;
+  /*overflow: auto;*/
 }
 @media screen and (max-width: 992px) {
   .main-container {

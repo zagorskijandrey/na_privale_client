@@ -1,5 +1,9 @@
 md-card-header, md-card-content{
   font-family: story_font;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
 }
 button{
   font-family: story_font;
@@ -8,4 +12,8 @@ button{
 }
 button .md-raised-button{
   height: 20px;
+}
+
+.story-padding{
+  padding: 15px 10px 15px 20px;
 }

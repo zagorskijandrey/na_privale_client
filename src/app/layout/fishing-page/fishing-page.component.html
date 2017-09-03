@@ -22,6 +22,12 @@
           </tr>
         </table>
         <br>
+        <md-form-field class="example-full-width">
+          <input mdInput [mdDatepicker]="picker" placeholder="Дата" [(ngModel)]="fishingPage.date" name="date">
+          <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
+          <md-datepicker touchUi="true" #picker></md-datepicker>
+        </md-form-field>
+        <br>
         <md-form-field style="width: 100%">
           <textarea mdInput placeholder="Описание" value="" rows="6">{{fishingPage.comment}}</textarea>
         </md-form-field>
@@ -29,15 +35,10 @@
         <div id="fish_list">
           <div #dynamicComponentContainerFish></div>
         </div>
-        <div align="right" (click)="addFish()">
-          <md-icon>add</md-icon>
+        <div align="right">
+          <a style="color: #7594a2" href="javascript:void(0)"><md-icon (click)="removeFish()">remove</md-icon></a>
+          <a style="color: #7594a2" href="javascript:void(0)"><md-icon (click)="addFish()">add</md-icon></a>
         </div>
-        <br>
-        <md-form-field class="example-full-width">
-          <input mdInput [mdDatepicker]="picker" placeholder="Дата" [(ngModel)]="fishingPage.date" name="date">
-          <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
-          <md-datepicker touchUi="true" #picker></md-datepicker>
-        </md-form-field>
       </form>
     </md-card-content>
   </md-card>

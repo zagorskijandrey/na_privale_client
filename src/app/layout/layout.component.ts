@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class LayoutComponent implements OnInit {
 
   isCloseModal: boolean;
+  isCloseNumberPicker:boolean;
   constructor() { }
 
   ngOnInit() {

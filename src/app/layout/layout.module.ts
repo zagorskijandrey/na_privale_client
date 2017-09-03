@@ -15,6 +15,8 @@ import {
   MdTabsModule, MdToolbarModule
 } from '@angular/material';
 import {DialogModule} from './dialog/dialog.module';
+import {NumberPickerComponent} from './number-picker/number-picker.component';
+import {NumberPickerModule} from './number-picker/number-picker.module';
 
 @NgModule({
   imports: [
@@ -35,7 +37,8 @@ import {DialogModule} from './dialog/dialog.module';
     MdFormFieldModule,
     MdSelectModule,
     MdDatepickerModule,
-    MdNativeDateModule
+    MdNativeDateModule,
+    NumberPickerModule
   ],
   declarations: [
     LayoutComponent,

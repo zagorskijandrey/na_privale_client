@@ -6,31 +6,21 @@
           <tr>
             <td>
               <md-form-field style="width: 80%">
-                <input mdInput placeholder="Область" value="">{{fishingPage.province}}
+                <input mdInput placeholder="{{ 'fishing_page.province' | translate}}" [(ngModel)]="fishingPage.province" value="" name="province">
               </md-form-field>
             </td>
             <td>
               <md-form-field style="width: 80%">
-                <input mdInput placeholder="Район" value="">{{fishingPage.region}}
+                <input mdInput placeholder="{{ 'fishing_page.region' | translate}}" [(ngModel)]="fishingPage.region" value="" name="region">
               </md-form-field>
             </td>
             <td>
               <md-form-field style="width: 80%">
-                <input mdInput placeholder="Село" value="">{{fishingPage.hamlet}}
+                <input mdInput placeholder="{{ 'fishing_page.hamlet' | translate}}" [(ngModel)]="fishingPage.hamlet" value="" name="hamlet">
               </md-form-field>
             </td>
           </tr>
         </table>
-        <br>
-        <md-form-field class="example-full-width">
-          <input mdInput [mdDatepicker]="picker" placeholder="Дата" [(ngModel)]="fishingPage.date" name="date">
-          <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
-          <md-datepicker touchUi="true" #picker></md-datepicker>
-        </md-form-field>
-        <br>
-        <md-form-field style="width: 100%">
-          <textarea mdInput placeholder="Описание" value="" rows="6">{{fishingPage.comment}}</textarea>
-        </md-form-field>
         <br>
         <div id="fish_list">
           <div #dynamicComponentContainerFish></div>
@@ -39,6 +29,28 @@
           <a style="color: #7594a2" href="javascript:void(0)"><md-icon (click)="removeFish()">remove</md-icon></a>
           <a style="color: #7594a2" href="javascript:void(0)"><md-icon (click)="addFish()">add</md-icon></a>
         </div>
+        <md-form-field style="width: 100%">
+          <textarea mdInput placeholder="{{ 'fishing_page.comment' | translate}}" value="" rows="6" [(ngModel)]="fishingPage.comment" name="comment"></textarea>
+        </md-form-field>
+        <br>
+        <table style="width: 100%" cellspacing="0">
+          <tr>
+            <td>
+        <md-form-field class="example-full-width">
+          <input mdInput [mdDatepicker]="picker" placeholder="{{ 'fishing_page.date' | translate}}" [(ngModel)]="fishingPage.date" name="date">
+          <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
+          <md-datepicker touchUi="true" #picker></md-datepicker>
+        </md-form-field>
+            </td>
+            <td>
+        <div align="right">
+          <button class="full-width  mb-1 mat-raised-button" style="background-color: #9dbcca" md-raised-button (click)="saveFishingPage()">
+            <span class="mat-button-wrapper" style="color: white">{{ 'fishing_page.save' | translate}}</span>
+          </button>
+        </div>
+            </td>
+          </tr>
+        </table>
       </form>
     </md-card-content>
   </md-card>

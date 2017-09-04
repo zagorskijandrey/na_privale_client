@@ -11,7 +11,7 @@ import {environment} from '../../../environments/environment';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import {AuthHttp} from 'angular2-jwt';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Injectable()
 export class RegionService extends ExtractService {

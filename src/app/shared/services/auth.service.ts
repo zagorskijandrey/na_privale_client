@@ -6,8 +6,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import {Observable} from 'rxjs/Observable';
 import {User} from '../models/user';
-import {ErrorHandlerService} from "./error-handler.service";
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 /**
  * Created by AZagorskyi on 11.07.2017.
  */

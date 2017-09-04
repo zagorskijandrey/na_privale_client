@@ -4,8 +4,8 @@
 import {Response} from '@angular/http';
 import {isArray, isString} from 'util';
 import {Observable} from 'rxjs/Observable';
-import {ErrorHandlerService} from './error-handler.service';
 import {NavigationExtras, Router} from '@angular/router';
+import 'rxjs/add/observable/throw';
 
 export abstract class ExtractService {
 
@@ -34,18 +34,44 @@ export abstract class ExtractService {
   }
 
   protected handleError(error: any) {
-    const data = JSON.parse(error.message);
-    const errMsg = (data && data.error_message)
-      ? data.error_message
-      : ((data && data.status)
-        ? `${data.status} - ${data.error_message}`
-        : 'Ошибка сервиса!');
+    let errMsg = null;
+    if (error.message) {
+      const data = JSON.parse(error.message);
+      errMsg = (data && data.error_message)
+        ? data.error_message
+        : ((data && data.status)
+          ? `${data.status} - ${data.error_message}`
+          : 'Ошибка сервиса!');
 
-    if (data.status_code === 401) {
-      this.navigateToLoginPage();
+      if (data.status_code === 401) {
+        this.navigateToLoginPage();
+      }
+    } else {
+      errMsg = 'Ошибка сервиса!';
+      this.navigateToHomePage();
     }
+    // const data = JSON.parse(error.message);
+    // const errMsg = (data && data.error_message)
+    //   ? data.error_message
+    //   : ((data && data.status)
+    //     ? `${data.status} - ${data.error_message}`
+    //     : 'Ошибка сервиса!');
+    //
+    // if (data.status_code === 401) {
+    //   this.navigateToLoginPage();
+    // }
 
     return Observable.throw(errMsg);
+  }
+
+  public navigateToHomePage(url?: string) {
+
+    url = url || this.router.routerState.snapshot.url;
+
+    const navigationExtras: NavigationExtras = {
+      queryParams: {'returnUrl': url || this.router.routerState.snapshot.url},
+    };
+    return this.router.navigate(['/'], navigationExtras);
   }
 
   public navigateToLoginPage(url?: string) {

@@ -4,17 +4,23 @@
 import {Injectable} from '@angular/core';
 import {ExtractService} from './extract.service';
 import {FishingPage} from '../models/fishing-page';
+import {AuthHttp} from 'angular2-jwt';
+import {Router} from '@angular/router';
+import {Observable} from 'rxjs/Observable';
+import {environment} from '../../../environments/environment';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
-export class FishingPageService {
+export class FishingPageService extends ExtractService {
 
-  // private fishingPage: FishingPage;
-  //
-  // public getFishing(): FishingPage {
-  //   return this.fishingPage;
-  // }
-  //
-  // public setFishing(fishingPage: FishingPage) {
-  //   this.fishingPage = fishingPage;
-  // }
+  constructor(protected authHttp: AuthHttp, protected router: Router) {
+    super(router);
+  }
+
+  public saveFishingPage(fishingPage: FishingPage): Observable<FishingPage> {
+    return this.authHttp.post(`${environment.api}f_page`, JSON.stringify(fishingPage))
+      .map(this.getResponseBody.bind(this))
+      .catch(this.handleError.bind(this));
+  }
 }

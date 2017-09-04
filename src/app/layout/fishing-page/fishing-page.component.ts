@@ -5,17 +5,19 @@ import {DateAdapter, NativeDateAdapter} from '@angular/material';
 import {FishingPage} from '../../shared/models/fishing-page';
 import {FishComponent} from './fish/fish.component';
 import {Fish} from '../../shared/models/fish';
+import {FishingPageService} from "../../shared/services/fishing-page.service";
 
 @Component({
   selector: 'app-fishing-page',
   templateUrl: './fishing-page.component.html',
   styleUrls: ['./fishing-page.component.css'],
 })
-export class FishingPageComponent implements OnInit{
+export class FishingPageComponent implements OnInit {
   @ViewChild('dynamicComponentContainerFish', {read: ViewContainerRef}) dynamicComponentContainer: ViewContainerRef;
   fishingPage: FishingPage;
 
-  constructor(dateAdapter: DateAdapter<NativeDateAdapter>, private componentFactoryResolver: ComponentFactoryResolver) {
+  constructor(dateAdapter: DateAdapter<NativeDateAdapter>, private componentFactoryResolver: ComponentFactoryResolver,
+  private fishingPageService: FishingPageService) {
     dateAdapter.setLocale('ru');
   }
 
@@ -29,8 +31,8 @@ export class FishingPageComponent implements OnInit{
     ref.changeDetectorRef.detectChanges();
   }
 
-  public removeFish(){
-    let amountFishes = this.fishingPage.fishes.length;
+  public removeFish() {
+    const amountFishes = this.fishingPage.fishes.length;
     if (amountFishes > 1) {
       this.dynamicComponentContainer.detach(amountFishes);
       this.fishingPage.fishes.pop();
@@ -38,7 +40,7 @@ export class FishingPageComponent implements OnInit{
   }
 
   public addFish() {
-    let amountFishes = this.fishingPage.fishes.length;
+    const amountFishes = this.fishingPage.fishes.length;
     if (amountFishes < 5) {
       this.fishingPage.fishes.push(new Fish());
 
@@ -48,6 +50,10 @@ export class FishingPageComponent implements OnInit{
       ref.instance.amountFishes = amountFishes;
       ref.changeDetectorRef.detectChanges();
     }
+  }
+
+  public saveFishingPage() {
+    this.fishingPageService.saveFishingPage(this.fishingPage).subscribe(res => res);
   }
 }
 

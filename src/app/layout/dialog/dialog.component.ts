@@ -8,7 +8,6 @@ import {MdDialog} from '@angular/material';
 })
 
 export class DialogComponent {
-  // @Input() public isCloseModalComponent: boolean;
   public title: string;
   public message: string;
 

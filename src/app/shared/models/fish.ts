@@ -5,7 +5,7 @@ export class Fish {
   id: number = null;
   name: String = '';
   weight: number = null;
-  length: number = null;
+  distance: number = null;
   bait: string = null;
   time: string = null;
 }

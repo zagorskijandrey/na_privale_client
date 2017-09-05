@@ -13,9 +13,7 @@ import {NumberPickerService} from '../../../shared/services/number-picker.servic
 export class FishComponent implements OnInit {
   fishes: Fish[];
   amountFishes: Number = 0;
-  fishes_name: any[] = [{value: 'carp', viewValue: 'карп'},
-    {value: 'bus', viewValue: 'судак'},
-    {value: 'hunter', viewValue: 'щука'}];
+  fishes_name: string[] = ['карп', 'амур', 'толстолоб', 'лещь', 'судак', 'щука', 'жерех', 'линь', 'карась', 'сом'];
 
   constructor(private numberPickerService: NumberPickerService) {
   }
@@ -24,8 +22,9 @@ export class FishComponent implements OnInit {
   }
 
   enterNum(id: number, parameter: string) {
-    this.numberPickerService.enterNum().subscribe(res => {
-      this.fishes[id][parameter] = res;
+    const param = parameter;
+    this.numberPickerService.enterNum(param).subscribe(res => {
+      this.fishes[id][param] = res;
     });
   }
 }

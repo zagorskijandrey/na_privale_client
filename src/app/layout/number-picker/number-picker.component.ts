@@ -11,26 +11,33 @@ import {MdDialogRef} from '@angular/material';
 })
 export class NumberPickerComponent implements OnInit {
 
-  value: number = 0;
-  result: string = '####';
+  parameter: String = '';
+  value: Number = 0;
+  result: String = '####';
   constructor(private dialogRef: MdDialogRef<NumberPickerComponent>) { }
 
   ngOnInit() {
   }
 
-  resultComplete(){
+  resultComplete() {
     this.dialogRef.close(this.value);
   }
 
-  setResult(val: string){
-    if (this.result.match(/[,]/) && val == ',')
+  setResult(val: string) {
+    if (this.result.match(/[.]/) && val === '.') {
       return;
+    }
     this.result = this.result.replace(/[#]/g , '');
     this.result += val;
-    this.value = parseFloat(this.result);
+    const num: number = parseInt(this.result.toString(), 10);
+    if (this.parameter === 'time' && num >= 24) {
+      this.clearValue();
+    } else {
+      this.value = parseFloat(this.result.toString());
+    }
   }
 
-  clearValue(){
+  clearValue() {
     this.result = '####';
   }
 }

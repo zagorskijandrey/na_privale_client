@@ -6,8 +6,16 @@
   <button md-icon-button [md-menu-trigger-for]="menu">
     <md-icon>more_vert</md-icon>
   </button>
+  <button md-icon-button [md-menu-trigger-for]="user">
+    <md-icon>person</md-icon>
+  </button>
 
   <md-menu #menu="mdMenu" x-position="before">
+    <button md-menu-item routerLink="/home">{{ 'header.menu.home'| translate }}</button>
+    <button md-menu-item routerLink="/map">{{ 'header.menu.map'| translate }}</button>
+  </md-menu>
+
+  <md-menu #user="mdMenu" x-position="before">
     <button md-menu-item routerLink="/home">{{ 'header.menu.home'| translate }}</button>
     <button md-menu-item routerLink="/map">{{ 'header.menu.map'| translate }}</button>
   </md-menu>

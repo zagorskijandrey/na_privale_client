@@ -1,8 +1,8 @@
 <table style="width: 100%" cellspacing="0"><tr>
   <!--<td style="width: 20%">-->
   <md-select class="fish-input" placeholder="{{ 'fishing_page.fish.name' | translate}}" [(ngModel)]="fishes[amountFishes].name" name="fish">
-    <md-option *ngFor="let fish of fishes_name" [value]="fish.value">
-      {{fish.viewValue}}
+    <md-option *ngFor="let fish of fishes_name" [value]="fish">
+      {{fish}}
     </md-option>
   </md-select>
   <!--</td>-->

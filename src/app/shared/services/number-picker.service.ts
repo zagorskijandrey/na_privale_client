@@ -12,11 +12,12 @@ export class NumberPickerService {
 
   constructor(private dialog: MdDialog) { }
 
-  public enterNum(): Observable<number> {
+  public enterNum(parameter: string): Observable<number> {
 
     let dialogRef: MdDialogRef<NumberPickerComponent>;
 
     dialogRef = this.dialog.open(NumberPickerComponent);
+    dialogRef.componentInstance.parameter = parameter;
     return dialogRef.afterClosed();
   }
 }

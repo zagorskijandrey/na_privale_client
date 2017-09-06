@@ -10,63 +10,58 @@
           <md-input-container class="full-width mat-input-container">
             <div class="mat-input-wrapper">
                   <input class="mat-input-element" type="email" mdInput [(ngModel)]="user.email" name="email"
-                         pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
-                         placeholder="Your Email" required value="" id="email" aria-invalid="false">
+                         placeholder="Ваш Email" required value="" id="email" aria-invalid="false" readonly
+                         onfocus="if (this.hasAttribute('readonly')) {this.removeAttribute('readonly');
+                        this.blur();this.focus();}">
             </div>
           </md-input-container>
 
-          <div class="">
+          <!--<div class="">-->
             <md-input-container class="full-width mat-input-container">
               <div class="mat-input-wrapper">
-                    <input class="mat-input-element" type="password" mdInput [(ngModel)]="user.password" name="password"
-                           placeholder="Password" required value="" id="password" aria-invalid="false">
+                <input class="mat-input-element" type="text" mdInput [(ngModel)]="user.username" name="username"
+                       placeholder="Логин" required value="" id="username" aria-invalid="false">
               </div>
             </md-input-container>
-          </div>
 
-          <div class="">
+          <md-input-container class="full-width mat-input-container">
+            <div class="mat-input-wrapper">
+              <input class="mat-input-element" type="password" mdInput [(ngModel)]="user.password" name="password"
+                     placeholder="Пароль" required="" value="" id="signinPassword" aria-invalid="false" readonly
+                     onfocus="if (this.hasAttribute('readonly')) {this.removeAttribute('readonly');
+                        this.blur();this.focus();}"/>
+            </div>
+          </md-input-container>
+          <small class="form-error-msg" *ngIf="!user.password">Введите пароль латиницей более 5 символов</small>
+
+          <!--<div class="">-->
             <md-input-container class="full-width mat-input-container">
               <div class="mat-input-wrapper">
-                    <input class="mat-input-element" type="password" mdInput [(ngModel)]="user.password" name="confirm_password"
-                           placeholder="Confirm Password" required value="" id="confirm_password" aria-invalid="false">
+                    <input class="mat-input-element" type="password" mdInput [(ngModel)]="confirm_password" name="confirm_password"
+                           placeholder="Повторить пароль" required value="" id="confirm_password" aria-invalid="false" readonly
+                           onfocus="if (this.hasAttribute('readonly')) {this.removeAttribute('readonly');
+                        this.blur();this.focus();}">
               </div>
             </md-input-container>
-          </div>
+          <small class="form-error-msg" *ngIf="!isValidConfirmPassword">Пароль должен соответствовать введенному выше</small>
+          <!--</div>-->
 
           <div class="pb-1">
             <md-checkbox class="pb-1 mat-checkbox mat-accent" name="isAgreed"
                          required><label class="mat-checkbox-layout">
-              <!--<div class="mat-checkbox-inner-container">-->
-                <!--<input class="cdk-visually-hidden" type="checkbox" id="input-md-checkbox-5"-->
-                       <!--required value="undefined" name="isAgreed" tabindex="0" aria-label="">-->
-                <!--<div class="mat-ripple" md-ripple=""></div>-->
-                <!--<div class="mat-checkbox-frame">-->
-
-                <!--</div>-->
-                <!--<div class="mat-checkbox-background">-->
-                  <!--<svg xml:space="preserve" class="mat-checkbox-checkmark" version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path class="mat-checkbox-checkmark-path" d="M4.1,12.7 9,17.6 20.3,6.3" fill="none" stroke="white">-->
-
-              <!--</path>-->
-              <!--</svg>-->
-                  <!--<div class="mat-checkbox-mixedmark">-->
-
-                  <!--</div>-->
-                <!--</div>-->
-              <!--</div>-->
-              <span class="mat-checkbox-label"><span style="display:none">&nbsp;</span>I have read and agree to the terms of service.
+              <span class="mat-checkbox-label"><span style="display:none">&nbsp;</span>Я согласен использовать сервис.
               </span>
             </label></md-checkbox>
 
           </div>
 
-          <button class="full-width mb-1 mat-raised-button" style="background-color: #9dbcca" md-raised-button=""
-                  disabled=""><span class="mat-button-wrapper" style="color: white">Зарегистрироваться</span>
+          <button class="full-width mb-1 mat-raised-button" style="background-color: #9dbcca" md-raised-button="" (click)="signup()"
+                  [disabled]="!isValidEmail || !isValidUsername || !isValidPassword || !isValidConfirmPassword"><span class="mat-button-wrapper" style="color: white">Зарегистрироваться</span>
             <div class="mat-ripple" md-ripple=""></div>
             <div class="mat-button-focus-overlay"></div>
           </button>
           <div class="text-center">
-            <a class="mat-primary text-center full-width">Sign in to existing
-              account</a>
+            <a class="mat-primary text-center full-width">Войти в существующий аккаунт</a>
           </div>
         </form>
       </md-card-content>

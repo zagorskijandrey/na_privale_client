@@ -1,58 +1,60 @@
-  <div class="page-wrap">
-    <div class="session-form-hold">
-       <md-card class="mat-card">
-        <md-card-content class="mat-card-content">
-          <div class="text-center pb-1">
-            <img src="../assets/images/rybak_brand.png" width="150" height="75" alt="">
-            <p class="text-muted">Войдите в свой аккаунт</p>
-          </div>
-          <form autocomplete="off">
-              <md-input-container class="full-width mat-input-container">
-                <div class="mat-input-wrapper">
-                <input class="mat-input-element" type="text" mdInput [(ngModel)]="user.username" name="username"
-                       placeholder="Username" required="" value="" id="username" aria-invalid="false">
-                </div>
-              </md-input-container>
-              <small class="form-error-msg" *ngIf="!user.username">Введите имя пользователя</small>
-            <br>
-            <br>
+<div class="page-wrap">
+  <div class="session-form-hold">
+    <md-card class="mat-card">
+      <md-card-content class="mat-card-content">
+        <div class="text-center pb-1">
+          <img src="../assets/images/rybak_brand.png" width="150" height="75" alt="">
+          <p class="text-muted">Войдите в свой аккаунт</p>
+        </div>
+        <form autocomplete="off">
+          <md-input-container class="full-width mat-input-container">
+            <div class="mat-input-wrapper">
+              <input class="mat-input-element" type="text" mdInput [(ngModel)]="user.username" name="username"
+                     placeholder="Username" required="" value="" id="username" aria-invalid="false">
+            </div>
+          </md-input-container>
+          <small class="form-error-msg" *ngIf="!user.username">Введите имя пользователя</small>
+          <br>
+          <br>
 
-            <md-input-container class="full-width mat-input-container">
-                <div class="mat-input-wrapper">
-                <input class="mat-input-element" type="password" mdInput [(ngModel)]="user.password" name="password"
-                       placeholder="Password" required="" value="" id="signinPassword" aria-invalid="false" readonly
-                       onfocus="if (this.hasAttribute('readonly')) { this.removeAttribute('readonly');
-                        this.blur();    this.focus();  }"/>
-                </div>
-              </md-input-container>
-              <small class="form-error-msg" *ngIf="!user.password">Введите пароль</small>
+          <md-input-container class="full-width mat-input-container">
+            <div class="mat-input-wrapper">
+              <input class="mat-input-element" type="password" mdInput [(ngModel)]="user.password" name="password"
+                     placeholder="Password" required="" value="" id="signinPassword" aria-invalid="false" readonly
+                     onfocus="if (this.hasAttribute('readonly')) { this.removeAttribute('readonly');
+                        this.blur();this.focus();}"/>
+            </div>
+          </md-input-container>
+          <small class="form-error-msg" *ngIf="!user.password">Введите пароль латиницей более 5 символов</small>
 
-            <br>
-            <br>
-            <div class="pb-1">
-              <md-checkbox class="pb-1 mat-checkbox mat-accent" name="rememberMe">
-                <label class="mat-checkbox-layout">
+          <br>
+          <br>
+          <div class="pb-1">
+            <md-checkbox class="pb-1 mat-checkbox mat-accent" name="rememberMe">
+              <label class="mat-checkbox-layout">
                   <span class="mat-checkbox-label">
                     <span style="display:none">&nbsp;
                     </span>Запомнить для этого устройства
                   </span>
-                </label>
-              </md-checkbox>
-            </div>
+              </label>
+            </md-checkbox>
+          </div>
 
-            <button class="full-width  mb-1 mat-raised-button" style="background-color: #9dbcca" md-raised-button (click)="login()">
-              <span class="mat-button-wrapper" style="color: white">Войти</span>
-            </button>
-            <div class="text-center" style="display: flex; box-sizing: border-box; flex-direction: row;
+          <button class="full-width  mb-1 mat-raised-button" style="background-color: #9dbcca" md-raised-button
+                  (click)="login()"
+                  [disabled]="!isValidUsername || !isValidPassword">
+            <span class="mat-button-wrapper" style="color: white">Войти</span>
+          </button>
+          <div class="text-center" style="display: flex; box-sizing: border-box; flex-direction: row;
             -webkit-box-orient: horizontal; -webkit-box-direction: normal;">
-              <a class="mat-primary text-center full-width">Забыли пароль</a>
-              <span style="flex: 1 1 0; box-sizing: border-box; -webkit-box-flex: 1;"></span>
-              <a class="mat-primary text-center full-width">Создать новый аккаунт</a>
-            </div>
-          </form>
-        </md-card-content>
-      </md-card>
-    </div>
+            <a class="mat-primary text-center full-width">Забыли пароль</a>
+            <span style="flex: 1 1 0; box-sizing: border-box; -webkit-box-flex: 1;"></span>
+            <a class="mat-primary text-center full-width">Создать новый аккаунт</a>
+          </div>
+        </form>
+      </md-card-content>
+    </md-card>
   </div>
+</div>
 
 

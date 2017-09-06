@@ -15,7 +15,7 @@ const routes: Routes = [{
     { path: 'map', loadChildren: './map/map.module#MapModule', canActivate: [AuthGuard]},
     { path: 'signin', loadChildren: './signin/signin.module#SigninModule' },
     { path: 'signup', loadChildren: './signup/signup.module#SignupModule' },
-    { path: 'page', loadChildren: './fishing-page/fishing-page.module#FishingPageModule' }
+    { path: 'page', loadChildren: './fishing-page/fishing-page.module#FishingPageModule', canActivate: [AuthGuard]}
   ]
 }
 ];

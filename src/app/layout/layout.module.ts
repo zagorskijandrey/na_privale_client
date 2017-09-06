@@ -17,6 +17,7 @@ import {
 import {DialogModule} from './dialog/dialog.module';
 import {NumberPickerComponent} from './number-picker/number-picker.component';
 import {NumberPickerModule} from './number-picker/number-picker.module';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   imports: [
@@ -38,7 +39,8 @@ import {NumberPickerModule} from './number-picker/number-picker.module';
     MdSelectModule,
     MdDatepickerModule,
     MdNativeDateModule,
-    NumberPickerModule
+    NumberPickerModule,
+    FlexLayoutModule
   ],
   declarations: [
     LayoutComponent,

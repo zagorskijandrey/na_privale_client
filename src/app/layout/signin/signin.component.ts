@@ -3,6 +3,7 @@ import {User} from '../../shared/models/user';
 import {AuthService} from '../../shared/services/auth.service';
 import {ErrorHandlerService} from '../../shared/services/error-handler.service';
 import {NavigationExtras, Router} from '@angular/router';
+import {isUndefined} from "util";
 
 @Component({
   selector: 'app-signin',
@@ -19,6 +20,7 @@ export class SigninComponent implements OnInit {
   }
 
   login() {
+    this.authService.logout();
     this.authService.login(this.user.username, this.user.password).subscribe(user => {
       this.user = user;
       this.navigateToMapPage();
@@ -41,5 +43,16 @@ export class SigninComponent implements OnInit {
     this.errorService
       .confirm('Ошибка регистрации:', error)
       .subscribe(res => res);
+  }
+
+  get isValidUsername() {
+    return this.user.username && (this.user.username.length > 3);
+  }
+
+  get isValidPassword() {
+    if (this.user.password && (this.user.password.length > 5) && (this.user.password.match(/[^A-Za-z0-9_]/g) === null)) {
+      return true;
+    }
+    return false;
   }
 }

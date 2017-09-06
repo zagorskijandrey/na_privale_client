@@ -1,69 +1,5 @@
-/*.app-content{*/
-/*margin: 100px;*/
-/*padding: 50px;*/
-
-/*}*/
-
-/*.app-input-icon {*/
-/*font-size: 16px;*/
-/*}*/
-
-/*form {*/
-/*width: 220px;*/
-/*margin: 4em auto;*/
-/*padding: 3em 2em 2em 2em;*/
-/*background: #fafafa;*/
-/*border: 1px solid #ebebeb;*/
-/*box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;*/
-
-/*}*/
-
-/*.group {*/
-/*position: relative;*/
-/*margin-bottom: 45px;*/
-
-/*}*/
-
-/*.corner-ribbon{*/
-/*width: 200px;*/
-/*background: #e43;*/
-/*position: absolute;*/
-/*top: 25px;*/
-/*left: -50px;*/
-/*text-align: center;*/
-/*line-height: 50px;*/
-/*letter-spacing: 1px;*/
-/*color: #f0f0f0;*/
-/*transform: rotate(-45deg);*/
-/*-webkit-transform: rotate(-45deg);*/
-/*}*/
-
-/*!* Custom styles *!*/
-
-/*.corner-ribbon.sticky{*/
-/*position: fixed;*/
-/*}*/
-
-/*.corner-ribbon.shadow{*/
-/*box-shadow: 0 0 3px rgba(0,0,0,.3);*/
-/*}*/
-
-/*!* positions *!*/
-/*.corner-ribbon.top-right{*/
-/*top: 25px;*/
-/*right: -50px;*/
-/*left: auto;*/
-/*transform: rotate(45deg);*/
-/*-webkit-transform: rotate(45deg);*/
-/*}*/
-/*#err {*/
-/*color : red;*/
-/*}*/
-
-
-
 .mat-input-container {
-  font: 400 inherit/1.125 Roboto, Helvetica Neue, sans-serif
+  font-family: story_font;
 }
 
 
@@ -80,7 +16,7 @@
 }
 
 .mat-button, .mat-icon-button, .mat-raised-button {
-  font-family: Roboto, Helvetica Neue, sans-serif;
+  font-family: story_font;
   font-size: 14px;
   font-weight: 500
 }
@@ -88,15 +24,17 @@
 
 .mat-card-title {
   font-size: 24px;
-  font-weight: 400
+  font-weight: 400;
+  font-family: story_font;
 }
 
 .mat-card-content, .mat-card-header .mat-card-title, .mat-card-subtitle {
-  font-size: 14px
+  font-size: 14px;
+  font-family: story_font;
 }
 
 .mat-checkbox {
-  font-family: Roboto, Helvetica Neue, sans-serif
+  font-family: story_font;
 }
 
 .mat-checkbox-layout .mat-checkbox-label {
@@ -104,11 +42,11 @@
 }
 
 .mat-input-wrapper {
-  padding-bottom: 1.296875em
+  padding-bottom: 0.296875em
 }
 
 .mat-checkbox {
-  font-family: Roboto, Helvetica Neue, sans-serif
+  font-family: story_font;
 }
 
 .mat-checkbox-layout .mat-checkbox-label {
@@ -116,12 +54,14 @@
 }
 
 .mat-input-container {
-  font: 400 inherit/1.125 Roboto, Helvetica Neue, sans-serif
+  line-height: 24px;
+  font-family: story_font;
 }
 
 .mat-input-infix {
   padding: .4375em 0;
-  border-top: .84375em solid transparent
+  border-top: .84375em solid transparent;
+  font-family: story_font;
 }
 
 .mb-1 {
@@ -133,11 +73,13 @@
 }
 
 .text-center {
-  text-align: center
+  text-align: center;
+  font-family: story_font;
 }
 
 .text-muted {
-  color: rgba(0, 0, 0, .54) !important
+  color: rgba(0, 0, 0, .54) !important;
+  font-family: story_font;
 }
 
 .full-width {
@@ -147,7 +89,8 @@
 .form-error-msg {
   color: #f44336;
   display: block;
-  padding: 5px 0
+  padding: 5px 0;
+  font-family: story_font;
 }
 
 .page-wrap {

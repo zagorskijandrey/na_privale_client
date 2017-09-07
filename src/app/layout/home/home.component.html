@@ -1,9 +1,12 @@
 <section id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-offset-2 col-md-8">
-        <p class="typewriter_text">{{typewriter_display }}</p>
-      </div>
+  <div fxLayout="row">
+    <div fxFlex="4" class="social_icons">
+      <button md-button type="button" id="facebook_home" (click)="goFacebook()">
+      </button>
+      <button md-button type="button" id="googleplus_home" (click)="goGooglePlus()">
+      </button>
     </div>
+    <p class="typewriter_text" fxFlex="92">{{typewriter_display }}</p>
+    <div fxFlex="4"></div>
   </div>
 </section>

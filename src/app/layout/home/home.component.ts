@@ -25,20 +25,34 @@ export class HomeComponent implements OnInit {
     this.typingCallback(this);
   }
 
-    typingCallback(that) {
-      const total_length = that.typewriter_text.length;
-      if (that.count < total_length) {
-        if (that.typewriter_text[that.count] === ';') {
-          that.typewriter_display = '';
-          ++that.count;
-        } else {
-          that.typewriter_display += that.typewriter_text[that.count];
-          ++that.count;
-        }
-      } else {
+  typingCallback(that) {
+    const total_length = that.typewriter_text.length;
+    if (that.count < total_length) {
+      if (that.typewriter_text[that.count] === ';') {
         that.typewriter_display = '';
-        that.count = 0;
+        ++that.count;
+      } else {
+        that.typewriter_display += that.typewriter_text[that.count];
+        ++that.count;
       }
-      setTimeout(that.typingCallback, 200, that);
+    } else {
+      that.typewriter_display = '';
+      that.count = 0;
     }
+    setTimeout(that.typingCallback, 200, that);
+  }
+
+  goFacebook() {
+    window.open(
+      'https://www.facebook.com/zagorskaya.o',
+      '_blank'
+    );
+  }
+
+  goGooglePlus() {
+    window.open(
+      'https://plus.google.com/110532500500235627765',
+      '_blank'
+    );
+  }
 }

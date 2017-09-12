@@ -8,16 +8,14 @@ import {HeaderComponent} from '../shared/components/header/header.component';
 import {TabGroupComponent} from '../shared/components/tab-group/tab-group.component';
 import {HomeComponent} from './home/home.component';
 import {
-  MdButtonModule, MdCardModule, MdCommonModule, MdDatepickerModule, MdDialogModule, MdFormFieldModule, MdIconModule,
-  MdInputModule,
-  MdListModule,
-  MdMenuModule, MdNativeDateModule, MdSelectModule,
-  MdTabsModule, MdToolbarModule
+  MdButtonModule, MdCardModule, MdCommonModule, MdDatepickerModule, MdDialogModule,
+  MdFormFieldModule, MdIconModule, MdInputModule, MdSnackBarModule, MdListModule,
+  MdMenuModule, MdNativeDateModule, MdSelectModule, MdTabsModule, MdToolbarModule
 } from '@angular/material';
 import {DialogModule} from './dialog/dialog.module';
-import {NumberPickerComponent} from './number-picker/number-picker.component';
 import {NumberPickerModule} from './number-picker/number-picker.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {SnackbarModule} from './snackbar/snackbar.module';
 
 @NgModule({
   imports: [
@@ -33,6 +31,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     MdListModule,
     MdButtonModule,
     MdDialogModule,
+    MdSnackBarModule,
     DialogModule,
     MdInputModule,
     MdFormFieldModule,
@@ -40,7 +39,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     MdDatepickerModule,
     MdNativeDateModule,
     NumberPickerModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    SnackbarModule
   ],
   declarations: [
     LayoutComponent,

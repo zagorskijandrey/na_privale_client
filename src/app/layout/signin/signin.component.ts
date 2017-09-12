@@ -41,7 +41,7 @@ export class SigninComponent implements OnInit {
 
   private openDialog(error) {
     this.errorService
-      .confirm('Ошибка регистрации:', error)
+      .confirm('Ошибка авторизации:', error)
       .subscribe(res => res);
   }
 

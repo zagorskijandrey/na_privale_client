@@ -24,7 +24,7 @@ export class RegistrationService extends ExtractService {
   }
 
   private getUserWithResponse(res: Response): User {
-    const body = this.getResponseBody(res).user;
+    const body = this.getResponseBody(res).registration;
     return Object.assign(new User, body);
   }
 }

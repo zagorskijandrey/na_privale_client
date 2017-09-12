@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {LayoutComponent} from './layout.component';
-import {EsriMapComponent} from '../esri-map/esri-map.component';
 import {HomeComponent} from './home/home.component';
 import {AuthGuard} from '../shared/guard/auth.guard';
 

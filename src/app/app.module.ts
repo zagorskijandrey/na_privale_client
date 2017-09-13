@@ -17,6 +17,7 @@ import {FishingPageService} from './shared/services/fishing-page.service';
 import {NumberPickerService} from './shared/services/number-picker.service';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {RegistrationService} from './shared/services/registration.service';
+import { EmailRepairComponent } from './layout/email-repair/email-repair.component';
 
 // hammerjs is a required import for some of the features in Angular Material
 
@@ -40,7 +41,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EmailRepairComponent
   ],
   providers: [
     AuthGuard,

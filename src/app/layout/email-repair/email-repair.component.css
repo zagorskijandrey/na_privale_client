@@ -1,0 +1,127 @@
+.mat-input-container {
+  /*font: 400 inherit , 1.125 Roboto, Helvetica Neue, sans-serif*/
+}
+
+
+.cdk-visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  text-transform: none;
+  width: 1px
+}
+
+.mat-button, .mat-icon-button, .mat-raised-button {
+  /*font-family: Roboto, Helvetica Neue, sans-serif;*/
+  font-size: 14px;
+  font-weight: 500;
+  font-family: story_font;
+}
+
+
+.mat-card-title {
+  font-size: 24px;
+  font-weight: 400;
+  font-family: story_font;
+}
+
+.mat-card-content, .mat-card-header .mat-card-title, .mat-card-subtitle {
+  font-size: 14px;
+  font-family: story_font;
+}
+
+.mat-checkbox {
+  /*font-family: Roboto, Helvetica Neue, sans-serif*/
+  font-family: story_font;
+}
+
+.mat-checkbox-layout .mat-checkbox-label {
+  line-height: 24px
+}
+
+.mat-input-wrapper {
+  padding-bottom: 0.296875em
+}
+
+.mat-checkbox {
+  /*font-family: Roboto, Helvetica Neue, sans-serif;*/
+  font-family: story_font;
+}
+
+.mat-checkbox-layout .mat-checkbox-label {
+  line-height: 24px
+}
+
+.mat-input-container {
+  /*font: 400 inherit/1.125 Roboto, Helvetica Neue, sans-serif;*/
+  line-height: 24px;
+  font-family: story_font;
+}
+
+.mat-input-infix {
+  padding: .4375em 0;
+  border-top: .84375em solid transparent;
+  font-family: story_font;
+}
+
+.mb-1 {
+  margin-bottom: 1rem !important
+}
+
+.pb-1 {
+  padding-bottom: 1rem !important
+}
+
+.text-center {
+  text-align: center;
+  font-family: story_font;
+}
+
+.text-muted {
+  color: rgba(0, 0, 0, .54) !important;
+  font-family: story_font;
+}
+
+.full-width {
+  width: 100%
+}
+
+.form-error-msg {
+  color: #f44336;
+  display: block;
+  padding: 5px 0;
+  font-family: story_font;
+}
+
+.page-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 40px 1rem;
+  height: 100%
+}
+
+.session-progress {
+  position: relative;
+  bottom: -5px;
+  z-index: 9999
+}
+
+.session-form-hold {
+  box-shadow: 1px 5px 3px 0 rgba(0, 0, 0, .35), 0 4px 3px 0 rgba(0, 0, 0, .22), 1px 3px 6px 0 rgba(0, 0, 0, .12);
+  padding: 10px 10px 10px 10px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto
+}
+
+.session-form-hold > .mat-card {
+  margin: 0
+}

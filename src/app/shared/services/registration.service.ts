@@ -27,4 +27,14 @@ export class RegistrationService extends ExtractService {
     const body = this.getResponseBody(res).registration;
     return Object.assign(new User, body);
   }
+
+  initUserByEmail(email: String): Observable<String> {
+    return this.http.post(environment.api + 'email_repair', {email: email}).map(this.getEmailWithResponse.bind(this))
+      .catch(this.handleError.bind(this));
+  }
+
+  private getEmailWithResponse(res: Response): String {
+    const body = this.getResponseBody(res).email;
+    return body.toString();
+  }
 }

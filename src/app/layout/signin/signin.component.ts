@@ -3,7 +3,6 @@ import {User} from '../../shared/models/user';
 import {AuthService} from '../../shared/services/auth.service';
 import {ErrorHandlerService} from '../../shared/services/error-handler.service';
 import {NavigationExtras, Router} from '@angular/router';
-import {isUndefined} from "util";
 
 @Component({
   selector: 'app-signin',
@@ -11,9 +10,10 @@ import {isUndefined} from "util";
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
-  public user: User = new User();
+  public user: User;
 
   constructor(private router: Router, private authService: AuthService, private errorService: ErrorHandlerService) {
+    this.user = new User();
   }
 
   ngOnInit() {

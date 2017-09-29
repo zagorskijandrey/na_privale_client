@@ -11,11 +11,11 @@ import {MdInputModule, MdSlideToggleModule} from '@angular/material';
 @NgModule({
   imports: [
     CommonModule,
-    EmailRepairRoutingModule,
     FormsModule,
     MdInputModule,
-    MdSlideToggleModule
+    MdSlideToggleModule,
+    EmailRepairRoutingModule
   ],
   declarations: [EmailRepairComponent]
 })
-export class EmailRepairModule { }
+export class EmailRepairModule {}

@@ -13,6 +13,7 @@ const routes: Routes = [{
     { path: 'h_stories', loadChildren: './story/story.module#StoryModule' },
     { path: 'map', loadChildren: './map/map.module#MapModule', canActivate: [AuthGuard]},
     { path: 'signin', loadChildren: './signin/signin.module#SigninModule' },
+    { path: 'email_repair', loadChildren: './email-repair/email-repair.module#EmailRepairModule'},
     { path: 'signup', loadChildren: './signup/signup.module#SignupModule' },
     { path: 'page', loadChildren: './fishing-page/fishing-page.module#FishingPageModule', canActivate: [AuthGuard]}
   ]

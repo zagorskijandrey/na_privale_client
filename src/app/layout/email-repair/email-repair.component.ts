@@ -8,13 +8,23 @@ import {RegistrationService} from '../../shared/services/registration.service';
 })
 export class EmailRepairComponent implements OnInit {
 
-  email: String;
+  email_repair: String;
 
   constructor(private registrationService: RegistrationService) {
   }
 
   ngOnInit() {
-    this.registrationService.initUserByEmail(this.email).subscribe(res => this.email = res);
   }
 
+  get isValidEmailRepair() {
+    const pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (this.email_repair && this.email_repair.match(pattern) !== null) {
+      return true;
+    }
+    return false;
+  }
+  
+  compareAndInitUser(){
+    this.registrationService.initUserByEmail(this.email_repair).subscribe(res => this.email_repair = res);
+  }
 }

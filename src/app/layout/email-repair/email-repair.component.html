@@ -11,15 +11,15 @@
         <form>
           <md-input-container class="full-width mat-input-container">
             <div class="mat-input-wrapper">
-              <input class="mat-input-element" type="email" mdInput [(ngModel)]="email" name="email"
+              <input class="mat-input-element" type="email" mdInput name="email" [(ngModel)]="email_repair"
                      placeholder="Ваш Email" required value="" id="email" aria-invalid="false" readonly
                      onfocus="if (this.hasAttribute('readonly')) {this.removeAttribute('readonly');
                         this.blur();this.focus();}">
             </div>
           </md-input-container>
 
-          <button class="full-width mb-1 mat-raised-button" style="background-color: #9dbcca" md-raised-button="" (click)="signup()"
-                  [disabled]="!isValidEmail || !isValidUsername || !isValidPassword || !isValidConfirmPassword"><span class="mat-button-wrapper" style="color: white">Зарегистрироваться</span>
+          <button class="full-width mb-1 mat-raised-button" style="background-color: #9dbcca" md-raised-button="" (click)="compareAndInitUser()"
+                  [disabled]="!isValidEmailRepair"><span class="mat-button-wrapper" style="color: white">Найти по email</span>
             <div class="mat-ripple" md-ripple=""></div>
             <div class="mat-button-focus-overlay"></div>
           </button>

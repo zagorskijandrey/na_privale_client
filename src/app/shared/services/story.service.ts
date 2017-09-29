@@ -3,7 +3,7 @@
  */
 import {Injectable} from '@angular/core';
 import {Story} from '../models/story';
-import {Http, Response} from '@angular/http';
+import {Http, Response, RequestOptions} from '@angular/http';
 import {environment} from '../../../environments/environment';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -17,24 +17,28 @@ export class StoryService extends ExtractService {
     super(router);
   }
 
-  getFishingStories(): Observable<Array<Story>> {
-    return this.http.get(environment.api + 'f_stories').map(this.getStoriesWithResponse.bind(this)).
-    catch(this.handleError.bind(this));
+  getFishingStories(start: number, total: number): Observable<Array<Story>> {
+    const searchParams = new URLSearchParams();
+    searchParams.set('search', JSON.stringify({start, total}));
+    const options = new RequestOptions({params: searchParams});
+
+    return this.http.get(environment.api + 'f_stories', options)
+      .map(this.getStoriesWithResponse.bind(this)).catch(this.handleError.bind(this));
   }
 
   getFishingStory(id: number): Observable<Story> {
-    return this.http.get(environment.api + 'fishingStory?id=' + id).map(this.getStoryWithResponse.bind(this)).
-    catch(this.handleError.bind(this));
+    return this.http.get(environment.api + 'fishingStory?id=' + id)
+      .map(this.getStoryWithResponse.bind(this)).catch(this.handleError.bind(this));
   }
 
   getHunterStories(): Observable<Array<Story>> {
-    return this.http.get(environment.api + 'h_stories').map(this.getStoriesWithResponse.bind(this)).
-    catch(this.handleError.bind(this));
+    return this.http.get(environment.api + 'h_stories')
+      .map(this.getStoriesWithResponse.bind(this)).catch(this.handleError.bind(this));
   }
 
   getHunterStory(id: number): Observable<Story> {
-    return this.http.get(environment.api + 'fishHunterStory?id=' + id).map(this.getStoryWithResponse.bind(this)).
-    catch(this.handleError.bind(this));
+    return this.http.get(environment.api + 'fishHunterStory?id=' + id)
+      .map(this.getStoryWithResponse.bind(this)).catch(this.handleError.bind(this));
   }
 
   private getStoryWithResponse(res: Response): Story {

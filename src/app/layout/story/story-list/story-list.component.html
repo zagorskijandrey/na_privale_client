@@ -9,9 +9,5 @@
       <button [routerLink]="['describe', story.id]" md-raised-button>Дальше...   </button>
     </md-card-actions>
   </md-card>
-  <md-paginator [length]="length"
-                [pageSize]="page.size"
-                [pageSizeOptions]="pageSizeOptions"
-                (page)="pageEvent = $event">
-  </md-paginator>
+  <app-page-numeration></app-page-numeration>
 </div>

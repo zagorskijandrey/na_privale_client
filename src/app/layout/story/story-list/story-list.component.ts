@@ -28,7 +28,7 @@ export class StoryListComponent implements OnInit {
 
   ngOnInit() {
     if (this.router.url.match('/f_stories')) {
-      this.storyService.getFishingStories(0, this.pageSize).subscribe(story => {
+      this.storyService.getFishingStories(this.page).subscribe(story => {
         this.stories = story;
       }, error => {
         this.openDialog(error);

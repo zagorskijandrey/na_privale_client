@@ -16,6 +16,7 @@ import {DialogModule} from './dialog/dialog.module';
 import {NumberPickerModule} from './number-picker/number-picker.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {SnackbarModule} from './snackbar/snackbar.module';
+import { PaginationComponent } from 'pagination_ыдд/page-numeration.component';
 
 @NgModule({
   imports: [

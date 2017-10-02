@@ -10,6 +10,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import {ExtractService} from './extract.service';
 import {Router} from '@angular/router';
+import {Page} from '../models/page';
 
 @Injectable()
 export class StoryService extends ExtractService {
@@ -17,12 +18,12 @@ export class StoryService extends ExtractService {
     super(router);
   }
 
-  getFishingStories(start: number, total: number): Observable<Array<Story>> {
+  getFishingStories(page: Page): Observable<Array<Story>> {
     const searchParams = new URLSearchParams();
-    searchParams.set('search', JSON.stringify({start, total}));
+    searchParams.set('page_params', JSON.stringify(page));
     const options = new RequestOptions({params: searchParams});
 
-    return this.http.get(environment.api + 'f_stories', options)
+    return this.http.get(environment.api + 'f_stories?start=' + page.pageNumber + '&total=' + page.size)
       .map(this.getStoriesWithResponse.bind(this)).catch(this.handleError.bind(this));
   }
 

@@ -18,13 +18,13 @@ export class StoryService extends ExtractService {
     super(router);
   }
 
-  getFishingStories(page: Page): Observable<Array<Story>> {
+  getFishingStories(page: Page): Observable<any> {
     const searchParams = new URLSearchParams();
     searchParams.set('page_params', JSON.stringify(page));
     const options = new RequestOptions({params: searchParams});
 
-    return this.http.get(environment.api + 'f_stories?start=' + page.pageNumber + '&total=' + page.size)
-      .map(this.getStoriesWithResponse.bind(this)).catch(this.handleError.bind(this));
+    return this.http.get(environment.api + 'f_stories?start=' + page.currentPage + '&total=' + page.pageSize)
+      .map(this.getResponseBody.bind(this)).catch(this.handleError.bind(this));
   }
 
   getFishingStory(id: number): Observable<Story> {

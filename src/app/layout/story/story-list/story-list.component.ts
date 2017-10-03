@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import {ErrorHandlerService} from '../../../shared/services/error-handler.service';
 import {PageEvent} from '@angular/material';
 import {Page} from '../../../shared/models/page';
+import {PagerService} from '../../../shared/services/pager.service';
 
 @Component({
   selector: 'app-story-list',
@@ -22,14 +23,16 @@ export class StoryListComponent implements OnInit {
 
   stories: Array<Story>;
 
-  constructor(public router: Router, private storyService: StoryService, private errorService: ErrorHandlerService) {
+  constructor(public router: Router, private storyService: StoryService, private errorService: ErrorHandlerService,
+              private pagerService: PagerService) {
     this.page = new Page();
   }
 
   ngOnInit() {
     if (this.router.url.match('/f_stories')) {
-      this.storyService.getFishingStories(this.page).subscribe(story => {
-        this.stories = story;
+      this.storyService.getFishingStories(this.page).subscribe(res => {
+        this.stories = res.stories_list.map(story => Object.assign(new Story(), story));
+        this.page.totalElements = res.count_stories;
       }, error => {
         this.openDialog(error);
       });

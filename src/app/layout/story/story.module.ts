@@ -14,6 +14,7 @@ import {PageNumerationComponent} from '../page-numeration/page-numeration.compon
     MdListModule,
     MdButtonModule
   ],
-  declarations: [StoryListComponent, StoryDescribeComponent, PageNumerationComponent]
+  declarations: [StoryListComponent, StoryDescribeComponent, PageNumerationComponent],
+  entryComponents: [PageNumerationComponent]
 })
 export class StoryModule { }

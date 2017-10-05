@@ -9,5 +9,9 @@
       <button [routerLink]="['describe', story.id]" md-raised-button>Дальше...   </button>
     </md-card-actions>
   </md-card>
-  <app-page-numeration></app-page-numeration>
+  <div>
+    <div #dynamicComponentContainerPagination></div>
+  </div>
+  <!--<app-page-numeration [totalElements]="totalElements"-->
+  <!--(change)="getFStories($event)"></app-page-numeration>-->
 </div>

@@ -5,11 +5,11 @@ import * as _ from 'underscore';
 import {Page} from '../models/page';
 
 export class PagerService {
-  getPager(totalElements: number, currentPage: number = 1, pageSize: number = 2) {
-    const page: Page = new Page();
-    page.totalElements = totalElements;
-    page.currentPage = currentPage;
-    page.pageSize = pageSize;
+  getPager(page: Page/*totalElements: number, currentPage: number = 1, pageSize: number = 2*/) {
+    // const page: Page = new Page();
+    // page.totalElements = totalElements;
+    // page.currentPage = currentPage;
+    // page.pageSize = pageSize;
     // calculate total pages
     page.totalPages = Math.ceil(page.totalElements / page.pageSize);
 

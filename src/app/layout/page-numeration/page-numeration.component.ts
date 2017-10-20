@@ -3,7 +3,7 @@
  */
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {Page} from '../../shared/models/page';
-import {PagerService} from "../../shared/services/pager.service";
+import {PagerService} from '../../shared/services/pager.service';
 
 @Component({
   selector: 'app-page-numeration',

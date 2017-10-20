@@ -6,7 +6,7 @@ import {ErrorHandlerService} from '../../../shared/services/error-handler.servic
 import {PageEvent} from '@angular/material';
 import {Page} from '../../../shared/models/page';
 import {PagerService} from '../../../shared/services/pager.service';
-import {PageNumerationComponent} from "../../page-numeration/page-numeration.component";
+import {PageNumerationComponent} from '../../page-numeration/page-numeration.component';
 
 @Component({
   selector: 'app-story-list',
@@ -14,21 +14,21 @@ import {PageNumerationComponent} from "../../page-numeration/page-numeration.com
   styleUrls: ['./story-list.component.css']
 })
 export class StoryListComponent implements OnInit {
-  pageEvent:PageEvent;
+  pageEvent: PageEvent;
 
-  @ViewChild('dynamicComponentContainerPagination', {read: ViewContainerRef}) dynamicComponentContainerPagination:ViewContainerRef;
+  @ViewChild('dynamicComponentContainerPagination', {read: ViewContainerRef}) dynamicComponentContainerPagination: ViewContainerRef;
 
-  page:Page;
-  totalElements:number;
+  page: Page;
+  totalElements: number;
 
   length = 100;
   pageSize = 2;
   pageSizeOptions = [1, 2, 5, 10];
 
-  stories:Array<Story>;
+  stories: Array<Story>;
 
-  constructor(public router:Router, private storyService:StoryService,
-              private errorService:ErrorHandlerService, private componentFactoryResolver:ComponentFactoryResolver) {
+  constructor(public router: Router, private storyService: StoryService,
+              private errorService: ErrorHandlerService, private componentFactoryResolver: ComponentFactoryResolver) {
     this.page = new Page();
   }
 
@@ -56,7 +56,10 @@ export class StoryListComponent implements OnInit {
       .subscribe(res => res);
   }
 
-  private getFStories(page:Page) {
+  private getFStories(page: Page) {
+    if (page.currentPage === 0) {
+      page.currentPage = 1;
+    }
     this.storyService.getFishingStories(page).subscribe(res => {
       this.stories = res.stories_list.map(story => Object.assign(new Story(), story));
       this.paginationHolding(res.count_stories);
@@ -64,11 +67,11 @@ export class StoryListComponent implements OnInit {
       this.openDialog(error);
     });
   }
-  
-  private paginationHolding(totalElements:number) {
+
+  private paginationHolding(totalElements: number) {
     this.dynamicComponentContainerPagination.clear();
     const factory = this.componentFactoryResolver.resolveComponentFactory(PageNumerationComponent);
-    let ref = this.dynamicComponentContainerPagination.createComponent(factory);
+    const ref = this.dynamicComponentContainerPagination.createComponent(factory);
     ref.instance.totalElements = totalElements;
     ref.instance.change.subscribe(page => {
       if (this.page.currentPage !== page.currentPage) {

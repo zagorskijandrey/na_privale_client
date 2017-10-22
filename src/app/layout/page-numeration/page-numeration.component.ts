@@ -12,17 +12,13 @@ import {PagerService} from '../../shared/services/pager.service';
 })
 export class PageNumerationComponent implements OnInit {
 
-  private page: Page;
-
-  public totalElements: number;
+  public page: Page;
   @Output() change: EventEmitter<Page> = new EventEmitter<Page>();
 
   constructor(private pagerService: PagerService) {
-    this.page = new Page();
   }
 
   ngOnInit() {
-    this.page.totalElements = this.totalElements;
     this.setPage(this.page.currentPage);
   }
 

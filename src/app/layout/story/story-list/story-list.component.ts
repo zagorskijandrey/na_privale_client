@@ -18,8 +18,10 @@ export class StoryListComponent implements OnInit {
 
   @ViewChild('dynamicComponentContainerPagination', {read: ViewContainerRef}) dynamicComponentContainerPagination: ViewContainerRef;
 
-  page: Page;
-  totalElements: number;
+  private pageFStories: Page;
+  private pageHStories: Page;
+  private currentFPage: number;
+  private currentHPage: number;
 
   length = 100;
   pageSize = 2;
@@ -29,24 +31,19 @@ export class StoryListComponent implements OnInit {
 
   constructor(public router: Router, private storyService: StoryService,
               private errorService: ErrorHandlerService, private componentFactoryResolver: ComponentFactoryResolver) {
-    this.page = new Page();
   }
 
   ngOnInit() {
     if (this.router.url.match('/f_stories')) {
-      this.getFStories(this.page);
-      // this.storyService.getFishingStories(this.page).subscribe(res => {
-      //   this.stories = res.stories_list.map(story => Object.assign(new Story(), story));
-      //   this.totalElements = res.count_stories;
-      // }, error => {
-      //   this.openDialog(error);
-      // });
+      this.disableObjects();
+      this.pageFStories = new Page();
+      this.currentFPage = 1;
+      this.getFStories(this.pageFStories);
     } else {
-      this.storyService.getHunterStories().subscribe(story => {
-        this.stories = story;
-      }, error => {
-        this.openDialog(error);
-      });
+      this.disableObjects();
+      this.pageHStories = new Page();
+      this.currentHPage = 1;
+      this. getHStories(this.pageHStories);
     }
   }
 
@@ -62,22 +59,60 @@ export class StoryListComponent implements OnInit {
     }
     this.storyService.getFishingStories(page).subscribe(res => {
       this.stories = res.stories_list.map(story => Object.assign(new Story(), story));
-      this.paginationHolding(res.count_stories);
+      this.paginationHoldingFishingStories(res.count_stories);
     }, error => {
       this.openDialog(error);
     });
   }
 
-  private paginationHolding(totalElements: number) {
+  private getHStories(page: Page) {
+    if (page.currentPage === 0) {
+      page.currentPage = 1;
+    }
+    this.storyService.getHunterStories(page).subscribe(res => {
+      this.stories = res.stories_list.map(story => Object.assign(new Story(), story));
+      this.paginationHoldingHunterStories(res.count_stories);
+    }, error => {
+      this.openDialog(error);
+    });
+  }
+
+  private paginationHoldingFishingStories(totalElements: number) {
     this.dynamicComponentContainerPagination.clear();
     const factory = this.componentFactoryResolver.resolveComponentFactory(PageNumerationComponent);
     const ref = this.dynamicComponentContainerPagination.createComponent(factory);
-    ref.instance.totalElements = totalElements;
+    this.pageFStories.totalElements = totalElements;
+    ref.instance.page = this.pageFStories;
     ref.instance.change.subscribe(page => {
-      if (this.page.currentPage !== page.currentPage) {
+      if (this.currentFPage !== page.currentPage) {
         this.getFStories(page);
+        this.pageFStories = page;
+        this.currentFPage = page.currentPage;
       }
     });
     ref.changeDetectorRef.detectChanges();
+  }
+
+  private paginationHoldingHunterStories(totalElements: number) {
+    this.dynamicComponentContainerPagination.clear();
+    const factory = this.componentFactoryResolver.resolveComponentFactory(PageNumerationComponent);
+    const ref = this.dynamicComponentContainerPagination.createComponent(factory);
+    this.pageHStories.totalElements = totalElements;
+    ref.instance.page = this.pageHStories;
+    ref.instance.change.subscribe(page => {
+      if (this.currentHPage !== page.currentPage) {
+        this.getHStories(page);
+        this.pageHStories = page;
+        this.currentHPage = page.currentPage;
+      }
+    });
+    ref.changeDetectorRef.detectChanges();
+  }
+
+  private disableObjects(){
+    this.pageFStories = null;
+    this.pageHStories = null;
+    this.currentFPage = 0;
+    this.currentHPage = 0;
   }
 }

@@ -6,13 +6,15 @@ import { StoryDescribeComponent } from './story-describe/story-describe.componen
 import {StoryListComponent} from './story-list/story-list.component';
 import {MdListModule, MdButtonModule} from '@angular/material';
 import {PageNumerationComponent} from '../page-numeration/page-numeration.component';
+import {FlexLayoutModule} from "@angular/flex-layout";
 
 @NgModule({
   imports: [
     CommonModule,
     StoryRoutingModule,
     MdListModule,
-    MdButtonModule
+    MdButtonModule,
+    FlexLayoutModule
   ],
   declarations: [StoryListComponent, StoryDescribeComponent, PageNumerationComponent],
   entryComponents: [PageNumerationComponent]

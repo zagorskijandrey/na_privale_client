@@ -1,21 +1,20 @@
 <div class="story-padding">
   <md-card *ngFor="let story of stories">
     <h4 md-line>
-      <md-card-header>
-          {{story.name}}         {{story.author}}
-        </md-card-header>
+      <div fxLayout="row" fxLayoutAlign="start center" class="content">
+        <div class="blocks" fxFlex="50%">{{story.name}}</div>
+        <div class="blocks" fxFlex align="right">{{story.author}}</div>
+      </div>
     </h4>
     <md-card-content>
       {{story.text}}
     </md-card-content>
     <span layout="row"><hr flex/></span>
     <md-card-actions>
-      <button [routerLink]="['describe', story.id]" md-raised-button>Дальше...   </button>
+      <button [routerLink]="['describe', story.id]" md-raised-button>Дальше...</button>
     </md-card-actions>
   </md-card>
   <div>
     <div #dynamicComponentContainerPagination></div>
   </div>
-  <!--<app-page-numeration [totalElements]="totalElements"-->
-  <!--(change)="getFStories($event)"></app-page-numeration>-->
 </div>

@@ -1,13 +1,16 @@
 <div>
   <md-sidenav-container class="example-container">
     <md-sidenav #sidenav class="example-sidenav">
-      Jolly good!
+      <a [routerLink]="['/page']"><md-icon style="color: white">content_paste</md-icon></a>
+      <br>
+      <br>
+      <a [routerLink]="['/fishing']"><md-icon style="color: #ebebeb">list</md-icon></a>
     </md-sidenav>
 
     <div class="example-sidenav-content">
-      <button type="button" md-button (click)="sidenav.open()">
-        Open sidenav
-      </button>
+      <div align="left" style="padding: 5px 5px">
+        <a style="color: #7594a2" href="javascript:void(0)"><md-icon (click)="sidenav.open()">fiber_smart_record</md-icon></a>
+      </div>
       <div class="fishing-form">
         <md-card>
           <md-card-content>

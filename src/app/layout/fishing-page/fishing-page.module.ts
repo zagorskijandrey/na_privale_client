@@ -6,7 +6,7 @@ import {CommonModule} from '@angular/common';
 import {FishingPageComponent} from './fishing-page.component';
 import {FishingPageRoutingModule} from './fishing-page-routing.module';
 import {
-  MdDatepickerModule, MdFormFieldModule, MdIconModule, MdInputModule, MdSelectModule,
+  MdDatepickerModule, MdFormFieldModule, MdIconModule, MdInputModule, MdSelectModule, MdSidenavModule,
   MdToolbarModule
 } from '@angular/material';
 import {FormsModule} from '@angular/forms';
@@ -25,7 +25,8 @@ import {TranslateModule} from '@ngx-translate/core';
     MdFormFieldModule,
     MdSelectModule,
     MdDatepickerModule,
-    MdIconModule
+    MdIconModule,
+    MdSidenavModule
   ],
   declarations: [FishingPageComponent, FishComponent],
   entryComponents: [

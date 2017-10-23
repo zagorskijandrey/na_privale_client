@@ -14,6 +14,7 @@ export class PageNumerationComponent implements OnInit {
 
   public page: Page;
   @Output() change: EventEmitter<Page> = new EventEmitter<Page>();
+  isActive = false;
 
   constructor(private pagerService: PagerService) {
   }
@@ -26,6 +27,7 @@ export class PageNumerationComponent implements OnInit {
     if (page < 1 /*|| page > this.page.totalPages*/) {
       return;
     }
+    this.isActive = true;
     this.page.currentPage = page;
 
     // get pager object from service

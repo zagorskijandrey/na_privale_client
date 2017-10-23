@@ -23,4 +23,10 @@ export class FishingPageService extends ExtractService {
       .map(this.getResponseBody.bind(this))
       .catch(this.handleError.bind(this));
   }
+
+  public getFishingList(): Observable<FishingPage[]> {
+    return this.authHttp.get(`${environment.api}fishing`)
+      .map(this.getResponseBody.bind(this))
+      .catch(this.handleError.bind(this));
+  }
 }

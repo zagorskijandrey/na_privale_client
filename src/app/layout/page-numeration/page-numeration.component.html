@@ -1,18 +1,9 @@
 <div class="paginate wrapper">
   <ul *ngIf="page.pages && page.pages.length">
     <li><a (click)="setPage(1)">&lang;</a></li>
-    <li *ngFor="let p of page.pages" [ngClass]="{active:page.currentPage === p}">
-      <a (click)="setPage(p)">{{p}}</a>
+    <li *ngFor="let p of page.pages">
+      <a [ngClass]="{'active' : page.currentPage === p}" (click)="setPage(p)">{{p}}</a>
     </li>
-    <!--<li><a href="" class="active">1</a></li>-->
-    <!--<li><a href="">2</a></li>-->
-    <!--<li><a href="">3</a></li>-->
-    <!--<li><a href="">4</a></li>-->
-    <!--<li><a href="">5</a></li>-->
-    <!--<li><a href="" class="more">&hellip;</a></li>-->
-    <!--<li><a href="">98</a></li>-->
-    <!--<li><a href="">99</a></li>-->
-    <!--<li><a href="">100</a></li>-->
     <li><a (click)="setPage(page.totalPages)">&rang;</a></li>
   </ul>
 </div>

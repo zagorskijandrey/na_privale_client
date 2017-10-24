@@ -2,8 +2,8 @@
  * Created by AZagorskyi on 01.09.2017.
  */
 import {Component, OnInit} from '@angular/core';
-import {Fish} from '../../../shared/models/fish';
-import {NumberPickerService} from '../../../shared/services/number-picker.service';
+import {Fish} from '../../../../shared/models/fish';
+import {NumberPickerService} from '../../../../shared/services/number-picker.service';
 
 @Component({
   selector: 'app-fish',

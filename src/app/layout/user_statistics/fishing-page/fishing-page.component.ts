@@ -1,23 +1,21 @@
-import {
-  Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef
-} from '@angular/core';
+import {Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
+import {FishComponent} from './fish/fish.component';
+import {Fish} from '../../../shared/models/fish';
+import {FishingPage} from '../../../shared/models/fishing-page';
+import {FishingPageService} from '../../../shared/services/fishing-page.service';
 import {DateAdapter, NativeDateAdapter} from '@angular/material';
-import {FishingPage} from '../../shared/models/fishing-page';
-import {FishComponent} from '../user_statistics/fishing-page/fish/fish.component';
-import {Fish} from '../../shared/models/fish';
-import {FishingPageService} from "../../shared/services/fishing-page.service";
 
 @Component({
-  selector: 'app-fishing-page',
+  selector: 'app-user-statistics-fishing-page',
   templateUrl: './fishing-page.component.html',
-  styleUrls: ['./fishing-page.component.css'],
+  styleUrls: ['./fishing-page.component.css']
 })
 export class FishingPageComponent implements OnInit {
   @ViewChild('dynamicComponentContainerFish', {read: ViewContainerRef}) dynamicComponentContainer: ViewContainerRef;
   fishingPage: FishingPage;
 
   constructor(dateAdapter: DateAdapter<NativeDateAdapter>, private componentFactoryResolver: ComponentFactoryResolver,
-  private fishingPageService: FishingPageService) {
+              private fishingPageService: FishingPageService) {
     dateAdapter.setLocale('ru');
   }
 
@@ -56,4 +54,3 @@ export class FishingPageComponent implements OnInit {
     this.fishingPageService.saveFishingPage(this.fishingPage).subscribe(res => res);
   }
 }
-

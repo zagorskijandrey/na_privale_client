@@ -4,9 +4,20 @@
 import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {FishingListComponent} from './fishing-list/fishing-list.component';
+import {FishingPageComponent} from "./fishing-page/fishing-page.component";
+import {UserStatisticsComponent} from "./user-statistics.component";
 
-const routes: Routes = [
-  {path: '', component: FishingListComponent },
+const routes: Routes = [{
+  path: '', component: UserStatisticsComponent,
+  children: [
+    { path: '', component: FishingPageComponent},
+    {path: 'page', component: FishingPageComponent},
+    {path: 'fishing', component: FishingListComponent}
+  ]
+}
+  // {path: '', component: UserStatisticsComponent },
+  // {path: 'page', component: FishingPageComponent },
+  // {path: 'fishing', component: FishingListComponent },
   // {path: 'describe', component: StoryDescribeComponent },
   // {path: 'describe/:id', component: StoryDescribeComponent }
 ];
@@ -15,4 +26,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class UserStatisticsRoutingModule { }
+export class UserStatisticsRoutingModule {
+}

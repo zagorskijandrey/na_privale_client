@@ -3,10 +3,20 @@
  */
 import {UserStatisticsRoutingModule} from './user-statistics-routing.module';
 import {CommonModule} from '@angular/common';
-import {MdButtonModule, MdListModule, MdPaginatorModule, MdTableModule} from '@angular/material';
+import {
+  MdButtonModule, MdDatepickerModule, MdFormFieldModule, MdIconModule, MdInputModule, MdListModule, MdPaginatorModule,
+  MdSelectModule,
+  MdTableModule,
+  MdToolbarModule, MdSidenavModule
+} from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {NgModule} from '@angular/core';
 import {FishingListComponent} from './fishing-list/fishing-list.component';
+import { FishingPageComponent } from './fishing-page/fishing-page.component';
+import {UserStatisticsComponent} from './user-statistics.component';
+import {TranslateModule} from '@ngx-translate/core';
+import {FormsModule} from '@angular/forms';
+import {FishComponent} from './fishing-page/fish/fish.component';
 
 @NgModule({
   imports: [
@@ -16,8 +26,21 @@ import {FishingListComponent} from './fishing-list/fishing-list.component';
     MdButtonModule,
     FlexLayoutModule,
     MdTableModule,
-    MdPaginatorModule
+    MdPaginatorModule,
+    TranslateModule,
+    FormsModule,
+    MdInputModule,
+    // FishingPageRoutingModule,
+    MdToolbarModule,
+    MdFormFieldModule,
+    MdSelectModule,
+    MdDatepickerModule,
+    MdIconModule,
+    MdSidenavModule
   ],
-  declarations: [FishingListComponent]
+  declarations: [UserStatisticsComponent, FishingPageComponent, FishingListComponent, FishComponent],
+  entryComponents: [
+    FishComponent
+  ]
 })
 export class UserStatisticsModule { }

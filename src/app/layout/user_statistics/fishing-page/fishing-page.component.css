@@ -1,0 +1,12 @@
+md-form-field, md-card-content, md-select{
+  font-family: story_font;
+}
+
+.fishing-form{
+  padding: 10px 10px 10px 20px;
+}
+
+/*.example-sidenav {*/
+  /*padding: 20px;*/
+  /*background-color: #607D8B;*/
+/*}*/

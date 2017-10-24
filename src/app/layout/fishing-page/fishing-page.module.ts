@@ -10,7 +10,7 @@ import {
   MdToolbarModule
 } from '@angular/material';
 import {FormsModule} from '@angular/forms';
-import {FishComponent} from './fish/fish.component';
+import {FishComponent} from '../user_statistics/fishing-page/fish/fish.component';
 import {TranslateModule} from '@ngx-translate/core';
 // import {NumberPickerComponent} from '../number-picker/number-picker.component';
 

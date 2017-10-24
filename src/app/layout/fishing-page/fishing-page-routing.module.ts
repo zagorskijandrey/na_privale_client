@@ -6,7 +6,7 @@ import {NgModule} from '@angular/core';
 import {FishingPageComponent} from './fishing-page.component';
 
 const routes: Routes = [
-  {path: '', component: FishingPageComponent }
+  // {path: '', component: FishingPageComponent }
 ];
 
 @NgModule({

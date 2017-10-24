@@ -15,8 +15,8 @@ const routes: Routes = [{
     { path: 'signin', loadChildren: './signin/signin.module#SigninModule' },
     { path: 'email_repair', loadChildren: './email-repair/email-repair.module#EmailRepairModule'},
     { path: 'signup', loadChildren: './signup/signup.module#SignupModule' },
-    { path: 'page', loadChildren: './fishing-page/fishing-page.module#FishingPageModule', canActivate: [AuthGuard]},
-    { path: 'fishing', loadChildren: './user_statistics/user-statistics.module#UserStatisticsModule', canActivate: [AuthGuard]}
+    { path: 'statistic', loadChildren: './user_statistics/user-statistics.module#UserStatisticsModule'},
+    // { path: 'fishing', loadChildren: './user_statistics/user-statistics.module#UserStatisticsModule', canActivate: [AuthGuard]}
   ]
 }
 ];

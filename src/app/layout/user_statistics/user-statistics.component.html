@@ -1,0 +1,16 @@
+<div>
+  <md-sidenav-container>
+    <md-sidenav #sidenav class="user-statistics-sidenav">
+      <div>
+        <a style="color: #7594a2" href="javascript:void(0)"><md-icon (click)="sidenav.open()">fiber_smart_record</md-icon></a>
+      </div>
+      <a [routerLink]="['statistic/page']"><md-icon style="color: white">content_paste</md-icon></a>
+      <br>
+      <br>
+      <a [routerLink]="['statistic/fishing']"><md-icon style="color: #ebebeb">list</md-icon></a>
+    </md-sidenav>
+    <!--<div>-->
+      <!--<router-outlet></router-outlet>-->
+    <!--</div>-->
+  </md-sidenav-container>
+</div>

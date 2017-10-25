@@ -6,6 +6,7 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/observable/merge';
 import 'rxjs/add/operator/map';
+import {FishingPageService} from '../../../shared/services/fishing-page.service';
 
 @Component({
   selector: 'app-fishing-list',
@@ -14,14 +15,19 @@ import 'rxjs/add/operator/map';
 })
 export class FishingListComponent implements OnInit {
   displayedColumns = ['userId', 'userName', 'progress', 'color'];
-  // exampleDatabase = new ExampleDatabase();
   fishings: FishingPage[] = [];
   dataSource: ExampleDataSource | null;
 
   @ViewChild(MdPaginator) paginator: MdPaginator;
 
+  constructor(private fishingPageService: FishingPageService) {
+  }
+
   ngOnInit() {
-    this.fishings = [{id: 1, region: 'Ivan', comment: '100', hamlet: 'red', province: '', fishes: [], date: new Date()}];
+    // this.fishings = [{id: 1, region: 'Ivan', comment: '100', hamlet: 'red', province: '', fishes: [], date: new Date()}];
+    this.fishingPageService.getFishingList(0, 3).subscribe(res => {
+      this.fishings = res.fishing_page_list.map(story => Object.assign(new FishingPage(), story));
+    });
     this.dataSource = new ExampleDataSource(this.fishings, this.paginator);
   }
 }

@@ -1,21 +1,22 @@
-<!--<section class="user-statistics-container">-->
-<!--<div>-->
-<md-sidenav-container>
-  <md-sidenav #sidenav class="user-statistics-sidenav">
-    <a [routerLink]="['page']">
-      <md-icon style="color: #ebebeb">content_paste</md-icon>
-    </a>
-    <br>
-    <br>
-    <a [routerLink]="['fishing']">
-      <md-icon style="color: #ebebeb">list</md-icon>
-    </a>
+<md-sidenav-container id="sidenav_id" (window:resize)="resizeWindowWithSidenav()">
+  <md-sidenav #sidenav class="user-statistics-sidenav" mode="side">
+    <md-nav-list>
+      <a [routerLink]="['page']">
+        <md-icon style="color: #ebebeb">create</md-icon>
+      </a>
+      <br>
+      <br>
+      <a [routerLink]="['fishing']">
+        <md-icon style="color: #ebebeb">list</md-icon>
+      </a>
+    </md-nav-list>
   </md-sidenav>
 
   <div>
     <div align="left" style="padding: 5px 5px">
       <a style="color: #7594a2" href="javascript:void(0)">
-        <md-icon (click)="sidenav.open()">fiber_smart_record</md-icon>
+        <md-icon (click)="clickSidenav(sidenav)" *ngIf="isClosedSidenav">toll</md-icon>
+        <md-icon (click)="clickSidenav(sidenav)" *ngIf="!isClosedSidenav">fiber_smart_record</md-icon>
       </a>
     </div>
     <div>
@@ -23,5 +24,3 @@
     </div>
   </div>
 </md-sidenav-container>
-<!--</div>-->
-<!--</section>-->

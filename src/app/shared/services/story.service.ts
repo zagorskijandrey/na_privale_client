@@ -36,7 +36,7 @@ export class StoryService extends ExtractService {
     const searchParams = new URLSearchParams();
     searchParams.set('page_params', JSON.stringify(page));
     const options = new RequestOptions({params: searchParams});
-    
+
     return this.http.get(environment.api + 'h_stories?start=' + page.startIndex + '&total=' + page.pageSize)
       .map(this.getResponseBody.bind(this)).catch(this.handleError.bind(this));
   }

@@ -17,6 +17,7 @@ export class FishingListComponent implements OnInit {
   displayedColumns = ['userId', 'userName', 'progress', 'color'];
   fishings: FishingPage[] = [];
   dataSource: ExampleDataSource | null;
+  countFishingPages = 0;
 
   @ViewChild(MdPaginator) paginator: MdPaginator;
 
@@ -27,8 +28,10 @@ export class FishingListComponent implements OnInit {
     // this.fishings = [{id: 1, region: 'Ivan', comment: '100', hamlet: 'red', province: '', fishes: [], date: new Date()}];
     this.fishingPageService.getFishingList(0, 3).subscribe(res => {
       this.fishings = res.fishing_page_list.map(story => Object.assign(new FishingPage(), story));
+      this.countFishingPages = res.count_fishing_pages;
+      this.dataSource = new ExampleDataSource(this.fishings, this.paginator);
     });
-    this.dataSource = new ExampleDataSource(this.fishings, this.paginator);
+    // this.dataSource = new ExampleDataSource(this.fishings, this.paginator);
   }
 }
 

@@ -33,9 +33,9 @@
   </md-table>
 
   <md-paginator #paginator
-                [length]="fishings.length"
+                [length]="countFishingPages"
                 [pageIndex]="0"
-                [pageSize]="25"
-                [pageSizeOptions]="[5, 10, 25, 100]">
+                [pageSize]="1"
+                [pageSizeOptions]="[1, 2, 5, 10]">
   </md-paginator>
 </div>

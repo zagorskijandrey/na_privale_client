@@ -10,13 +10,12 @@ import {Observable} from 'rxjs/Observable';
 import {environment} from '../../../environments/environment';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import {MdPaginator} from '@angular/material';
-import {RequestOptions} from '@angular/http';
+import {Http, Headers, URLSearchParams, RequestOptions} from '@angular/http';
 
 @Injectable()
 export class FishingPageService extends ExtractService {
 
-  constructor(protected authHttp: AuthHttp, protected router: Router) {
+  constructor(protected authHttp: AuthHttp, protected router: Router, protected http: Http) {
     super(router);
   }
 
@@ -27,7 +26,14 @@ export class FishingPageService extends ExtractService {
   }
 
   public getFishingList(start: number, pageSize: number): Observable<any> {
-    return this.authHttp.get(environment.api + 'fishing?start=' + start + '&total=' + pageSize)
+    const fishingListHeaders = new Headers();
+    fishingListHeaders.append('Content-Type', 'application/json');
+    const params = new URLSearchParams();
+    params.append('start', start.toString());
+    params.append('total', pageSize.toString());
+    const options = new RequestOptions({ headers: fishingListHeaders, params: params });
+
+    return this.authHttp.get(environment.api + 'fishing', options) // ?start=' + start + '&total=' + pageSize
       .map(this.getResponseBody.bind(this)).catch(this.handleError.bind(this));
   }
 }

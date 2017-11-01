@@ -1,179 +1,55 @@
 {
-    "address": {
-        "address_detail": {
-            "legend": "Докладна адреса",
-            "code": "Код",
-            "city": "Місто",
-            "street": "Вулиця",
-            "house": "Будинок",
-            "flat": "Квартира",
-            "tab_owner": "Власник",
-            "tab_sub_owner": "Пов'язані особи"
-        },
-        "address_list": {
-            "code": "Код",
-            "city": "Місто",
-            "street": "Вулиця",
-            "house": "Будинок",
-            "flat": "Квартира",
-            "personal_account": "Особистий рахунок",
-            "person_full_name": "Власник",
-            "phone": "Контактний телефон",
-            "search_from_number": "За номером",
-            "search_from_city": "За містом",
-            "search_from_street": "За вулицею",
-            "search_from_house": "За будинком",
-            "search_from_owner": "За власником",
-            "search_from_phone": "За телефоном",
-            "search_from_personal_account": "За особовим рахунком",
-            "zip": "Код",
-            "search": "Пошук"
-        }
+  "header": {
+    "brand": "На привале",
+    "menu": {
+      "home": "головна",
+      "map": "прогноз",
+      "signin": "вхід",
+      "signup": "реєстрація",
+      "logout": "вихід",
+      "russian": "русский",
+      "ukrainian": "українська"
     },
-    "info": {
-        "placeholder": "Пошук за назвою..."
-    },
-    "login": {
-        "title": "Авторизація",
-        "error2": "Помилка, спробуйте пізніше.",
-        "username": "Ім'я користувача",
-        "password": "Пароль",
-        "login": "Вхід",
-        "registration": "Реєстрація"
-    },
-    "navbar": {
-        "brand": "HHD",
-        "creare_appeal": "Нове звернення",
-        "language": "Мова",
-        "user-profile": "Профіль",
-        "user-settings": "Налаштування",
-        "user-logout": "Вийти"
-    },
-    "sidebar": {
-        "appeals": "Звернення",
-        "appeal_create": "Створити",
-        "addresses": "Адреси",
-        "addresses_create": "Створити",
-        "user-profile": "Профіль",
-        "user-settings": "Налаштування",
-        "user-logout": "Вийти",
-        "info": "Інформація"
-    },
-    "appeals": {
-        "appeal_create": {
-            "create": "Нове звернення",
-            "files_header": "Файли",
-            "legend": "Реєстрація звернення:",
-            "incoming_phone": "Вхідний дзвінок",
-            "incoming_phone_placeholder": "Не визначений",
-            "caller": "Заявник",
-            "caller_first_name_placeholder": "Ім'я",
-            "caller_second_name_placeholder": "По батькові",
-            "caller_last_name_placeholder": "Прізвище",
-            "description": "Причина звернення",
-            "solution": "Рішення",
-            "description_placeholder": "",
-            "phone": "Контактний номер",
-            "avr_on": "Аварія",
-            "execute": "На обробку",
-            "close": "Вирішена",
-            "file_limit_error": "Перевищенно ліміт на розмір файлів "
-        },
-        "appeal_edit": {
-            "legend": "Редагування звернення",
-            "appeal_number": "Номер",
-            "type": "Тип документу",
-            "date": "Дата",
-            "issue_type": "Тип робіт",
-            "address": "Об'єкт",
-            "subdivision": "Підрозділ",
-            "caller": "Заявник",
-            "executor": "Виконавець",
-            "executor_placeholder": "Прізвище та ім'я",
-            "incomingPhone": "З номеру",
-            "state": "Статус",
-            "contact_phone": "Контактный телефон",
-            "plan_date_close": "Планове закриття",
-            "date_expiring": "Фактичне закриття",
-            "description": "Опис звернення",
-            "decision_last": "Коментарі",
-            "desision_is_mandatory": "Поле обов'язкове для вводу!",
-            "decision_text": "Рішення",
-            "tab_basic": "Основна",
-            "tab_history": "Історія",
-            "tab_files": "Файли",
-            "save": "Зберегти",
-            "date_create": "Дата створення",
-            "org_name": "Організація"
-        },
-        "appeal_list": {
-            "type": "Тип",
-            "issue_type": "Тип робіт",
-            "address": "Адреса",
-            "state": "Статус",
-            "caller": "Заявник",
-            "contact_phone": "Телефон",
-            "date_created": "Дата створення",
-            "solution": "Рішення",
-            "description": "Опис звернення",
-            "page_count_from": "з",
-            "search_all": "Всюди",
-            "search_from_number": "За номером",
-            "search_from_address": "За адресою",
-            "search_from_owner": "За власником",
-            "search_from_phone": "За телефоном",
-            "from": "від",
-            "search": "Пошук",
-            "to": "до",
-            "emptyMessage": "Не знайдено..."
-        },
-        "address": {
-            "label": "Виберіть адресу",
-            "serviced_address": "Обслуговуюча адреса",
-            "not_serviced_address": "Інше",
-            "city": "Місто",
-            "street": "Вулиця",
-            "house": "Будинок",
-            "flat": "Квартира",
-            "custom_address": "Повна адреса",
-            "selected_address": {
-                "city": "м.",
-                "street": ", вул.",
-                "house": ", буд.",
-                "flat": ", кв."
-            }
-        },
-        "issueTypes": {
-            "issueType_0": "Виберіть тип заявки",
-            "issueType_1": "Гаряче водопостачання",
-            "issueType_2": "Холодне водопостачання",
-            "issueType_3": "Електромережа",
-            "issueType_4": "Опалення",
-            "issueType_5": "Каналізація",
-            "issueType_6": "Ремонт",
-            "issueType_7": "Вивіз сміття",
-            "issueType_8": "Прибирання",
-            "issueType_9": "Газ",
-            "issueType_10": "Ліфт",
-            "issueType_99": "Інше"
-        }
-    },
-    "requests": {
-        "issueTypes": {
-            "issueType_0": "Виберіть тип звернення",
-            "issueType_1": "Нарахування оплати",
-            "issueType_2": "Довідки",
-            "issueType_3": "Установка лічильників тепла",
-            "issueType_4": "Підписання договорів",
-            "issueType_5": "Заборгованість",
-            "issueType_6": "Акт про залиття",
-            "issueType_99": "Інше"
-        }
-    },
-    "fileUpload": {
-        "chooseLabel": "Вибрати",
-        "uploadLabel": "Завантажити",
-        "cancelLabel": "Відмінити"
-    },
-    "User does not exist": "Помилка, ім'я користувача або пароль введені невірно!"
+    "tab_group": {
+      "fish_hunter": "Підводне полювання",
+      "fishing": "Рибалка",
+      "owner": "Мій щоденик"
+    }
+  },
+  "dialog": {
+    "close": "Закрити"
+  },
+  "fishing_page": {
+    "province": "Область",
+    "region": "Район",
+    "hamlet": "Село/Водойма",
+    "comment": "Опис",
+    "date": "Дата",
+    "save": "Зберегти",
+    "fish": {
+      "name": "Риба",
+      "weight": "Вага",
+      "distance": "Дистанція",
+      "bait": "Наживка",
+      "time": "Час підходу"
+    }
+  },
+  "login": {
+    "title": "Авторизація",
+    "error1": "Помилка, ім'я користувача або пароль введені невірно!",
+    "error2": "Помилка, спробуйте пізніше.",
+    "username": "Ім'я користувача",
+    "password": "Пароль",
+    "login": "Вхід",
+    "registration": "Реєстрація"
+  },
+  "signin": {
+    "entry": "Увійдіть до свого облікового запису",
+    "entry_account": "Введіть ім'я користувача",
+    "entry_password": "Введіть пароль латиницею більше 5 символів",
+    "save_for_device": "Запам'ятати для цього пристрою",
+    "submit": "Вхід",
+    "not_remember_password": "Забули пароль",
+    "create_account": "Створити новий акаунт"
+  }
 }

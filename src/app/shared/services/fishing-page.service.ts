@@ -25,15 +25,17 @@ export class FishingPageService extends ExtractService {
       .catch(this.handleError.bind(this));
   }
 
-  public getFishingList(start: number, pageSize: number): Observable<any> {
+  public getFishingList(start: number, pageSize: number, filter: string, sort: string): Observable<any> {
     const fishingListHeaders = new Headers();
     fishingListHeaders.append('Content-Type', 'application/json');
     const params = new URLSearchParams();
     params.append('start', start.toString());
     params.append('total', pageSize.toString());
+    params.append('filter', filter);
+    params.append('sort', sort);
     const options = new RequestOptions({ headers: fishingListHeaders, params: params });
 
-    return this.authHttp.get(environment.api + 'fishing', options) // ?start=' + start + '&total=' + pageSize
+    return this.authHttp.get(environment.api + 'fishing', options)
       .map(this.getResponseBody.bind(this)).catch(this.handleError.bind(this));
   }
 }

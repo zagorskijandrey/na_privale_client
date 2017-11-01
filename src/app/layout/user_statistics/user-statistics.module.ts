@@ -7,7 +7,7 @@ import {
   MdButtonModule, MdDatepickerModule, MdFormFieldModule, MdIconModule, MdInputModule, MdListModule, MdPaginatorModule,
   MdSelectModule,
   MdTableModule,
-  MdToolbarModule, MdSidenavModule
+  MdToolbarModule, MdSidenavModule, MdSortModule
 } from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {NgModule} from '@angular/core';
@@ -36,7 +36,8 @@ import {FishComponent} from './fishing-page/fish/fish.component';
     MdSelectModule,
     MdDatepickerModule,
     MdIconModule,
-    MdSidenavModule
+    MdSidenavModule,
+    MdSortModule
   ],
   declarations: [UserStatisticsComponent, FishingPageComponent, FishingListComponent, FishComponent],
   entryComponents: [

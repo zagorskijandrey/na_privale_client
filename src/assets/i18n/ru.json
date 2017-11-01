@@ -6,12 +6,14 @@
       "map": "прогноз",
       "signin": "войти",
       "signup": "регистрация",
-      "logout": "выйти"
+      "logout": "выйти",
+      "russian": "русский",
+      "ukrainian": "українська"
     },
     "tab_group": {
       "fish_hunter": "Подводная охота",
       "fishing": "Рыбалка",
-      "owner": "Мой журнал"
+      "owner": "Мой дневник"
     }
   },
   "dialog": {
@@ -20,7 +22,7 @@
   "fishing_page": {
     "province": "Область",
     "region": "Район",
-    "hamlet": "Село",
+    "hamlet": "Село/Водоем",
     "comment": "Описание",
     "date": "Дата",
     "save": "Сохранить",
@@ -41,112 +43,16 @@
     "login": "Войти",
     "registration": "Регистрация"
   },
-  "navbar": {
-    "brand": "С-А-К-У-Р-А",
-    "creare_appeal": "Новое обращение",
-    "language": "Язык",
-    "user-profile": "Профиль",
-    "user-settings": "Настройки",
-    "user-logout": "Выйти"
+  "signin": {
+    "entry": "Войдите в свой аккаунт",
+    "entry_account": "Введите имя пользователя",
+    "entry_password": "Введите пароль латиницей более 5 символов",
+    "save_for_device": "Запомнить для этого устройства",
+    "submit": "Войти",
+    "not_remember_password": "Забыли пароль",
+    "create_account": "Создать новый аккаунт"
   },
-  "sidebar": {
-    "dashboard": "Начало",
-    "appeals": "Обращения",
-    "appeal_create": "Создать",
-    "addresses": "Адреса",
-    "addresses_create": "Создать",
-    "user-profile": "Профиль",
-    "user-settings": "Настройки",
-    "user-logout": "Выйти"
-  },
-  "appeals": {
-    "appeals": "Обращения",
-    "appeal_create": {
-      "create": "Новое обращение",
-      "legend": "Регистрация обращения:",
-      "incoming_phone": "Входящий звонок",
-      "caller": "Дозвонившийся",
-      "caller_first_name_placeholder": "Имя",
-      "caller_second_name_placeholder": "Отчество",
-      "caller_last_name_placeholder": "Фамилия",
-      "description": "Причина обращеня",
-      "description_placeholder": "",
-      "phone": "Контактний номер",
-      "copy_from_incomming": "Копировть входящий",
-      "appeal": "Обращение",
-      "offer": "Заявка",
-      "avr": "АВР",
-      "avr_on": "Авария",
-      "execute": "На обработку",
-      "close": "Закрыть"
-    },
-    "appeal_edit": "Редактирование обращения",
-    "address": {
-      "serviced_address": "Обслуживающий адрес",
-      "not_serviced_address": "Не обслуживающий адрес",
-      "city": "Город",
-      "street": "Улица",
-      "house": "Дом",
-      "flat": "Квартира",
-      "custom_address": "Полный адрес",
-      "submit_address": "Продолжить",
-      "selected_address": {
-        "city": "г.",
-        "street": ", ул.",
-        "house": ", д.",
-        "flat": ", кв.",
-        "not_serviced_address": "Не обслуживающий адрес: ",
-        "serviced_address": "Адрес: "
-      },
-      "edit": "Редактировать"
-    },
-    "types": {
-      "appeal": "Заявка",
-      "request": "Обращение"
-    },
-    "states": {
-      "new": "Новая",
-      "onWay": "Отправлена на выполнени",
-      "inProgreess": "В работе",
-      "postponed": "Отложен",
-      "resolved": "Решена",
-      "closed": "Закрыта"
-    },
-    "issueTypes": {
-      "issueType_0": "Выберите заявку",
-      "issueType_1": "Горячее водоснабжение",
-      "issueType_2": "Холодное водоснабжение",
-      "issueType_3": "Электросеть",
-      "issueType_4": "Отопление",
-      "issueType_5": "Канализация",
-      "issueType_6": "Ремонт",
-      "issueType_7": "Вывоз мусора",
-      "issueType_8": "Уборка",
-      "issueType_9": "Газ",
-      "issueType_10": "Лифт",
-      "issueType_99": "Другое"
-    }
-  },
-  "requests": {
-    "issueTypes": {
-      "issueType_0": "Выберите обращение",
-      "issueType_1": "Начисление оплаты",
-      "issueType_2": "Справки",
-      "issueType_3": "Установка счетчиков тепла",
-      "issueType_4": "Подписание договоров",
-      "issueType_5": "Задолженность",
-      "issueType_6": "Акт про залиття",
-      "issueType_99": "Другое"
-    }
-  },
-  "charts": "Charts",
-  "tables": "Tables",
-  "froms": "Froms",
-  "boostrapElement": "Boostrap Element",
-  "boostrapGrid": "Boostrap Grid",
-  "component": "Component",
-  "menu": "Меню",
-  "submenu": "Submenu",
-  "blankpage": "Blank Page",
-  "moretheme": "More Themes"
+  "error_message": {
+
+  }
 }

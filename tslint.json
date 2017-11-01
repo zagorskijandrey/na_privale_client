@@ -26,9 +26,10 @@
     ],
     "member-access": false,
     "member-ordering": [
-      true,
-      "static-before-instance",
-      "variables-before-functions"
+      false,
+      {
+        "order": "instance-sandwich"
+      }
     ],
     "no-arg": true,
     "no-bitwise": true,

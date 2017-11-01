@@ -4,7 +4,7 @@
       <md-card-content class="mat-card-content">
         <div class="text-center pb-1">
           <img src="../assets/images/rybak_brand.png" width="150" height="75" alt="">
-          <p class="text-muted">Войдите в свой аккаунт</p>
+          <p class="text-muted">{{ 'signin.entry'| translate }}</p>
         </div>
         <form autocomplete="off">
           <md-input-container class="full-width mat-input-container">
@@ -13,7 +13,7 @@
                      placeholder="Username" required="" value="" id="username" aria-invalid="false">
             </div>
           </md-input-container>
-          <small class="form-error-msg" *ngIf="!user.username">Введите имя пользователя</small>
+          <small class="form-error-msg" *ngIf="!user.username">{{ 'signin.entry_account'| translate }}</small>
           <br>
           <br>
 
@@ -25,7 +25,7 @@
                         this.blur();this.focus();}"/>
             </div>
           </md-input-container>
-          <small class="form-error-msg" *ngIf="!user.password">Введите пароль латиницей более 5 символов</small>
+          <small class="form-error-msg" *ngIf="!user.password">{{ 'signin.entry_password'| translate }}</small>
 
           <br>
           <br>
@@ -34,7 +34,7 @@
               <label class="mat-checkbox-layout">
                   <span class="mat-checkbox-label">
                     <span style="display:none">&nbsp;
-                    </span>Запомнить для этого устройства
+                    </span>{{ 'signin.save_for_device'| translate }}
                   </span>
               </label>
             </md-checkbox>
@@ -43,13 +43,13 @@
           <button class="full-width  mb-1 mat-raised-button" style="background-color: #9dbcca" md-raised-button
                   (click)="login()"
                   [disabled]="!isValidUsername || !isValidPassword">
-            <span class="mat-button-wrapper" style="color: white">Войти</span>
+            <span class="mat-button-wrapper" style="color: white">{{ 'signin.submit'| translate }}</span>
           </button>
           <div class="text-center" style="display: flex; box-sizing: border-box; flex-direction: row;
             -webkit-box-orient: horizontal; -webkit-box-direction: normal;">
-            <a class="mat-primary text-center full-width" [routerLink]="['/email_repair']">Забыли пароль</a>
+            <a class="mat-primary text-center full-width" [routerLink]="['/email_repair']">{{ 'signin.not_remember_password'| translate }}</a>
             <span style="flex: 1 1 0; box-sizing: border-box; -webkit-box-flex: 1;"></span>
-            <a class="mat-primary text-center full-width" [routerLink]="['/signup']">Создать новый аккаунт</a>
+            <a class="mat-primary text-center full-width" [routerLink]="['/signup']">{{ 'signin.create_account'| translate }}</a>
           </div>
         </form>
       </md-card-content>

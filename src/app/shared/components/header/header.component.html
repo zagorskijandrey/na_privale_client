@@ -3,6 +3,16 @@
   <span id="title" class="but-header-menu">{{ 'header.brand'| translate }}</span>
 
   <span class="fill-space"></span>
+  <md-menu #language="mdMenu" xPosition="before">
+    <!--<a class="dropdown-item" href="jvascript:void(0)" (click)="changeLang('ua')">Українська</a>-->
+    <button md-menu-item class="but-header-menu" (click)="changeLang('ru')">{{ 'header.menu.russian'| translate }}</button>
+    <button md-menu-item class="but-header-menu" (click)="changeLang('ua')">{{ 'header.menu.ukrainian'| translate }}</button>
+  </md-menu>
+
+  <button md-icon-button [md-menu-trigger-for]="language">
+    <md-icon>g_translate</md-icon>
+  </button>
+
   <md-menu #user="mdMenu" xPosition="before">
     <button md-menu-item routerLink="/signin" class="but-header-menu">{{ 'header.menu.signin'| translate }}&nbsp;&nbsp;&nbsp;&#8195;<md-icon>file_download</md-icon></button>
     <button md-menu-item routerLink="/signup" class="but-header-menu">{{ 'header.menu.signup'| translate }}</button>

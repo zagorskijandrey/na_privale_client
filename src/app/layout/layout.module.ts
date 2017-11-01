@@ -10,7 +10,8 @@ import {HomeComponent} from './home/home.component';
 import {
   MdButtonModule, MdCardModule, MdCommonModule, MdDatepickerModule, MdDialogModule,
   MdFormFieldModule, MdIconModule, MdInputModule, MdSnackBarModule, MdListModule,
-  MdMenuModule, MdNativeDateModule, MdSelectModule, MdTabsModule, MdToolbarModule
+  MdMenuModule, MdNativeDateModule, MdSelectModule, MdTabsModule, MdToolbarModule, MdSortModule, MdPaginatorIntl,
+  MdPaginatorModule
 } from '@angular/material';
 import {DialogModule} from './dialog/dialog.module';
 import {NumberPickerModule} from './number-picker/number-picker.module';
@@ -38,6 +39,8 @@ import {SnackbarModule} from './snackbar/snackbar.module';
     MdSelectModule,
     MdDatepickerModule,
     MdNativeDateModule,
+    MdSortModule,
+    MdPaginatorModule,
     NumberPickerModule,
     FlexLayoutModule,
     SnackbarModule

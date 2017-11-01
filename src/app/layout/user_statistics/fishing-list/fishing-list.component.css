@@ -1,10 +1,35 @@
+md-form-field, md-table, md-paginator{
+  font-family: story_font;
+}
+
 .fishing-list-container {
   /*display: flex;*/
   /*flex-direction: column;*/
   min-width: 300px;
 }
 
+.fishing-list-header {
+  min-height: 64px;
+  display: flex;
+  align-items: baseline;
+  padding: 8px 24px 0;
+  font-size: 20px;
+  justify-content: space-between;
+}
+
 .mat-table {
   overflow: auto;
   max-height: 500px;
+}
+
+.customWidthDateClass{
+  flex: 0 0 100px;
+}
+
+.customWidthRegionClass{
+  flex: 0 0 180px;
+}
+
+.customWidthHamletClass{
+  flex: 0 0 180px;
 }

@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {User} from '../../shared/models/user';
 import {AuthService} from '../../shared/services/auth.service';
 import {ErrorHandlerService} from '../../shared/services/error-handler.service';
-import {NavigationExtras, Router} from '@angular/router';
+import {ActivatedRoute, NavigationExtras, Router} from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -11,32 +11,25 @@ import {NavigationExtras, Router} from '@angular/router';
 })
 export class SigninComponent implements OnInit {
   public user: User;
+  returnUrl = '/';
 
-  constructor(private router: Router, private authService: AuthService, private errorService: ErrorHandlerService) {
+  constructor(private router: Router, private route: ActivatedRoute,
+              private authService: AuthService, private errorService: ErrorHandlerService) {
     this.user = new User();
   }
 
   ngOnInit() {
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   login() {
     this.authService.logout();
     this.authService.login(this.user.username, this.user.password).subscribe(user => {
       this.user = user;
-      this.navigateToMapPage();
+      this.router.navigateByUrl(this.returnUrl);
     }, error => {
       this.openDialog(error);
     });
-  }
-
-  private navigateToMapPage(url?: string) {
-
-    url = url || this.router.routerState.snapshot.url;
-
-    const navigationExtras: NavigationExtras = {
-      queryParams: {'returnUrl': url || this.router.routerState.snapshot.url},
-    };
-    return this.router.navigate(['/map'], navigationExtras);
   }
 
   private openDialog(error) {

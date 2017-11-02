@@ -4,8 +4,9 @@
   <md-card-content>
     {{story.text}}
   </md-card-content>
+  <span layout="row"><hr flex/></span>
   <md-card-actions>
-    <button value="{{story.id}}" routerLink="story" md-button>Закрыть</button>
+    <button [routerLink]="[previousUrl, story.id]" md-raised-button>Закрыть</button>
   </md-card-actions>
 </md-card>
 </div>

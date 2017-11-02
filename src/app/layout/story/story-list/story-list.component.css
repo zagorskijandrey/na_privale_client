@@ -5,6 +5,10 @@ md-card-header, md-card-content{
   white-space: -o-pre-wrap;
   word-wrap: break-word;
 }
+md-form-field, md-select, md-option, .blocks{
+  font-family: story_font;
+}
+
 button{
   font-family: story_font;
   background-color: #7f7f7f;
@@ -15,5 +19,14 @@ button .md-raised-button{
 }
 
 .story-padding{
-  padding: 15px 10px 15px 20px;
+  padding: 1px 20px 15px 20px;
+}
+
+.story-header {
+  min-height: 64px;
+  display: flex;
+  align-items: baseline;
+  padding: 8px 24px 0;
+  font-size: 20px;
+  justify-content: space-between;
 }

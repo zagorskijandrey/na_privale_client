@@ -10,3 +10,12 @@ md-card-header, md-card-content{
 .story-padding{
   padding: 15px 10px 15px 20px;
 }
+
+button{
+  font-family: story_font;
+  background-color: #7f7f7f;
+  color: white;
+}
+button .md-raised-button{
+  height: 20px;
+}

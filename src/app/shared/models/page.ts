@@ -4,7 +4,7 @@
 export class Page {
   totalElements = 0;
   currentPage = 1;
-  pageSize = 2;
+  pageSize = 3;
   totalPages = 0;
   startPage = 0;
   endPage = 0;

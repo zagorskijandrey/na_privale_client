@@ -4,6 +4,7 @@ import {Fish} from '../../../shared/models/fish';
 import {FishingPage} from '../../../shared/models/fishing-page';
 import {FishingPageService} from '../../../shared/services/fishing-page.service';
 import {DateAdapter, NativeDateAdapter} from '@angular/material';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-user-statistics-fishing-page',
@@ -15,7 +16,7 @@ export class FishingPageComponent implements OnInit {
   fishingPage: FishingPage;
 
   constructor(dateAdapter: DateAdapter<NativeDateAdapter>, private componentFactoryResolver: ComponentFactoryResolver,
-              private fishingPageService: FishingPageService) {
+              private fishingPageService: FishingPageService, public router: Router) {
     dateAdapter.setLocale('ru');
   }
 
@@ -51,6 +52,8 @@ export class FishingPageComponent implements OnInit {
   }
 
   public saveFishingPage() {
-    this.fishingPageService.saveFishingPage(this.fishingPage).subscribe(res => res);
+    this.fishingPageService.saveFishingPage(this.fishingPage).subscribe(res => {
+      this.router.navigate(['statistic/fishing']);
+    });
   }
 }

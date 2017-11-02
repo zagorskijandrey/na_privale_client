@@ -4,9 +4,13 @@ import { CommonModule } from '@angular/common';
 import { StoryRoutingModule } from './story-routing.module';
 import { StoryDescribeComponent } from './story-describe/story-describe.component';
 import {StoryListComponent} from './story-list/story-list.component';
-import {MdListModule, MdButtonModule} from '@angular/material';
+import {
+  MdListModule, MdButtonModule, MdFormFieldModule, MdInputModule,
+  MdSelectModule
+} from '@angular/material';
 import {PageNumerationComponent} from '../page-numeration/page-numeration.component';
-import {FlexLayoutModule} from "@angular/flex-layout";
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -14,7 +18,11 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     StoryRoutingModule,
     MdListModule,
     MdButtonModule,
-    FlexLayoutModule
+    MdFormFieldModule,
+    MdInputModule,
+    MdSelectModule,
+    FlexLayoutModule,
+    FormsModule
   ],
   declarations: [StoryListComponent, StoryDescribeComponent, PageNumerationComponent],
   entryComponents: [PageNumerationComponent]

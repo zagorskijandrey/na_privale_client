@@ -1,4 +1,22 @@
 <div class="story-padding">
+  <h4 md-line>
+    <div fxLayout="row" fxLayoutAlign="start center" class="content">
+      <div fxFlex="50%">
+        <div style="padding-top: 20px">
+          <md-form-field class="form-color-site" floatPlaceholder="never">
+            <input mdInput #filter placeholder="Найти село/водоем">
+          </md-form-field>
+        </div>
+      </div>
+      <div fxFlex align="right">
+        <md-select placeholder="На странице" mdInput [(ngModel)]="pageAmount" (ngModelChange)="handlePageAmount()">
+          <md-option *ngFor="let amount of storiesCounter" [value]="amount">
+            {{ amount }}
+          </md-option>
+        </md-select>
+      </div>
+    </div>
+  </h4>
   <md-card *ngFor="let story of stories">
     <h4 md-line>
       <div fxLayout="row" fxLayoutAlign="start center" class="content">

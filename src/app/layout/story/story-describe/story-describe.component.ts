@@ -10,10 +10,11 @@ import {ErrorHandlerService} from '../../../shared/services/error-handler.servic
   styleUrls: ['./story-describe.component.css']
 })
 export class StoryDescribeComponent implements OnInit {
-  public story:Story;
+  public story: Story;
+  public previousUrl: string;
 
-  constructor(public router: Router, private storyService:StoryService, 
-              private route:ActivatedRoute, private errorService:ErrorHandlerService) {
+  constructor(public router: Router, private storyService: StoryService,
+              private route: ActivatedRoute, private errorService: ErrorHandlerService) {
   }
 
   ngOnInit() {
@@ -22,8 +23,10 @@ export class StoryDescribeComponent implements OnInit {
     this.describeStory(id);
   }
 
-  private describeStory(id:number) {
+  private describeStory(id: number) {
     if (this.router.url.match('/f_stories')) {
+      this.router.dispose();
+      this.previousUrl = '/f_stories';
       this.storyService.getFishingStory(id).subscribe(story => {
         this.story = story;
         if (this.story.text) {
@@ -34,6 +37,7 @@ export class StoryDescribeComponent implements OnInit {
         this.openDialog(error);
       });
     } else {
+      this.previousUrl = '/h_stories';
       this.storyService.getHunterStory(id).subscribe(story => {
         this.story = story;
         if (this.story.text) {
@@ -44,18 +48,6 @@ export class StoryDescribeComponent implements OnInit {
         this.openDialog(error);
       });
     }
-    
-    
-    
-    // this.storyService.getFishingStory(id).subscribe(story => {
-    //   this.story = story;
-    //   if (this.story.text) {
-    //     this.story.text = '\t' + this.story.text;
-    //     this.story.text = this.story.text.replace(/[\n]/g, '\n\t');
-    //   }
-    // }, error => {
-    //   this.openDialog(error);
-    // });
   }
 
   private openDialog(error) {

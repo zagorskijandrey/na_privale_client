@@ -18,20 +18,17 @@ import 'rxjs/add/operator/distinctUntilChanged';
   styleUrls: ['./story-list.component.css']
 })
 export class StoryListComponent implements OnInit {
-  pageEvent: PageEvent;
-
   @ViewChild('dynamicComponentContainerPagination', {read: ViewContainerRef}) dynamicComponentContainerPagination: ViewContainerRef;
 
   private pageFStories: Page;
   private pageHStories: Page;
-  private currentFPage: number;
-  private currentHPage: number;
+  private currentPage: number;
 
   stories: Array<Story>;
   @ViewChild('filter') filter: ElementRef;
   pageAmount: number;
-  pageEventStory: PageEvent;
   storiesCounter: number[];
+  previousPage = {isActive: false, count: 1}
 
   constructor(public router: Router, private storyService: StoryService, private route: ActivatedRoute,
               private errorService: ErrorHandlerService, private componentFactoryResolver: ComponentFactoryResolver) {
@@ -39,34 +36,55 @@ export class StoryListComponent implements OnInit {
 
   ngOnInit() {
     this.storiesCounter = [2, 3, 5];
+    const id = this.route.snapshot.params['id'];
     if (this.router.url.match('/f_stories')) {
-      const id = this.route.snapshot.params['id'];
       this.disableObjects();
       this.pageFStories = new Page();
-      if (id) {
-        const module = id % this.pageFStories.pageSize;
-        this.pageFStories.currentPage = Math.ceil(id / this.pageFStories.pageSize);
-        this.pageFStories.startIndex = module === 0 ? id - this.pageFStories.pageSize :
-          this.pageFStories.currentPage * this.pageFStories.pageSize - this.pageFStories.pageSize;
-        this.currentFPage = this.pageFStories.currentPage;
-      } else {
-        this.currentFPage = this.pageFStories.currentPage;
-      }
-      this.getFStories(this.pageFStories);
+      this.getFStories(this.pagination(this.pageFStories, id));
     } else {
       this.disableObjects();
       this.pageHStories = new Page();
-      this.currentHPage = 1;
-      this.getHStories(this.pageHStories);
+      this.getHStories(this.pagination(this.pageHStories, id));
     }
     Observable.fromEvent(this.filter.nativeElement, 'keyup')
-      .debounceTime(150)
+      .debounceTime(50)
       .distinctUntilChanged()
       .subscribe(() => {
-        // if (!this.dataSource) { return; }
-        // // this.dataSource.filter = this.filter.nativeElement.value;
-        // this.handleTableParams(this.filter.nativeElement.value);
+        if (this.pageFStories) {
+          this.setFilterParameters(this.pageFStories, this.filter.nativeElement.value);
+        } else {
+          this.setFilterParameters(this.pageHStories, this.filter.nativeElement.value);
+        }
       });
+  }
+
+  private pagination(page: Page, id: number) {
+    this.pageAmount = page.pageSize;
+    if (id) {
+      const module = id % page.pageSize;
+      page.currentPage = Math.ceil(id / page.pageSize);
+      page.startIndex = module === 0 ? id - page.pageSize :
+        page.currentPage * page.pageSize - page.pageSize;
+      this.currentPage = page.currentPage;
+    } else {
+      this.currentPage = page.currentPage;
+    }
+    return page;
+  }
+
+  private setFilterParameters(page: Page, filter: string) {
+    if (!this.previousPage.isActive) {
+      this.previousPage.isActive = true;
+      this.previousPage.count = page.currentPage;
+    } else {
+      page.currentPage = 1;
+    }
+    if (!filter) {
+      this.previousPage.isActive = false;
+      page.currentPage = this.previousPage.count;
+    }
+    page.filter = filter;
+    this.handlePageAmount();
   }
 
   private openDialog(error) {
@@ -106,10 +124,10 @@ export class StoryListComponent implements OnInit {
     this.pageFStories.totalElements = totalElements;
     ref.instance.page = this.pageFStories;
     ref.instance.change.subscribe(page => {
-      if (this.currentFPage !== page.currentPage) {
+      if (this.currentPage !== page.currentPage) {
         this.getFStories(page);
         this.pageFStories = page;
-        this.currentFPage = page.currentPage;
+        this.currentPage = page.currentPage;
       }
     });
     ref.changeDetectorRef.detectChanges();
@@ -122,10 +140,10 @@ export class StoryListComponent implements OnInit {
     this.pageHStories.totalElements = totalElements;
     ref.instance.page = this.pageHStories;
     ref.instance.change.subscribe(page => {
-      if (this.currentHPage !== page.currentPage) {
+      if (this.currentPage !== page.currentPage) {
         this.getHStories(page);
         this.pageHStories = page;
-        this.currentHPage = page.currentPage;
+        this.currentPage = page.currentPage;
       }
     });
     ref.changeDetectorRef.detectChanges();
@@ -154,7 +172,8 @@ export class StoryListComponent implements OnInit {
   private disableObjects() {
     this.pageFStories = null;
     this.pageHStories = null;
-    this.currentFPage = 0;
-    this.currentHPage = 0;
+    this.previousPage.isActive = false;
+    this.previousPage.count = 1;
+    this.currentPage = 0;
   }
 }

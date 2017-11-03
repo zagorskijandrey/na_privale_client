@@ -11,4 +11,5 @@ export class Page {
   startIndex = 0;
   endIndex = 0;
   pages: number [] = [];
+  filter = '';
 }

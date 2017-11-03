@@ -4,12 +4,12 @@
       <div fxFlex="50%">
         <div style="padding-top: 20px">
           <md-form-field class="form-color-site" floatPlaceholder="never">
-            <input mdInput #filter placeholder="Найти село/водоем">
+            <input mdInput #filter placeholder="Найти статью">
           </md-form-field>
         </div>
       </div>
       <div fxFlex align="right">
-        <md-select placeholder="На странице" mdInput [(ngModel)]="pageAmount" (ngModelChange)="handlePageAmount()">
+        <md-select placeholder="На странице" mdInput [(ngModel)]="pageAmount" (ngModelChange)="handlePageAmount(null)">
           <md-option *ngFor="let amount of storiesCounter" [value]="amount">
             {{ amount }}
           </md-option>

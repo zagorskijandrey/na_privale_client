@@ -5,6 +5,7 @@ import {FishingPage} from '../../../shared/models/fishing-page';
 import {FishingPageService} from '../../../shared/services/fishing-page.service';
 import {DateAdapter, NativeDateAdapter} from '@angular/material';
 import {Router} from '@angular/router';
+import {LocationService} from '../../../shared/services/location.service';
 
 @Component({
   selector: 'app-user-statistics-fishing-page',
@@ -15,14 +16,24 @@ export class FishingPageComponent implements OnInit {
   @ViewChild('dynamicComponentContainerFish', {read: ViewContainerRef}) dynamicComponentContainer: ViewContainerRef;
   fishingPage: FishingPage;
 
+  availableCountries: Array<{ id: number, name: string }>;
+  availableProvinces: Array<{ id: number, name: string }>;
+  availableRegions: Array<{ id: number, name: string }>;
+  availableHamlets: Array<{ id: number, name: string }>;
+
   constructor(dateAdapter: DateAdapter<NativeDateAdapter>, private componentFactoryResolver: ComponentFactoryResolver,
-              private fishingPageService: FishingPageService, public router: Router) {
+              private fishingPageService: FishingPageService, public router: Router,
+              private locationService: LocationService) {
     dateAdapter.setLocale('ru');
   }
 
   ngOnInit() {
     this.fishingPage = new FishingPage;
     this.fishingPage.fishes.push(new Fish());
+
+    this.locationService.getCountries().subscribe(res => {
+      this.availableCountries = res;
+    });
 
     const factory = this.componentFactoryResolver.resolveComponentFactory(FishComponent);
     const ref = this.dynamicComponentContainer.createComponent(factory);
@@ -55,5 +66,38 @@ export class FishingPageComponent implements OnInit {
     this.fishingPageService.saveFishingPage(this.fishingPage).subscribe(res => {
       this.router.navigate(['statistic/fishing']);
     });
+  }
+
+  public pickCountry(event: any) {
+    if (event != null) {
+      const idCountry = this.availableCountries.filter(res => res.name === event)[0].id;
+      this.locationService.getProvinces(idCountry).subscribe(res => {
+        this.availableProvinces = res;
+      });
+    }
+  }
+
+  public pickProvince(event: any) {
+    if (event != null) {
+      const idProvince = this.availableProvinces.filter(res => res.name === event)[0].id;
+      this.locationService.getRegions(idProvince).subscribe(res => {
+        this.availableRegions = res;
+      });
+    }
+  }
+
+  public pickRegion(event: any) {
+    if (event != null) {
+      const idRegion = this.availableRegions.filter(res => res.name === event)[0].id;
+      this.locationService.getHamlets(idRegion).subscribe(res => {
+        this.availableHamlets = res;
+      });
+    }
+  }
+
+  public pickHamlet(event: any) {
+    if (event != null) {
+      this.fishingPage.id_hamlet = this.availableHamlets.filter(res => res.name === event)[0].id;
+    }
   }
 }

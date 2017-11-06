@@ -4,9 +4,11 @@ import {Fish} from './fish';
  */
 export class FishingPage {
   id: number;
+  country: string = null;
   province: string = null;
   region: string = null;
   hamlet: string = null;
+  id_hamlet: number;
   comment: string = null;
   fishes: Fish[] = [];
   date: Date;

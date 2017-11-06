@@ -20,6 +20,7 @@
     "close": "Закрыть"
   },
   "fishing_page": {
+    "country": "Страна",
     "province": "Область",
     "region": "Район",
     "hamlet": "Село/Водоем",

@@ -9,10 +9,12 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import {environment} from '../../../environments/environment';
+import {AuthHttp} from 'angular2-jwt';
+import {Hamlet} from "../models/hamlet";
 
 @Injectable()
 export class LocationService extends ExtractService {
-  constructor(protected http: Http, protected router: Router) {
+  constructor(protected authHttp: AuthHttp, protected http: Http, protected router: Router) {
     super(router);
   }
 
@@ -36,6 +38,11 @@ export class LocationService extends ExtractService {
       .map(this.getHamletsWithResponse.bind(this)).catch(this.handleError.bind(this));
   }
 
+  getHamletByUsername(): Observable<Array<Hamlet>> {
+    return this.authHttp.get(environment.api + 'past_fishing_map')
+      .map(this.getHamletsDataWithResponse.bind(this)).catch(this.handleError.bind(this));
+  }
+
   private getCountriesWithResponse(res: Response): Array<any> {
     return this.getResponseBody(res).country_list;
   }
@@ -50,5 +57,14 @@ export class LocationService extends ExtractService {
 
   private getHamletsWithResponse(res: Response): Array<any> {
     return this.getResponseBody(res).hamlet_list;
+  }
+
+  private getHamletsDataWithResponse(res: Response): Array<Hamlet> {
+    const body = this.getResponseBody(res).hamlet_data_list;
+    const arrayRegion = new Array<Hamlet>();
+    for (let i = 0; i < body.length; i++) {
+      arrayRegion.push(Object.assign(new Hamlet(), body[i]));
+    }
+    return arrayRegion;
   }
 }

@@ -6,15 +6,13 @@ import {NgModule} from '@angular/core';
 import {FishingListComponent} from './fishing-list/fishing-list.component';
 import {FishingPageComponent} from './fishing-page/fishing-page.component';
 import {UserStatisticsComponent} from './user-statistics.component';
-import {FishingMapComponent} from './fishing-map/fishing-map.component';
 
 const routes: Routes = [{
   path: '', component: UserStatisticsComponent,
   children: [
     { path: '', component: FishingPageComponent},
     {path: 'page', component: FishingPageComponent},
-    {path: 'fishing', component: FishingListComponent},
-    {path: 'fishing_map', component: FishingMapComponent}
+    {path: 'fishing', component: FishingListComponent}
   ]
 }
   // {path: '', component: UserStatisticsComponent },

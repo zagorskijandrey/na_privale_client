@@ -2,6 +2,7 @@
  * Created by AZagorskyi on 24.10.2017.
  */
 import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-user-statistics',
@@ -12,7 +13,7 @@ export class UserStatisticsComponent implements OnInit {
 
   isClosedSidenav = false;
 
-  constructor() {
+  constructor(public router: Router) {
   }
 
   ngOnInit() {
@@ -37,5 +38,9 @@ export class UserStatisticsComponent implements OnInit {
     const sidenavElement = document.getElementById('sidenav_id') as HTMLElement;
     const height = document.documentElement.offsetHeight - 109;
     sidenavElement.style.height = height + 'px';
+  }
+
+  choiceRouter() {
+    this.router.navigate(['/map/fishing']);
   }
 }

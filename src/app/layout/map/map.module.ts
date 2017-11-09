@@ -5,6 +5,7 @@ import { MapRoutingModule } from './map-routing.module';
 import { MapPredictionComponent } from './map-prediction/map-prediction.component';
 import {AgmCoreModule} from '@agm/core';
 import {SharedPipesModule} from '../../shared/pipes/shared-pipes.module';
+import {FishingMapComponent} from './fishing-map/fishing-map.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import {SharedPipesModule} from '../../shared/pipes/shared-pipes.module';
     }),
     SharedPipesModule
   ],
-  declarations: [MapPredictionComponent]
+  declarations: [MapPredictionComponent, FishingMapComponent]
 })
 export class MapModule { }

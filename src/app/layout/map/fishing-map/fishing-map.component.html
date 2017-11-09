@@ -1,0 +1,23 @@
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+  <!--<agm-circle #circle [latitude]="longitude" [longitude]="latitude" [radius]="radius" [strokeColor]="strokeColor" [strokeOpacity]="strokeOpacity" [fillColor]="fillColor" [fillOpacity]="fillOpacity" [circleDraggable]="true"></agm-circle>-->
+  <!--<agm-marker [latitude]="longitude" [longitude]="latitude"></agm-marker>-->
+  <agm-circle *ngFor="let m of hamlets; let i = index" [latitude]="m.lon" [longitude]="m.lat"
+              [radius]="10000" [strokeColor]="strokeColor" [strokeOpacity]="strokeOpacity" [fillColor]="fillColor"
+              [fillOpacity]="fillOpacity" [circleDraggable]="false"
+              (circleClick)="clickedCircle(m.id, i)"
+              [zIndex]=5000 [visible]="true">
+    <!--<agm-snazzy-info-window #infoWindow-->
+                            <!--[latitude]="mapData.selectedPoint.lat"-->
+                            <!--[longitude]="mapData.selectedPoint.lng"-->
+                            <!--[isOpen]="mapData.infoWindow.isOpen">-->
+      <!--<ng-template>-->
+        <!--text goes here-->
+      <!--</ng-template>-->
+    <!--</agm-snazzy-info-window>-->
+    <!--<agm-info-window>-->
+      <!--{{m.lat + " " + m.lon}}&#010;-->
+      <!--{{i}}&#010;-->
+      <!--{{m.name}}-->
+    <!--</agm-info-window>-->
+  </agm-circle>
+</agm-map>

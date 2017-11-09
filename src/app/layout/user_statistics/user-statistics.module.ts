@@ -17,7 +17,7 @@ import {UserStatisticsComponent} from './user-statistics.component';
 import {TranslateModule} from '@ngx-translate/core';
 import {FormsModule} from '@angular/forms';
 import {FishComponent} from './fishing-page/fish/fish.component';
-import {FishingMapComponent} from './fishing-map/fishing-map.component';
+import {FishingMapComponent} from '../map/fishing-map/fishing-map.component';
 
 @NgModule({
   imports: [
@@ -31,7 +31,6 @@ import {FishingMapComponent} from './fishing-map/fishing-map.component';
     TranslateModule,
     FormsModule,
     MdInputModule,
-    // FishingPageRoutingModule,
     MdToolbarModule,
     MdFormFieldModule,
     MdSelectModule,
@@ -43,8 +42,7 @@ import {FishingMapComponent} from './fishing-map/fishing-map.component';
   declarations: [UserStatisticsComponent,
     FishingPageComponent,
     FishingListComponent,
-    FishComponent,
-    FishingMapComponent],
+    FishComponent],
   entryComponents: [
     FishComponent
   ]

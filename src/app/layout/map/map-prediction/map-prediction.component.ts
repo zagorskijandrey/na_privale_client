@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Region} from '../../../shared/models/region';
 import {RegionService} from '../../../shared/services/region.service';
 import {ErrorHandlerService} from '../../../shared/services/error-handler.service';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-map-prediction',

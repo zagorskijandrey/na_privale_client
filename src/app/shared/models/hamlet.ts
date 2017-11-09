@@ -4,7 +4,7 @@
 export class Hamlet {
   id: number;
   name: string;
-  latitude: number;
-  longitude: number;
-  count: number;
+  lat: number;
+  lon: number;
+  amount: number;
 }

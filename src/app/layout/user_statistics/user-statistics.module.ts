@@ -18,6 +18,7 @@ import {TranslateModule} from '@ngx-translate/core';
 import {FormsModule} from '@angular/forms';
 import {FishComponent} from './fishing-page/fish/fish.component';
 import {FishingMapComponent} from '../map/fishing-map/fishing-map.component';
+import { HamletDescriptionComponent } from './hamlet-description/hamlet-description.component';
 
 @NgModule({
   imports: [
@@ -42,7 +43,8 @@ import {FishingMapComponent} from '../map/fishing-map/fishing-map.component';
   declarations: [UserStatisticsComponent,
     FishingPageComponent,
     FishingListComponent,
-    FishComponent],
+    FishComponent,
+    HamletDescriptionComponent],
   entryComponents: [
     FishComponent
   ]

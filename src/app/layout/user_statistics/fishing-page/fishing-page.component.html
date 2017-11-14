@@ -76,11 +76,20 @@
           <div #dynamicComponentContainerFish></div>
         </div>
         <div align="right">
-          <a style="color: #7594a2" href="javascript:void(0)">
-            <md-icon (click)="removeFish()"> remove </md-icon>
+          <!--<md-action-row>-->
+          <a href="javascript:void(0)">
+            <md-icon style="color: #7594a2" (click)="addFish()">add</md-icon>
+            <!--<md-icon style="color: #7594a2" (click)="removeFish()">remove</md-icon>-->
           </a>
+          <div></div>
+            <!--<md-icon style="color: #7594a2" (click)="addFish()">add</md-icon>-->
+          <!--<md-icon style="color: #7594a2" (click)="removeFish()">remove</md-icon>-->
+          <!--</md-action-row>-->
+          <!--<a style="color: #7594a2" href="javascript:void(0)">-->
+            <!--<md-icon (click)="addFish()">add</md-icon>-->
+          <!--</a>-->
           <a style="color: #7594a2" href="javascript:void(0)">
-            <md-icon (click)="addFish()"> add </md-icon>
+            <md-icon (click)="removeFish()">remove</md-icon>
           </a>
         </div>
         <md-form-field style="width: 100%">

@@ -10,7 +10,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import {environment} from '../../../environments/environment';
 import {AuthHttp} from 'angular2-jwt';
-import {Hamlet} from "../models/hamlet";
+import {Hamlet} from '../models/hamlet';
 
 @Injectable()
 export class LocationService extends ExtractService {

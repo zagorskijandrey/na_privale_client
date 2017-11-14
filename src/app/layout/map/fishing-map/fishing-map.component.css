@@ -5,3 +5,21 @@ agm-map{
 agm-circle {
   text-decoration-color: white;
 }
+#hamlet-description {
+  background-color: #c3c3c3;
+  opacity: 0.8;
+  height: 87vh;
+  padding-left: 10px;
+  padding-right: 10px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.hamlet-desc-card {
+  margin-top: 10px;
+  font-family: story_font;
+}
+
+md-card-title {
+  text-decoration: underline;
+}

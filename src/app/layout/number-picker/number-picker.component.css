@@ -1,16 +1,40 @@
+/*.num-button-content {*/
+  /*text-align: center;*/
+  /*width: 35px;*/
+  /*height: 35px;*/
+  /*border-color: rgba(0, 0, 0, .38);*/
+  /*border: 1px solid #ccc;*/
+  /*-webkit-border-radius: 50%;*/
+  /*-moz-border-radius: 50%;*/
+  /*-ms-border-radius: 50%;*/
+  /*border-radius: 50%;*/
+  /*-webkit-box-shadow: 0 0 0 1px #fff, 1px 1px 3px #ddd;*/
+  /*-moz-box-shadow: 0 0 0 1px #fff, 1px 1px 3px #ddd;*/
+  /*-ms-box-shadow: 0 0 0 1px #fff, 1px 1px 3px #ddd;*/
+  /*box-shadow: 0 0 0 1px #fff, 1px 1px 3px #ddd;*/
+  /*font-family: story_font;*/
+/*}*/
+
 .num-button-content {
-  text-align: center;
-  width: 35px;
-  height: 35px;
-  border-color: rgba(0, 0, 0, .38);
-  border: 1px solid #ccc;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  border-radius: 50%;
-  -webkit-box-shadow: 0 0 0 1px #fff, 1px 1px 3px #ddd;
-  -moz-box-shadow: 0 0 0 1px #fff, 1px 1px 3px #ddd;
-  -ms-box-shadow: 0 0 0 1px #fff, 1px 1px 3px #ddd;
-  box-shadow: 0 0 0 1px #fff, 1px 1px 3px #ddd;
   font-family: story_font;
+  /*position: relative;*/
+  /*display: inline-block;*/
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+  color: #000;
+  outline: none;
+  border-radius: 5px;
+  box-shadow: 0 0 0 1px #ddd inset, 0 1px 1px #fff;
+}
+.num-button-content:hover {
+  background: #dcdcdc linear-gradient(#fff, #dcdcdc);
+  box-shadow: 0 0 0 1px #aaa inset, 0 1px 1px #aaa;
+}
+.num-button-content:active {
+  background: none;
+  box-shadow: 0 0 0 1px #bbb inset, 0 1px 3px rgba(0,0,0,.5) inset, 0 1px 2px #fff;
 }

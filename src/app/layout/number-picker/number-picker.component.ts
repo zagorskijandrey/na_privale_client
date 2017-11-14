@@ -13,7 +13,7 @@ export class NumberPickerComponent implements OnInit {
 
   parameter: String = '';
   value: Number = 0;
-  result: String = '####';
+  result: String = '----';
   constructor(private dialogRef: MdDialogRef<NumberPickerComponent>) { }
 
   ngOnInit() {
@@ -27,7 +27,7 @@ export class NumberPickerComponent implements OnInit {
     if (this.result.match(/[.]/) && val === '.') {
       return;
     }
-    this.result = this.result.replace(/[#]/g , '');
+    this.result = this.result.replace(/[-]/g , '');
     this.result += val;
     const num: number = parseInt(this.result.toString(), 10);
     if (this.parameter === 'time' && num >= 24) {

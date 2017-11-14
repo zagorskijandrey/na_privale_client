@@ -6,6 +6,8 @@ import { MapPredictionComponent } from './map-prediction/map-prediction.componen
 import {AgmCoreModule} from '@agm/core';
 import {SharedPipesModule} from '../../shared/pipes/shared-pipes.module';
 import {FishingMapComponent} from './fishing-map/fishing-map.component';
+import {MdCardModule, MdSidenavModule} from '@angular/material';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   imports: [
@@ -14,7 +16,10 @@ import {FishingMapComponent} from './fishing-map/fishing-map.component';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyA2B2IySXd2d0EpRCT_7BwUwtlzf6Mp2cw'
     }),
-    SharedPipesModule
+    SharedPipesModule,
+    MdSidenavModule,
+    FlexLayoutModule,
+    MdCardModule
   ],
   declarations: [MapPredictionComponent, FishingMapComponent]
 })

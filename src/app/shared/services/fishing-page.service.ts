@@ -10,7 +10,7 @@ import {Observable} from 'rxjs/Observable';
 import {environment} from '../../../environments/environment';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import {Http, Headers, URLSearchParams, RequestOptions} from '@angular/http';
+import {Http, Headers, URLSearchParams, RequestOptions, Response} from '@angular/http';
 
 @Injectable()
 export class FishingPageService extends ExtractService {
@@ -37,5 +37,14 @@ export class FishingPageService extends ExtractService {
 
     return this.authHttp.get(environment.api + 'fishing', options)
       .map(this.getResponseBody.bind(this)).catch(this.handleError.bind(this));
+  }
+
+  public getHamletsDescription(id: number): Observable<Array<any>> {
+    return this.authHttp.get(environment.api + 'hamlet_description?id=' + id)
+      .map(this.getHamletsDescriptionWithResponse.bind(this)).catch(this.handleError.bind(this));
+  }
+
+  private getHamletsDescriptionWithResponse(res: Response): Array<any> {
+    return this.getResponseBody(res).hamlets_description;
   }
 }

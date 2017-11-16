@@ -3,7 +3,11 @@
     "brand": "На привале",
     "menu": {
       "home": "головна",
-      "map": "прогноз",
+      "map":{
+        "prediction": "прогноз",
+        "peaceful": "мирна",
+        "hunter": "хижа"
+      },
       "signin": "вхід",
       "signup": "реєстрація",
       "logout": "вихід",

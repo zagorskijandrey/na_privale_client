@@ -1,15 +1,16 @@
 <div fxLayout="row" fxLayoutAlign="start center" class="content">
   <div fxFlex>
     <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
-      <agm-circle *ngFor="let m of hamlets; let i = index" [latitude]="m.lon" [longitude]="m.lat"
-                  [radius]="m.amount | circleRadiusPipe : minAmountFishing : maxAmountFishing" [strokeColor]="strokeColor"
+      <agm-circle *ngFor="let hamlet of hamlets; let i = index" [latitude]="hamlet.lon" [longitude]="hamlet.lat"
+                  [radius]="hamlet.amount | circleRadiusPipe : minAmountFishing : maxAmountFishing" [strokeColor]="strokeColor"
                   [strokeOpacity]="strokeOpacity" [fillColor]="fillColor"
                   [fillOpacity]="fillOpacity" [circleDraggable]="false"
-                  (circleClick)="clickedCircle(m.id)" [visible]="true">
+                  (circleClick)="clickedCircle(hamlet.id, hamlet.name)" [visible]="true">
       </agm-circle>
     </agm-map>
   </div>
   <div fxFlex="25%" *ngIf="isClosedSidenavRight" (click)="clickSidenavRight()" id="hamlet-description">
+    <p align="center">{{hamletName}}</p>
     <md-card class="hamlet-desc-card" *ngFor="let hamletDesc of hamletsDescription">
       <md-card-header>
         <md-card-title *ngIf="hamletsDescription"><em>{{hamletDesc.date | date : 'dd.MM.yyyy'}}</em></md-card-title>

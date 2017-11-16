@@ -13,6 +13,7 @@ agm-circle {
   padding-right: 10px;
   overflow-x: hidden;
   overflow-y: scroll;
+  font-family: story_font;
 }
 
 .hamlet-desc-card {

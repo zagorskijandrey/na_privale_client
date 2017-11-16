@@ -24,7 +24,12 @@
 
   <md-menu #menu="mdMenu" xPosition="before">
     <button md-menu-item routerLink="/home" class="but-header-menu">{{ 'header.menu.home'| translate }}</button>
-    <button md-menu-item routerLink="/map" class="but-header-menu">{{ 'header.menu.map'| translate }}</button>
+    <button md-menu-item [mdMenuTriggerFor]="prediction" style="font-family: story_font">{{ 'header.menu.map.prediction'| translate }}</button>
+  </md-menu>
+
+  <md-menu #prediction="mdMenu">
+    <button md-menu-item routerLink="/map" class="but-header-menu">{{ 'header.menu.map.peaceful'| translate }}</button>
+    <button md-menu-item routerLink="/map" class="but-header-menu">{{ 'header.menu.map.hunter'| translate }}</button>
   </md-menu>
 
   <button md-icon-button [md-menu-trigger-for]="menu">

@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Hamlet} from '../../../shared/models/hamlet';
 import {LocationService} from '../../../shared/services/location.service';
 import {Router} from '@angular/router';
@@ -13,6 +13,7 @@ import {FishingPageService} from '../../../shared/services/fishing-page.service'
 })
 export class FishingMapComponent implements OnInit {
 
+  hamletName: string;
   hamlets: Hamlet[];
   isClosedSidenavRight = false;
   hamletsDescription: Array<{ date: any, comment: string }>;
@@ -29,10 +30,6 @@ export class FishingMapComponent implements OnInit {
   zoom = 7;
 
   @ViewChild('sidenavRight') sidenavRight: MdSidenav;
-
-  // @ViewChild('circle')
-  // public searchCircle: AgmCircle;
-
   constructor(private fishingPageService: FishingPageService, private router: Router,
               private locationService: LocationService, private errorService: ErrorHandlerService) {
   }
@@ -60,21 +57,18 @@ export class FishingMapComponent implements OnInit {
       .subscribe(res => res);
   }
 
-  clickedCircle(index: number) {
-    // console.log(`clicked the marker: ${label || index}`);
-    // this.router.url.match('/hamlet_description');
+  clickedCircle(index: number, name: string) {
+    this.hamletName = name;
     this.clickSidenavRight(index);
   }
 
   private clickSidenavRight(index: number) {
     if (!this.isClosedSidenavRight) {
-      // sidenav.open();
       this.isClosedSidenavRight = true;
       this.fishingPageService.getHamletsDescription(index).subscribe(res => {
         this.hamletsDescription = res;
       });
     } else {
-      // sidenav.close();
       if (index) {
         this.isClosedSidenavRight = true;
         this.fishingPageService.getHamletsDescription(index).subscribe(res => {
@@ -85,14 +79,4 @@ export class FishingMapComponent implements OnInit {
       }
     }
   }
-
-  // private setCurrentPosition() {
-  //   if ('geolocation' in navigator) {
-  //     navigator.geolocation.getCurrentPosition((position) => {
-  //       // this.latitude = position.coords.latitude;
-  //       // this.longitude = position.coords.longitude;
-  //       this.zoom = 12;
-  //     });
-  //   }
-  // }
 }

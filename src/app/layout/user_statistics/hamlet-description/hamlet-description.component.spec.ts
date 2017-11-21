@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FishingPageComponent } from './fishing-page.component';
+import { HamletDescriptionComponent } from './hamlet-description.component';
 
-describe('FishingPageComponent', () => {
-  // let component: FishingPageComponent;
-  // let fixture: ComponentFixture<FishingPageComponent>;
+describe('HamletDescriptionComponent', () => {
+  // let component: HamletDescriptionComponent;
+  // let fixture: ComponentFixture<HamletDescriptionComponent>;
   //
   // beforeEach(async(() => {
   //   TestBed.configureTestingModule({
-  //     declarations: [ FishingPageComponent ]
+  //     declarations: [ HamletDescriptionComponent ]
   //   })
   //   .compileComponents();
   // }));
   //
   // beforeEach(() => {
-  //   fixture = TestBed.createComponent(FishingPageComponent);
+  //   fixture = TestBed.createComponent(HamletDescriptionComponent);
   //   component = fixture.componentInstance;
   //   fixture.detectChanges();
   // });

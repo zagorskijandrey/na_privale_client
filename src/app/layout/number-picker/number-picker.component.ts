@@ -38,6 +38,6 @@ export class NumberPickerComponent implements OnInit {
   }
 
   clearValue() {
-    this.result = '####';
+    this.result = '----';
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {RegistrationService} from '../../shared/services/registration.service';
 
 @Component({
@@ -23,8 +23,8 @@ export class EmailRepairComponent implements OnInit {
     }
     return false;
   }
-  
-  compareAndInitUser(){
+
+  compareAndInitUser() {
     this.registrationService.initUserByEmail(this.email_repair).subscribe(res => this.email_repair = res);
   }
 }

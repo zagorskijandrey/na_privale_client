@@ -1,13 +1,14 @@
-import {NgModule} from '@angular/core';
-import {MdCardModule} from '@angular/material';
-import {NumberPickerComponent} from './number-picker.component';
-import {NumberPickerService} from '../../shared/services/number-picker.service';
 /**
  * Created by AZagorskyi on 30.08.2017.
  */
+import {NgModule} from '@angular/core';
+import {NumberPickerComponent} from './number-picker.component';
+import {NumberPickerService} from '../../shared/services/number-picker.service';
+import {SharedModule} from '../../shared/shared.module';
+
 @NgModule({
   imports: [
-    MdCardModule
+    SharedModule
   ],
   exports: [
     NumberPickerComponent

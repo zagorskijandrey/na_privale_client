@@ -1,16 +1,4 @@
-md-card-header, md-card-content{
-  font-family: story_font;
-  white-space: pre-wrap;
-  white-space: -moz-pre-wrap;
-  white-space: -o-pre-wrap;
-  word-wrap: break-word;
-}
-md-form-field, md-select, md-option, .blocks{
-  font-family: story_font;
-}
-
 button{
-  font-family: story_font;
   background-color: #7f7f7f;
   color: white;
 }

@@ -1,37 +1,37 @@
 <div class="story-padding">
   <h4 md-line>
-    <div fxLayout="row" fxLayoutAlign="start center" class="content">
+    <div fxLayout="row" fxLayoutAlign="start center">
       <div fxFlex="50%">
         <div style="padding-top: 20px">
-          <md-form-field class="form-color-site" floatPlaceholder="never">
+          <md-form-field class="owner-font" floatPlaceholder="never">
             <input mdInput #filter placeholder="Найти статью">
           </md-form-field>
         </div>
       </div>
       <div fxFlex align="right">
-        <md-select placeholder="На странице" mdInput [(ngModel)]="pageAmount" (ngModelChange)="handlePageAmount(null)">
-          <md-option *ngFor="let amount of storiesCounter" [value]="amount">
+        <md-select class="owner-font" placeholder="На странице" mdInput [(ngModel)]="pageAmount" (ngModelChange)="handlePageAmount(null)">
+          <md-option class="owner-font" *ngFor="let amount of storiesCounter" [value]="amount">
             {{ amount }}
           </md-option>
         </md-select>
       </div>
     </div>
   </h4>
-  <md-card *ngFor="let story of stories">
+  <div class="owner-font" *ngFor="let story of stories">
     <h4 md-line>
-      <div fxLayout="row" fxLayoutAlign="start center" class="content">
-        <div class="blocks" fxFlex="50%">{{story.name}}</div>
-        <div class="blocks" fxFlex align="right">{{story.author}}</div>
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <div fxFlex="50%">{{story.name}}</div>
+        <div fxFlex align="right">{{story.author}}</div>
       </div>
     </h4>
-    <md-card-content>
+    <div class="owner-text-space">
       {{story.text}}
-    </md-card-content>
-    <span layout="row"><hr flex/></span>
-    <md-card-actions>
-      <button [routerLink]="['describe', story.id]" md-raised-button>Дальше...</button>
-    </md-card-actions>
-  </md-card>
+    </div>
+    <span><hr flex/></span>
+    <div>
+      <button class="owner-font" [routerLink]="['describe', story.id]" md-raised-button>Дальше...</button>
+    </div>
+  </div>
   <div>
     <div #dynamicComponentContainerPagination></div>
   </div>

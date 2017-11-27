@@ -6,7 +6,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  private typewriter_text: String = 'Женщина, которая никогда не видела своего мужа за ужением рыбы, не имеет понятия' +
+  public typewriter_text: String = 'Женщина, которая никогда не видела своего мужа за ужением рыбы, не имеет понятия' +
     ', за какого терпеливого человека она вышла замуж - Эдгар Хау;Самая плохая рыбалка лучше самой хорошей работы.;' +
     'Рыболовы бывают двух видов: одни смотрят на это занятие как на спорт, другим удается что-то поймать.;' +
     'Пока не поймаешь настоящую рыбу, рыбалка скучна, а после этого — отвратительна - Дейв Барри;' +
@@ -15,8 +15,7 @@ export class HomeComponent implements OnInit {
     'Одни рыболовы ловят рыбу, другие всю жизнь ее только подкармливают.;' +
     'Чем длиннее руки у рыболова, тем меньше веры его рассказам.;' +
     'Рыбалка — промежуточное звено между спортом и религией - Джозефин Тей;';
-  private typewriter_display: String = '';
-  private count: Number = 0;
+  public typewriter_display: String = '';
 
   constructor() {
   }
@@ -54,5 +53,9 @@ export class HomeComponent implements OnInit {
       'https://plus.google.com/110532500500235627765',
       '_blank'
     );
+  }
+
+  public setTypewriterText(text: String) {
+    this.typewriter_text = text;
   }
 }

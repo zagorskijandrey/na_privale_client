@@ -3,19 +3,12 @@
  */
 import {EmailRepairComponent} from './email-repair.component';
 import {EmailRepairRoutingModule} from './email-repair-routing.module';
-import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import {MdInputModule, MdSlideToggleModule} from '@angular/material';
-import {TranslateModule} from '@ngx-translate/core';
+import {SharedModule} from '../../shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule,
-    TranslateModule,
-    FormsModule,
-    MdInputModule,
-    MdSlideToggleModule,
+    SharedModule,
     EmailRepairRoutingModule
   ],
   declarations: [EmailRepairComponent]

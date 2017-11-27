@@ -19,3 +19,15 @@ html, body {
   font-family: "story_font";
   src: url("assets/fonts/10369.ttf");
 }
+
+.owner-font{
+  font-family: story_font;
+}
+
+.owner-text-space{
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+  text-align: justify;
+}

@@ -4,11 +4,12 @@
 import {NgModule} from '@angular/core';
 import {DialogComponent} from './dialog.component';
 import {ErrorHandlerService} from '../../shared/services/error-handler.service';
-import {TranslateModule} from '@ngx-translate/core';
+
+import {SharedModule} from '../../shared/shared.module';
 
 @NgModule({
   imports: [
-    TranslateModule
+    SharedModule
   ],
   exports: [
     DialogComponent

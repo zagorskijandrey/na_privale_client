@@ -1,70 +1,90 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-
+import {async, ComponentFixture, fakeAsync, inject, TestBed, tick} from '@angular/core/testing';
 import {EmailRepairComponent} from './email-repair.component';
-import {TranslateLoader, TranslateModule, TranslateService} from '@ngx-translate/core';
+import {Component, DebugElement, Injectable} from '@angular/core';
+import {Location} from '@angular/common';
+import {By} from '@angular/platform-browser';
+import {SharedModule} from '../../shared/shared.module';
+import {Router} from '@angular/router';
+import {RouterTestingModule} from '@angular/router/testing';
 import {RegistrationService} from '../../shared/services/registration.service';
-import {CommonModule, LocationStrategy} from '@angular/common';
-import {MdCardModule, MdInputModule, MdSlideToggleModule} from '@angular/material';
-import {FormsModule} from '@angular/forms';
-import {EmailRepairRoutingModule} from './email-repair-routing.module';
-import {ActivatedRoute, Router} from '@angular/router';
+
+@Component({
+  template: `
+    <router-outlet></router-outlet>
+  `
+})
+class RoutingComponent {
+}
+
+@Component({
+  template: ''
+})
+class SigninMockComponent {
+}
 
 class MockRegistrationService {
-  subscribe: () => {};
-}
-
-class MockTranslateService {
-}
-
-class MockRouter {
-  navigateByUrl(url: string) { return url; }
-}
-
-class MockActivatedRoute {
-  navigateByUrl(url: string) { return url; }
 }
 
 describe('EmailRepairComponent', () => {
-  let emailRepairComponent: EmailRepairComponent;
+  let comp: EmailRepairComponent;
   let fixture: ComponentFixture<EmailRepairComponent>;
+  let debugElementButton: DebugElement;
+  let button: HTMLElement;
 
-  beforeEach(async(() => {
+  let location, router;
+
+
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [EmailRepairComponent]
-      // imports: [TranslateModule.forRoot(), FormsModule,
-      //   CommonModule,
-      //   MdCardModule,
-      //   MdInputModule,
-      //   MdSlideToggleModule,
-      //   EmailRepairRoutingModule],
-      // providers: [LocationStrategy,
-      //   { provide: ActivatedRoute, useClass: MockActivatedRoute },
-      //   { provide: Router, useClass: MockRouter },
-      //   {provide: TranslateService, useClass: MockTranslateService},
-      //   {provide: RegistrationService, useClass: MockRegistrationService}
-      // ]
-    })
-      .compileComponents().then(() => {
-      fixture = TestBed.createComponent(EmailRepairComponent);
+      imports: [SharedModule, RouterTestingModule.withRoutes([
+        {path: 'signin', component: SigninMockComponent}
+      ])],
+      declarations: [EmailRepairComponent, RoutingComponent, SigninMockComponent],
+      providers: [{provide: RegistrationService, useClass: MockRegistrationService}]
+    });
+    fixture = TestBed.createComponent(EmailRepairComponent);
+    comp = fixture.componentInstance;
+    debugElementButton = fixture.debugElement.query(By.css('button'));
+    button = debugElementButton.nativeElement;
+    button.innerText = 'submit';
+  });
 
-      emailRepairComponent = fixture.componentInstance;
-      emailRepairComponent.email_repair = 'andrey.zagorskyi@gmail.com';
+  beforeEach(inject([Router, Location], (_router: Router, _location: Location) => {
+    location = _location;
+    router = _router;
+  }));
+
+  beforeEach(fakeAsync(() => {
+    setInputValue('input', 'zagorskyi.andrii@gmail.com');
+  }));
+
+  it('link of router is correct', async(() => {
+    const fix = TestBed.createComponent(RoutingComponent);
+    fix.detectChanges();
+    router.navigate(['/signin']).then(() => {
+      expect(location.path()).toBe('/signin');
     });
   }));
 
-  // beforeEach(() => {
-  //   fixture = TestBed.createComponent(EmailRepairComponent);
-  //   emailRepairComponent = fixture.componentInstance;
-  //   emailRepairComponent.email_repair = '';
-  //   // fixture.detectChanges();
-  // });
+  it('should allow me to set a bound input field', async(() => {
+    expect(comp.email_repair).toEqual('zagorskyi.andrii@gmail.com');
+  }));
 
-  // it('should return false if email incorrect', () => {
-  //   emailRepairComponent.email_repair = 'andrey.zagorskyi';
-  //   expect(emailRepairComponent.isValidEmailRepair).toBe(false);
-  // });
-  it('should return true if email correct', () => {
-    emailRepairComponent.email_repair = 'andrey.zagorskyi@gmail.com';
-    expect(emailRepairComponent.isValidEmailRepair).toBe(true);
-  });
+  it('should return true if email correct', async(() => {
+    expect(comp.isValidEmailRepair).toBe(true);
+  }));
+
+  it('it\'s email', async(() => {
+    expect(comp.email_repair).toContain('@');
+  }));
+
+  function setInputValue(selector: string, value: string) {
+    fixture.detectChanges();
+    tick();
+
+    const input = fixture.debugElement.query(By.css(selector)).nativeElement;
+    input.value = value;
+    input.dispatchEvent(new Event('input'));
+    tick();
+  }
 });

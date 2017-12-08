@@ -1,31 +1,31 @@
-<md-sidenav-container id="sidenav_id" (window:resize)="resizeWindowWithSidenav()">
-  <md-sidenav #sidenav class="user-statistics-sidenav" mode="side">
-    <md-nav-list>
+<mat-sidenav-container id="sidenav_id" (window:resize)="resizeWindowWithSidenav()">
+  <mat-sidenav #sidenav class="user-statistics-sidenav" mode="side">
+    <mat-nav-list>
       <a [routerLink]="['page']">
-        <md-icon style="color: #ebebeb">create</md-icon>
+        <mat-icon style="color: #ebebeb">create</mat-icon>
       </a>
       <br>
       <br>
       <a [routerLink]="['fishing']">
-        <md-icon style="color: #ebebeb">list</md-icon>
+        <mat-icon style="color: #ebebeb">list</mat-icon>
       </a>
       <br>
       <br>
       <a [routerLink]="['/map/fishing']">
-        <md-icon style="color: #ebebeb">language</md-icon>
+        <mat-icon style="color: #ebebeb">language</mat-icon>
       </a>
-    </md-nav-list>
-  </md-sidenav>
+    </mat-nav-list>
+  </mat-sidenav>
 
   <div>
     <div align="left" style="padding: 5px 5px">
       <a style="color: #7594a2" href="javascript:void(0)">
-        <md-icon (click)="clickSidenav(sidenav)" *ngIf="isClosedSidenav">toll</md-icon>
-        <md-icon (click)="clickSidenav(sidenav)" *ngIf="!isClosedSidenav">fiber_smart_record</md-icon>
+        <mat-icon (click)="clickSidenav(sidenav)" *ngIf="isClosedSidenav">toll</mat-icon>
+        <mat-icon (click)="clickSidenav(sidenav)" *ngIf="!isClosedSidenav">fiber_smart_record</mat-icon>
       </a>
     </div>
     <div>
       <router-outlet></router-outlet>
     </div>
   </div>
-</md-sidenav-container>
+</mat-sidenav-container>

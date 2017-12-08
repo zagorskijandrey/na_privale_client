@@ -1,0 +1,58 @@
+<div class="fishing-page-padding">
+  <div fxLayout="row" fxLayoutAlign="start center">
+    <div fxFlex align="center" *ngIf="fishingPage.fishes && fishingPage.fishes[0]">
+        <span matTooltip="Наживка: {{fishingPage.fishes[0].bait}} Дистанция: {{fishingPage.fishes[0].distance}}
+        Время: {{fishingPage.fishes[0].time}}" matTooltipPosition="above">
+          <h3 mat-line class="owner-font">{{fishingPage.fishes[0].name}}/{{fishingPage.fishes[0].weight}}</h3>
+        </span>
+      <hr width="50%">
+    </div>
+    <div fxFlex align="center" *ngIf="fishingPage.fishes && fishingPage.fishes[1]">
+        <span matTooltip="Наживка: {{fishingPage.fishes[1].bait}} Дистанция: {{fishingPage.fishes[1].distance}}
+         Время: {{fishingPage.fishes[1].time}}" matTooltipPosition="above">
+        <h3 mat-line class="owner-font">{{fishingPage.fishes[1].name}}/{{fishingPage.fishes[1].weight}}</h3>
+          </span>
+      <hr width="50%">
+    </div>
+    <div fxFlex align="center" *ngIf="fishingPage.fishes && fishingPage.fishes[2]">
+        <span matTooltip="Наживка: {{fishingPage.fishes[2].bait}} Дистанция: {{fishingPage.fishes[2].distance}}
+         Время: {{fishingPage.fishes[2].time}}" matTooltipPosition="above">
+        <h3 mat-line class="owner-font">{{fishingPage.fishes[2].name}}/{{fishingPage.fishes[2].weight}}</h3>
+          </span>
+      <hr width="50%">
+    </div>
+    <div fxFlex align="center" *ngIf="fishingPage.fishes && fishingPage.fishes[3]">
+        <span matTooltip="Наживка: {{fishingPage.fishes[3].bait}} Дистанция: {{fishingPage.fishes[3].distance}}
+         Время: {{fishingPage.fishes[3].time}}" matTooltipPosition="above">
+        <h3 mat-line class="owner-font">{{fishingPage.fishes[3].name}}/{{fishingPage.fishes[3].weight}}</h3>
+          </span>
+      <hr width="50%">
+    </div>
+    <div fxFlex align="center" *ngIf="fishingPage.fishes && fishingPage.fishes[4]">
+        <span matTooltip="Наживка: {{fishingPage.fishes[4].bait}} Дистанция: {{fishingPage.fishes[4].distance}}
+         Время: {{fishingPage.fishes[4].time}}" matTooltipPosition="above">
+        <h3 mat-line class="owner-font">{{fishingPage.fishes[4].name}}/{{fishingPage.fishes[4].weight}}</h3>
+          </span>
+      <hr width="50%">
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="start center">
+    <div fxFlex="50%" *ngIf="marksIsLoaded">
+      <div class="owner-font" style="display: block">
+        <canvas baseChart
+                [options]="radarOptions"
+                [datasets]="radarChartData"
+                [labels]="radarChartLabels"
+                [chartType]="radarChartType"
+                [colors]="doughnutChartColors"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+    <div fxFlex>
+      <div class="owner-font">
+        {{fishingPage.comment}}
+      </div>
+    </div>
+  </div>
+</div>

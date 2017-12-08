@@ -9,17 +9,15 @@
           <p class="text-muted">{{ 'email_repair.row_3'| translate }}</p>
         </div>
         <form>
-          <md-input-container class="full-width mat-input-container">
+          <mat-input-container class="full-width mat-input-container">
             <div class="mat-input-wrapper">
-              <input class="mat-input-element" type="email" mdInput name="email" [(ngModel)]="email_repair"
+              <input class="mat-input-element" type="email" matInput name="email" [(ngModel)]="email_repair"
                      placeholder="Ваш Email" required value="" id="email" aria-invalid="false" readonly>
             </div>
-          </md-input-container>
+          </mat-input-container>
 
-          <button class="full-width mb-1 mat-raised-button" style="background-color: #9dbcca" md-raised-button="" (click)="compareAndInitUser()"
+          <button class="full-width mb-1 mat-raised-button" style="background-color: #9dbcca" mat-raised-button (click)="compareAndInitUser()"
                   [disabled]="!isValidEmailRepair"><span class="mat-button-wrapper" style="color: white">{{ 'email_repair.search_by_email'| translate }}</span>
-            <div class="mat-ripple" md-ripple=""></div>
-            <div class="mat-button-focus-overlay"></div>
           </button>
           <div class="text-center">
             <a class="mat-primary text-center full-width" [routerLink]="['/signin']">{{ 'email_repair.entry'| translate }}</a>

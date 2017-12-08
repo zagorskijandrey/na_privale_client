@@ -1,8 +1,8 @@
 <div align="center">
-  <h2 md-dialog-title style="font-family: story_font">{{ title }}</h2>
+  <h2 mat-dialog-title style="font-family: story_font">{{ title }}</h2>
   <hr>
-  <h4 md-dialog-content style="font-family: story_font">{{ message }}</h4>
-  <button class="full-width  mb-1 mat-raised-button" style="background-color: #9dbcca" md-raised-button (click)="dialog.closeAll()">
+  <h4 mat-dialog-content style="font-family: story_font">{{ message }}</h4>
+  <button class="full-width  mb-1 mat-raised-button" style="background-color: #9dbcca" mat-raised-button (click)="dialog.closeAll()">
     <span style="color: white; font-family: story_font">{{ 'dialog.close'| translate }}</span>
   </button>
 </div>

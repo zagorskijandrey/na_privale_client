@@ -7,8 +7,9 @@ import {SharedModule} from '../../shared/shared.module';
 import {Router} from '@angular/router';
 import {RouterTestingModule} from '@angular/router/testing';
 import {RegistrationService} from '../../shared/services/registration.service';
-import {TranslateLoader, TranslateModule, TranslateService} from "@ngx-translate/core";
-import {MockTranslateLoader} from "../../shared/mock/mock-translate-loader";
+import {TranslateLoader, TranslateModule, TranslateService} from '@ngx-translate/core';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MockTranslateLoader} from '../../shared/mock/mock-translate-loader';
 
 @Component({
   template: `
@@ -23,6 +24,18 @@ class RoutingComponent {
 })
 class SigninMockComponent {
 }
+
+// export class MockTranslateLoader implements TranslateLoader {
+//   private translations: any;
+//
+//   constructor(translations: any){
+//     this.translations = translations;
+//   }
+//
+//   getTranslation(lang: string): Observable<any> {
+//     return Observable.of(this.translations);
+//   }
+// }
 
 class MockRegistrationService {
 }
@@ -57,7 +70,7 @@ describe('EmailRepairComponent', () => {
     TestBed.configureTestingModule({
       imports: [SharedModule, RouterTestingModule.withRoutes([
         {path: 'signin', component: SigninMockComponent}
-      ]),
+      ]), BrowserAnimationsModule,
         TranslateModule.forRoot({
           loader: {provide: TranslateLoader, useFactory: () => new MockTranslateLoader(translations)},
         })],

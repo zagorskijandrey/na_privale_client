@@ -4,24 +4,23 @@
 import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {FishingListComponent} from './fishing-list/fishing-list.component';
-import {FishingPageComponent} from './fishing-page/fishing-page.component';
 import {UserStatisticsComponent} from './user-statistics.component';
 import {HamletDescriptionComponent} from './hamlet-description/hamlet-description.component';
+import {FishingPageDescriberComponent} from "./fishing-page/fishing-page-describer/fishing-page-describer.component";
+import {FishingPageCreatorComponent} from "./fishing-page/fishing-page-creator/fishing-page-creator.component";
+import {AuthGuard} from "../../shared/guard/auth.guard";
 
-const routes: Routes = [{
+const routes:Routes = [{
   path: '', component: UserStatisticsComponent,
   children: [
-    { path: '', component: FishingPageComponent},
-    {path: 'page', component: FishingPageComponent},
-    {path: 'fishing', component: FishingListComponent},
+    {path: '', component: FishingPageCreatorComponent},
+    {path: 'cr_page', component: FishingPageCreatorComponent},
+    {path: 'fishing', component: FishingListComponent, canActivate: [AuthGuard]},
+    {path: 'ds_page', component: FishingPageDescriberComponent, canActivate: [AuthGuard]},
+    {path: 'ds_page/:id', component: FishingPageDescriberComponent, canActivate: [AuthGuard]},
     {path: 'hamlet_description', component: HamletDescriptionComponent}
   ]
 }
-  // {path: '', component: UserStatisticsComponent },
-  // {path: 'page', component: FishingPageComponent },
-  // {path: 'fishing', component: FishingListComponent },
-  // {path: 'describe', component: StoryDescribeComponent },
-  // {path: 'describe/:id', component: StoryDescribeComponent }
 ];
 
 @NgModule({

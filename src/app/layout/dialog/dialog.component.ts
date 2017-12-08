@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {MdDialog} from '@angular/material';
+import {MatDialog} from '@angular/material';
 
 @Component({
   selector: 'app-dialog',
@@ -11,5 +11,5 @@ export class DialogComponent {
   public title: string;
   public message: string;
 
-  constructor(public dialog: MdDialog) {}
+  constructor(public dialog: MatDialog) {}
 }

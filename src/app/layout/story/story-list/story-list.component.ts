@@ -3,9 +3,7 @@ import {Story} from '../../../shared/models/story';
 import {StoryService} from '../../../shared/services/story.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ErrorHandlerService} from '../../../shared/services/error-handler.service';
-import {MdPaginator, PageEvent} from '@angular/material';
 import {Page} from '../../../shared/models/page';
-import {PagerService} from '../../../shared/services/pager.service';
 import {PageNumerationComponent} from '../../page-numeration/page-numeration.component';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/fromEvent';
@@ -28,7 +26,7 @@ export class StoryListComponent implements OnInit {
   @ViewChild('filter') filter: ElementRef;
   pageAmount: number;
   storiesCounter: number[];
-  previousPage = {isActive: false, count: 1}
+  previousPage = {isActive: false, count: 1};
 
   constructor(public router: Router, private storyService: StoryService, private route: ActivatedRoute,
               private errorService: ErrorHandlerService, private componentFactoryResolver: ComponentFactoryResolver) {

@@ -1,38 +1,38 @@
-<md-toolbar class="mat-elevation-z6">
+<mat-toolbar class="mat-elevation-z6">
   <img src="../../../../assets/images/rybak_brand.png" width="100" height="50" alt="">
   <span id="title" class="but-header-menu">{{ 'header.brand'| translate }}</span>
 
   <span class="fill-space"></span>
-  <md-menu #language="mdMenu" xPosition="before">
+  <mat-menu #language="matMenu" xPosition="before">
     <!--<a class="dropdown-item" href="jvascript:void(0)" (click)="changeLang('ua')">Українська</a>-->
-    <button md-menu-item class="but-header-menu" (click)="changeLang('ru')">{{ 'header.menu.russian'| translate }}</button>
-    <button md-menu-item class="but-header-menu" (click)="changeLang('ua')">{{ 'header.menu.ukrainian'| translate }}</button>
-  </md-menu>
+    <button mat-menu-item class="but-header-menu" (click)="changeLang('ru')">{{ 'header.menu.russian'| translate }}</button>
+    <button mat-menu-item class="but-header-menu" (click)="changeLang('ua')">{{ 'header.menu.ukrainian'| translate }}</button>
+  </mat-menu>
 
-  <button md-icon-button [md-menu-trigger-for]="language">
-    <md-icon>g_translate</md-icon>
+  <button mat-icon-button [mat-menu-trigger-for]="language">
+    <mat-icon>g_translate</mat-icon>
   </button>
 
-  <md-menu #user="mdMenu" xPosition="before">
-    <button md-menu-item routerLink="/signin" class="but-header-menu">{{ 'header.menu.signin'| translate }}&nbsp;&nbsp;&nbsp;&#8195;<md-icon>file_download</md-icon></button>
-    <button md-menu-item routerLink="/signup" class="but-header-menu">{{ 'header.menu.signup'| translate }}</button>
-    <button md-menu-item (click)="endUserSession()" class="but-header-menu">{{ 'header.menu.logout'| translate }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<md-icon>file_upload</md-icon></button>
-  </md-menu>
-  <button md-icon-button [md-menu-trigger-for]="user">
-    <md-icon>person</md-icon>
+  <mat-menu #user="matMenu" xPosition="before">
+    <button mat-menu-item routerLink="/signin" class="but-header-menu">{{ 'header.menu.signin'| translate }}&nbsp;&nbsp;&nbsp;&#8195;<mat-icon>file_download</mat-icon></button>
+    <button mat-menu-item routerLink="/signup" class="but-header-menu">{{ 'header.menu.signup'| translate }}</button>
+    <button mat-menu-item (click)="endUserSession()" class="but-header-menu">{{ 'header.menu.logout'| translate }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mat-icon>file_upload</mat-icon></button>
+  </mat-menu>
+  <button mat-icon-button [mat-menu-trigger-for]="user">
+    <mat-icon>person</mat-icon>
   </button>
 
-  <md-menu #menu="mdMenu" xPosition="before">
-    <button md-menu-item routerLink="/home" class="but-header-menu">{{ 'header.menu.home'| translate }}</button>
-    <button md-menu-item [mdMenuTriggerFor]="prediction" style="font-family: story_font">{{ 'header.menu.map.prediction'| translate }}</button>
-  </md-menu>
+  <mat-menu #menu="matMenu" xPosition="before">
+    <button mat-menu-item routerLink="/home" class="but-header-menu">{{ 'header.menu.home'| translate }}</button>
+    <button mat-menu-item [matMenuTriggerFor]="prediction" style="font-family: story_font">{{ 'header.menu.map.prediction'| translate }}</button>
+  </mat-menu>
 
-  <md-menu #prediction="mdMenu">
-    <button md-menu-item routerLink="/map" class="but-header-menu">{{ 'header.menu.map.peaceful'| translate }}</button>
-    <button md-menu-item routerLink="/map" class="but-header-menu">{{ 'header.menu.map.hunter'| translate }}</button>
-  </md-menu>
+  <mat-menu #prediction="matMenu">
+    <button mat-menu-item routerLink="/map" class="but-header-menu">{{ 'header.menu.map.peaceful'| translate }}</button>
+    <button mat-menu-item routerLink="/map" class="but-header-menu">{{ 'header.menu.map.hunter'| translate }}</button>
+  </mat-menu>
 
-  <button md-icon-button [md-menu-trigger-for]="menu">
-    <md-icon>more_vert</md-icon>
+  <button mat-icon-button [mat-menu-trigger-for]="menu">
+    <mat-icon>more_vert</mat-icon>
   </button>
-</md-toolbar>
+</mat-toolbar>

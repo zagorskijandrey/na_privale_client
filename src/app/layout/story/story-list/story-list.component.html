@@ -1,24 +1,24 @@
 <div class="story-padding">
-  <h4 md-line>
+  <h4 mat-line>
     <div fxLayout="row" fxLayoutAlign="start center">
       <div fxFlex="50%">
         <div style="padding-top: 20px">
-          <md-form-field class="owner-font" floatPlaceholder="never">
-            <input mdInput #filter placeholder="Найти статью">
-          </md-form-field>
+          <mat-form-field class="owner-font" floatPlaceholder="never">
+            <input matInput #filter placeholder="Найти статью">
+          </mat-form-field>
         </div>
       </div>
       <div fxFlex align="right">
-        <md-select class="owner-font" placeholder="На странице" mdInput [(ngModel)]="pageAmount" (ngModelChange)="handlePageAmount(null)">
-          <md-option class="owner-font" *ngFor="let amount of storiesCounter" [value]="amount">
+        <mat-select class="owner-font" placeholder="На странице" matInput [(ngModel)]="pageAmount" (ngModelChange)="handlePageAmount(null)">
+          <mat-option class="owner-font" *ngFor="let amount of storiesCounter" [value]="amount">
             {{ amount }}
-          </md-option>
-        </md-select>
+          </mat-option>
+        </mat-select>
       </div>
     </div>
   </h4>
   <div class="owner-font" *ngFor="let story of stories">
-    <h4 md-line>
+    <h4 mat-line>
       <div fxLayout="row" fxLayoutAlign="start center">
         <div fxFlex="50%">{{story.name}}</div>
         <div fxFlex align="right">{{story.author}}</div>
@@ -29,7 +29,7 @@
     </div>
     <span><hr flex/></span>
     <div>
-      <button class="owner-font" [routerLink]="['describe', story.id]" md-raised-button>Дальше...</button>
+      <button class="owner-font" [routerLink]="['describe', story.id]" mat-raised-button>Дальше...</button>
     </div>
   </div>
   <div>

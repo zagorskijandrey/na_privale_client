@@ -7,7 +7,7 @@ import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 
-describe('App: AngularCliEsri', () => {
+describe('App: Na Privale', () => {
   // let component: AppComponent;
   // let fixture: ComponentFixture<AppComponent>;
   //

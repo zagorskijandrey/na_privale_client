@@ -12,4 +12,5 @@ export class FishingPage {
   comment: string = null;
   fishes: Fish[] = [];
   date: Date;
+  id_province: number = null;
 }

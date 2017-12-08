@@ -1,70 +1,73 @@
 <div class="page-wrap">
   <div class="session-form-hold">
     <!--<md-card class="mat-card">-->
-      <!--<md-card-content class="mat-card-content">-->
-        <div class="text-center pb-1">
-          <img src="../assets/images/rybak_brand.png" width="150" height="75" alt="">
-          <p class="text-muted">Зарегистрируйтесь для использования сервиса</p>
+    <!--<md-card-content class="mat-card-content">-->
+    <div class="text-center pb-1">
+      <img src="../assets/images/rybak_brand.png" width="150" height="75" alt="">
+      <p class="text-muted">Зарегистрируйтесь для использования сервиса</p>
+    </div>
+    <form>
+      <mat-input-container class="full-width mat-input-container">
+        <div class="mat-input-wrapper">
+          <input class="mat-input-element" type="email" matInput [(ngModel)]="user.email" name="email"
+                 placeholder="Ваш Email" required value="" id="email" aria-invalid="false" readonly
+                 onfocus="if (this.hasAttribute('readonly')) {this.removeAttribute('readonly');
+                        this.blur();this.focus();}">
         </div>
-        <form>
-          <md-input-container class="full-width mat-input-container">
-            <div class="mat-input-wrapper">
-                  <input class="mat-input-element" type="email" mdInput [(ngModel)]="user.email" name="email"
-                         placeholder="Ваш Email" required value="" id="email" aria-invalid="false" readonly
-                         onfocus="if (this.hasAttribute('readonly')) {this.removeAttribute('readonly');
-                        this.blur();this.focus();}">
-            </div>
-          </md-input-container>
+      </mat-input-container>
 
-          <!--<div class="">-->
-            <md-input-container class="full-width mat-input-container">
-              <div class="mat-input-wrapper">
-                <input class="mat-input-element" type="text" mdInput [(ngModel)]="user.username" name="username"
-                       placeholder="Логин" required value="" id="username" aria-invalid="false">
-              </div>
-            </md-input-container>
+      <!--<div class="">-->
+      <mat-input-container class="full-width mat-input-container">
+        <div class="mat-input-wrapper">
+          <input class="mat-input-element" type="text" matInput [(ngModel)]="user.username" name="username"
+                 placeholder="Логин" required value="" id="username" aria-invalid="false">
+        </div>
+      </mat-input-container>
 
-          <md-input-container class="full-width mat-input-container">
-            <div class="mat-input-wrapper">
-              <input class="mat-input-element" type="password" mdInput [(ngModel)]="user.password" name="password"
-                     placeholder="Пароль" required="" value="" id="signinPassword" aria-invalid="false" readonly
-                     onfocus="if (this.hasAttribute('readonly')) {this.removeAttribute('readonly');
+      <mat-input-container class="full-width mat-input-container">
+        <div class="mat-input-wrapper">
+          <input class="mat-input-element" type="password" matInput [(ngModel)]="user.password" name="password"
+                 placeholder="Пароль" required="" value="" id="signinPassword" aria-invalid="false" readonly
+                 onfocus="if (this.hasAttribute('readonly')) {this.removeAttribute('readonly');
                         this.blur();this.focus();}"/>
-            </div>
-          </md-input-container>
-          <small class="form-error-msg" *ngIf="!user.password">Введите пароль латиницей более 5 символов</small>
+        </div>
+      </mat-input-container>
+      <small class="form-error-msg" *ngIf="!user.password">Введите пароль латиницей более 5 символов</small>
 
-          <!--<div class="">-->
-            <md-input-container class="full-width mat-input-container">
-              <div class="mat-input-wrapper">
-                    <input class="mat-input-element" type="password" mdInput [(ngModel)]="confirm_password" name="confirm_password"
-                           placeholder="Повторить пароль" required value="" id="confirm_password" aria-invalid="false" readonly
-                           onfocus="if (this.hasAttribute('readonly')) {this.removeAttribute('readonly');
+      <!--<div class="">-->
+      <mat-input-container class="full-width mat-input-container">
+        <div class="mat-input-wrapper">
+          <input class="mat-input-element" type="password" matInput [(ngModel)]="confirm_password"
+                 name="confirm_password"
+                 placeholder="Повторить пароль" required value="" id="confirm_password" aria-invalid="false" readonly
+                 onfocus="if (this.hasAttribute('readonly')) {this.removeAttribute('readonly');
                         this.blur();this.focus();}">
-              </div>
-            </md-input-container>
-          <small class="form-error-msg" *ngIf="!isValidConfirmPassword">Пароль должен соответствовать введенному выше</small>
-          <!--</div>-->
+        </div>
+      </mat-input-container>
+      <small class="form-error-msg" *ngIf="!isValidConfirmPassword">Пароль должен соответствовать введенному выше
+      </small>
+      <!--</div>-->
 
-          <div class="pb-1">
-            <md-checkbox class="pb-1 mat-checkbox mat-accent" name="isAgreed"
-                         required><label class="mat-checkbox-layout">
+      <div class="pb-1">
+        <mat-checkbox class="pb-1 mat-checkbox mat-accent" name="isAgreed"
+                      required><label class="mat-checkbox-layout">
               <span class="mat-checkbox-label"><span style="display:none">&nbsp;</span>Я согласен использовать сервис.
               </span>
-            </label></md-checkbox>
+        </label>
+        </mat-checkbox>
 
-          </div>
+      </div>
 
-          <button class="full-width mb-1 mat-raised-button" style="background-color: #9dbcca" md-raised-button="" (click)="signup()"
-                  [disabled]="!isValidEmail || !isValidUsername || !isValidPassword || !isValidConfirmPassword"><span class="mat-button-wrapper" style="color: white">Зарегистрироваться</span>
-            <div class="mat-ripple" md-ripple=""></div>
-            <div class="mat-button-focus-overlay"></div>
-          </button>
-          <div class="text-center">
-            <a class="mat-primary text-center full-width" [routerLink]="['/signin']">Войти в существующий аккаунт</a>
-          </div>
-        </form>
-      <!--</md-card-content>-->
+      <button class="full-width mb-1 mat-raised-button" style="background-color: #9dbcca" mat-raised-button
+              (click)="signup()"
+              [disabled]="!isValidEmail || !isValidUsername || !isValidPassword || !isValidConfirmPassword"><span
+        class="mat-button-wrapper" style="color: white">Зарегистрироваться</span>
+      </button>
+      <div class="text-center">
+        <a class="mat-primary text-center full-width" [routerLink]="['/signin']">Войти в существующий аккаунт</a>
+      </div>
+    </form>
+    <!--</md-card-content>-->
     <!--</md-card>-->
   </div>
 </div>

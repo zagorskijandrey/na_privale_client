@@ -4,17 +4,17 @@
 
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import {MdDialog, MdDialogRef} from '@angular/material';
+import {MatDialog, MatDialogRef} from '@angular/material';
 import {NumberPickerComponent} from '../../layout/number-picker/number-picker.component';
 
 @Injectable()
 export class NumberPickerService {
 
-  constructor(private dialog: MdDialog) { }
+  constructor(private dialog: MatDialog) { }
 
   public enterNum(parameter: string): Observable<number> {
 
-    let dialogRef: MdDialogRef<NumberPickerComponent>;
+    let dialogRef: MatDialogRef<NumberPickerComponent>;
 
     dialogRef = this.dialog.open(NumberPickerComponent);
     dialogRef.componentInstance.parameter = parameter;

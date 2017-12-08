@@ -1,23 +1,25 @@
-<md-tab-group md-stretch-tabs class="md-primary" style="background-color: #607D8B; color: white">
-  <md-tab id="fishing" aria-controls="tab2-content">
-    <ng-template md-tab-label>
-      <div mdTooltip='test' (click)="selectedTab = 0; choicePath()">
+<mat-tab-group mat-stretch-tabs class="mat-primary" style="background-color: #607D8B; color: white">
+  <mat-tab id="fishing" aria-controls="tab2-content">
+    <ng-template mat-tab-label>
+      <div (click)="selectedTab = 0; choicePath()">
         <div class="tab"><em>{{ 'header.tab_group.fishing'| translate }}</em></div>
       </div>
     </ng-template>
-  </md-tab>
-  <md-tab id="hunter" aria-controls="tab1-content">
-    <ng-template md-tab-label>
-      <div mdTooltip='test' (click)="selectedTab = 1; choicePath()">
+  </mat-tab>
+  <div (click)="selectedTab = 1; choicePath()">
+  <mat-tab id="hunter" aria-controls="tab1-content">
+    <ng-template mat-tab-label>
+      <!--<div (click)="selectedTab = 1; choicePath()">-->
         <div class="tab"><em>{{ 'header.tab_group.fish_hunter'| translate }}</em></div>
-      </div>
+      <!--</div>-->
     </ng-template>
-  </md-tab>
-  <md-tab id="owner" aria-controls="tab3-content">
-    <ng-template md-tab-label>
-      <div mdTooltip='test' (click)="selectedTab = 2; choicePath()">
+  </mat-tab>
+  </div>
+  <mat-tab id="owner" aria-controls="tab3-content">
+    <ng-template mat-tab-label>
+      <div (click)="selectedTab = 2; choicePath()">
         <div class="tab"><em>{{ 'header.tab_group.owner'| translate }}</em></div>
       </div>
     </ng-template>
-  </md-tab>
-</md-tab-group>
+  </mat-tab>
+</mat-tab-group>

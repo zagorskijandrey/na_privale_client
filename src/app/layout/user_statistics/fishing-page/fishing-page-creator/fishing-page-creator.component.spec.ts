@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FishingPageComponent } from './fishing-page.component';
+import { FishingPageComponent } from './fishing-page-creator.component';
 
 describe('FishingPageComponent', () => {
   // let component: FishingPageComponent;

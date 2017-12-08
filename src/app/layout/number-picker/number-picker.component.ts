@@ -2,7 +2,7 @@
  * Created by andrey on 03.09.2017.
  */
 import { Component, OnInit } from '@angular/core';
-import {MdDialogRef} from '@angular/material';
+import {MatDialogRef} from '@angular/material';
 
 @Component({
   selector: 'app-number-picker',
@@ -14,7 +14,7 @@ export class NumberPickerComponent implements OnInit {
   parameter: String = '';
   value: Number = 0;
   result: String = '----';
-  constructor(private dialogRef: MdDialogRef<NumberPickerComponent>) { }
+  constructor(private dialogRef: MatDialogRef<NumberPickerComponent>) { }
 
   ngOnInit() {
   }

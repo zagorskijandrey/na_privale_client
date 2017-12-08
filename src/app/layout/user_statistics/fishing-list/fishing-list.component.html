@@ -1,32 +1,32 @@
 <div class="fishing-list-container mat-elevation-z8">
   <div class="fishing-list-header">
-    <md-form-field floatPlaceholder="never">
-      <input mdInput #filter placeholder="Найти село/водоем">
-    </md-form-field>
+    <mat-form-field floatPlaceholder="never">
+      <input matInput #filter placeholder="Найти село/водоем">
+    </mat-form-field>
   </div>
 
-  <md-table #table [dataSource]="dataSource" mdSort>
+  <mat-table #table [dataSource]="dataSource" matSort>
 
-    <ng-container mdColumnDef="date">
-      <md-header-cell *mdHeaderCellDef [ngClass]="'customWidthDateClass'" md-sort-header (click)="handleTableParams()"> Дата </md-header-cell>
-      <md-cell *mdCellDef="let row" [ngClass]="'customWidthDateClass'"> {{row.date | date : 'dd.MM.yyyy'}} </md-cell>
+    <ng-container matColumnDef="date">
+      <mat-header-cell *matHeaderCellDef [ngClass]="'customWidthDateClass'" mat-sort-header (click)="handleTableParams()"> Дата </mat-header-cell>
+      <mat-cell *matCellDef="let row" [ngClass]="'customWidthDateClass'"> {{row.date | date : 'dd.MM.yyyy'}} </mat-cell>
     </ng-container>
 
-    <ng-container mdColumnDef="region">
-      <md-header-cell *mdHeaderCellDef [ngClass]="'customWidthRegionClass'"> Район </md-header-cell>
-      <md-cell *mdCellDef="let row" [ngClass]="'customWidthRegionClass'"> {{row.region}} </md-cell>
-    </ng-container>
-
-    <!-- Name Column -->
-    <ng-container mdColumnDef="hamlet">
-      <md-header-cell *mdHeaderCellDef [ngClass]="'customWidthHamletClass'"> Село/Водоем </md-header-cell>
-      <md-cell *mdCellDef="let row" [ngClass]="'customWidthHamletClass'"> {{row.hamlet}} </md-cell>
+    <ng-container matColumnDef="region">
+      <mat-header-cell *matHeaderCellDef [ngClass]="'customWidthRegionClass'"> Район </mat-header-cell>
+      <mat-cell *matCellDef="let row" [ngClass]="'customWidthRegionClass'"> {{row.region}} </mat-cell>
     </ng-container>
 
     <!-- Name Column -->
-    <ng-container mdColumnDef="comment">
-      <md-header-cell *mdHeaderCellDef> Описание </md-header-cell>
-      <md-cell *mdCellDef="let row "> {{row.comment}} </md-cell>
+    <ng-container matColumnDef="hamlet">
+      <mat-header-cell *matHeaderCellDef [ngClass]="'customWidthHamletClass'"> Село/Водоем </mat-header-cell>
+      <mat-cell *matCellDef="let row" [ngClass]="'customWidthHamletClass'"> {{row.hamlet}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="comment">
+      <mat-header-cell *matHeaderCellDef> Описание </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.comment}} </mat-cell>
     </ng-container>
 
     <!--&lt;!&ndash; Color Column &ndash;&gt;-->
@@ -35,15 +35,15 @@
       <!--<md-cell *mdCellDef="let row"> {{row.date | date : 'dd.MM.yyyy'}} </md-cell>-->
     <!--</ng-container>-->
 
-    <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
-    <md-row *mdRowDef="let row ; columns: displayedColumns;"></md-row>
-  </md-table>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" (dblclick)="selectRow(row)"></mat-row>
+  </mat-table>
 
-  <md-paginator #paginator
+  <mat-paginator #paginator
                 [length]="countFishingPages"
                 [pageIndex]="0"
                 [pageSize]="2"
                 [pageSizeOptions]="[1, 2, 5, 10]"
                 (page)="pageEvent = handleTableParams()">
-  </md-paginator>
+  </mat-paginator>
 </div>

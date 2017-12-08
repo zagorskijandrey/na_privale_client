@@ -6,6 +6,6 @@ button{
   background-color: #7f7f7f;
   color: white;
 }
-button .md-raised-button{
+button .mat-raised-button{
   height: 20px;
 }

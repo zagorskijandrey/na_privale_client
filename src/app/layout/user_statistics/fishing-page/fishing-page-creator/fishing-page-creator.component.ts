@@ -1,18 +1,18 @@
 import {Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import {FishComponent} from './fish/fish.component';
-import {Fish} from '../../../shared/models/fish';
-import {FishingPage} from '../../../shared/models/fishing-page';
-import {FishingPageService} from '../../../shared/services/fishing-page.service';
+import {Fish} from '../../../../shared/models/fish';
 import {DateAdapter, NativeDateAdapter} from '@angular/material';
 import {Router} from '@angular/router';
-import {LocationService} from '../../../shared/services/location.service';
+import {FishingPage} from "../../../../shared/models/fishing-page";
+import {LocationService} from "../../../../shared/services/location.service";
+import {FishingPageService} from "../../../../shared/services/fishing-page.service";
 
 @Component({
-  selector: 'app-user-statistics-fishing-page',
-  templateUrl: './fishing-page.component.html',
-  styleUrls: ['./fishing-page.component.css']
+  selector: 'app-user-statistics-fishing-page-creator',
+  templateUrl: './fishing-page-creator.component.html',
+  styleUrls: ['./fishing-page-creator.component.css']
 })
-export class FishingPageComponent implements OnInit {
+export class FishingPageCreatorComponent implements OnInit {
   @ViewChild('dynamicComponentContainerFish', {read: ViewContainerRef}) dynamicComponentContainer: ViewContainerRef;
   fishingPage: FishingPage;
 
@@ -80,6 +80,7 @@ export class FishingPageComponent implements OnInit {
   public pickProvince(event: any) {
     if (event != null) {
       const idProvince = this.availableProvinces.filter(res => res.name === event)[0].id;
+      this.fishingPage.id_province = idProvince;
       this.locationService.getRegions(idProvince).subscribe(res => {
         this.availableRegions = res;
       });

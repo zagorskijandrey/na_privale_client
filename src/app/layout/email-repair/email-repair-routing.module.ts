@@ -6,7 +6,7 @@ import {EmailRepairComponent} from './email-repair.component';
 import {NgModule} from '@angular/core';
 
 const routes: Routes = [
-  {path: '', component: EmailRepairComponent }
+  {path: '', component: EmailRepairComponent}
 ];
 
 @NgModule({

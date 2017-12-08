@@ -4,8 +4,8 @@ import { MapPredictionComponent } from './map-prediction/map-prediction.componen
 import {FishingMapComponent} from './fishing-map/fishing-map.component';
 
 const routes: Routes = [
-  {path: '', component: MapPredictionComponent },
-  {path: 'fishing', component: FishingMapComponent }
+  {path: '', component: MapPredictionComponent},
+  {path: 'fishing', component: FishingMapComponent}
 ];
 
 @NgModule({

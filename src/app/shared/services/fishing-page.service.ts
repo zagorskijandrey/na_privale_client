@@ -18,6 +18,11 @@ export class FishingPageService extends ExtractService {
   constructor(protected authHttp: AuthHttp, protected router: Router, protected http: Http) {
     super(router);
   }
+  
+  public getFishingPage(id: number): Observable<any/*FishingPage*/> {
+    return this.authHttp.get(environment.api + 'f_page?id=' + id)
+      .map(this.getResponseBody.bind(this)/*this.getFishingPageWithResponse.bind(this)*/).catch(this.handleError.bind(this));
+  }
 
   public saveFishingPage(fishingPage: FishingPage): Observable<FishingPage> {
     return this.authHttp.post(`${environment.api}f_page`, JSON.stringify(fishingPage))
@@ -42,6 +47,11 @@ export class FishingPageService extends ExtractService {
   public getHamletsDescription(id: number): Observable<Array<any>> {
     return this.authHttp.get(environment.api + 'hamlet_description?id=' + id)
       .map(this.getHamletsDescriptionWithResponse.bind(this)).catch(this.handleError.bind(this));
+  }
+
+  private getFishingPageWithResponse(res: Response): FishingPage {
+    const body = this.getResponseBody(res).page;
+    return Object.assign(new FishingPage, body);
   }
 
   private getHamletsDescriptionWithResponse(res: Response): Array<any> {

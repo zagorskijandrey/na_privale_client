@@ -3,7 +3,7 @@ import {Hamlet} from '../../../shared/models/hamlet';
 import {LocationService} from '../../../shared/services/location.service';
 import {Router} from '@angular/router';
 import {ErrorHandlerService} from '../../../shared/services/error-handler.service';
-import {MdSidenav} from '@angular/material';
+import {MatSidenav} from '@angular/material';
 import {FishingPageService} from '../../../shared/services/fishing-page.service';
 
 @Component({
@@ -29,7 +29,7 @@ export class FishingMapComponent implements OnInit {
   lng = 31;
   zoom = 7;
 
-  @ViewChild('sidenavRight') sidenavRight: MdSidenav;
+  @ViewChild('sidenavRight') sidenavRight: MatSidenav;
   constructor(private fishingPageService: FishingPageService, private router: Router,
               private locationService: LocationService, private errorService: ErrorHandlerService) {
   }

@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../../shared/models/user';
 import {RegistrationService} from '../../shared/services/registration.service';
-import {MdSnackBar} from '@angular/material';
 import {ErrorHandlerService} from '../../shared/services/error-handler.service';
 import {SnackbarService} from '../../shared/services/snackbar.service';
 
@@ -14,7 +13,6 @@ export class SignupComponent implements OnInit {
 
   confirm_password: string;
   public user: User = new User();
-  isSaveUser: Boolean = false;
 
   constructor(private registrationService: RegistrationService, public snackbarService: SnackbarService,
               private errorService: ErrorHandlerService) {

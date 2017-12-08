@@ -4,71 +4,79 @@
       <form style="height: 100vh">
         <div fxLayout="row" fxLayoutAlign="start center" class="content">
           <div fxFlex="25%">
-            <md-select style="width: 80%" placeholder="{{ 'fishing_page.country' | translate}}"
+            <mat-form-field>
+            <mat-select style="width: 80%" placeholder="{{ 'fishing_page.country' | translate}}"
                        [(ngModel)]="fishingPage.country" name="country"
                        [disabled]="!availableCountries || !availableCountries.length"
                        (ngModelChange)="pickCountry($event)">
-              <md-option value="null"
+              <mat-option value="null"
                          disabled
                          selected
                          hidden>
                 {{ 'fishing_page.country' | translate}}
-              </md-option>
-              <md-option *ngFor="let country of availableCountries" [value]="country.name">
+              </mat-option>
+              <mat-option *ngFor="let country of availableCountries" [value]="country.name">
                 {{country.name}}
-              </md-option>
-            </md-select>
+              </mat-option>
+            </mat-select>
+              </mat-form-field>
           </div>
 
           <div fxFlex="25%">
-            <md-select style="width: 80%" placeholder="{{ 'fishing_page.province' | translate}}"
+            <mat-form-field>
+            <mat-select style="width: 80%" placeholder="{{ 'fishing_page.province' | translate}}"
                        [(ngModel)]="fishingPage.province" name="province"
                        [disabled]="!availableProvinces || !availableProvinces.length"
                        (ngModelChange)="pickProvince($event)">
-              <md-option value="null"
+              <mat-option value="null"
                          disabled
                          selected
                          hidden>
                 {{ 'fishing_page.province' | translate}}
-              </md-option>
-              <md-option *ngFor="let province of availableProvinces" [value]="province.name">
+              </mat-option>
+              <mat-option *ngFor="let province of availableProvinces" [value]="province.name">
                 {{province.name}}
-              </md-option>
-            </md-select>
+              </mat-option>
+            </mat-select>
+              </mat-form-field>
           </div>
 
           <div fxFlex="25%">
-            <md-select style="width: 80%" placeholder="{{ 'fishing_page.region' | translate}}"
+            <mat-form-field>
+            <mat-select style="width: 80%" placeholder="{{ 'fishing_page.region' | translate}}"
                        [(ngModel)]="fishingPage.region" name="region"
                        [disabled]="!availableRegions || !availableRegions.length"
                        (ngModelChange)="pickRegion($event)">
-              <md-option value="null"
+              <mat-option value="null"
                          disabled
                          selected
                          hidden>
                 {{ 'fishing_page.region' | translate}}
-              </md-option>
-              <md-option *ngFor="let region of availableRegions" [value]="region.name">
+              </mat-option>
+              <mat-option *ngFor="let region of availableRegions" [value]="region.name">
                 {{region.name}}
-              </md-option>
-            </md-select>
+              </mat-option>
+            </mat-select>
+              </mat-form-field>
           </div>
 
           <div fxFlex>
-            <md-select style="width: 80%" placeholder="{{ 'fishing_page.hamlet' | translate}}"
+            <mat-form-field>
+            <mat-select style="width: 80%" placeholder="{{ 'fishing_page.hamlet' | translate}}"
                        [(ngModel)]="fishingPage.hamlet" name="hamlet"
                        [disabled]="!availableHamlets || !availableHamlets.length"
                        (ngModelChange)="pickHamlet($event)">
-              <md-option value="null"
+              <mat-option value="null"
                          disabled
                          selected
                          hidden>
                 {{ 'fishing_page.hamlet' | translate}}
-              </md-option>
-              <md-option *ngFor="let hamlet of availableHamlets" [value]="hamlet.name">
+              </mat-option>
+              <mat-option *ngFor="let hamlet of availableHamlets" [value]="hamlet.name">
                 {{hamlet.name}}
-              </md-option>
-            </md-select>
+              </mat-option>
+            </mat-select>
+              </mat-form-field>
           </div>
         </div>
         <br>
@@ -78,7 +86,7 @@
         <div align="right">
           <!--<md-action-row>-->
           <a href="javascript:void(0)">
-            <md-icon style="color: #7594a2" (click)="addFish()">add</md-icon>
+            <mat-icon style="color: #7594a2" (click)="addFish()">add</mat-icon>
             <!--<md-icon style="color: #7594a2" (click)="removeFish()">remove</md-icon>-->
           </a>
           <div></div>
@@ -89,27 +97,27 @@
             <!--<md-icon (click)="addFish()">add</md-icon>-->
           <!--</a>-->
           <a style="color: #7594a2" href="javascript:void(0)">
-            <md-icon (click)="removeFish()">remove</md-icon>
+            <mat-icon (click)="removeFish()">remove</mat-icon>
           </a>
         </div>
-        <md-form-field style="width: 100%">
-          <textarea mdInput placeholder="{{ 'fishing_page.comment' | translate}}" value="" rows="6"
+        <mat-form-field style="width: 100%">
+          <textarea matInput placeholder="{{ 'fishing_page.comment' | translate}}" value="" rows="6"
                     [(ngModel)]="fishingPage.comment" name="comment"></textarea>
-        </md-form-field>
+        </mat-form-field>
         <br>
         <table style="width: 100%" cellspacing="0">
           <tr>
             <td>
-              <md-form-field class="example-full-width">
-                <input mdInput [mdDatepicker]="picker" placeholder="{{ 'fishing_page.date' | translate}}"
+              <mat-form-field class="example-full-width">
+                <input matInput [matDatepicker]="picker" placeholder="{{ 'fishing_page.date' | translate}}"
                        [(ngModel)]="fishingPage.date" name="date">
-                <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
-                <md-datepicker touchUi="true" #picker></md-datepicker>
-              </md-form-field>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker touchUi="true" #picker></mat-datepicker>
+              </mat-form-field>
             </td>
             <td>
               <div align="right">
-                <button class="full-width  mb-1 mat-raised-button" style="background-color: #9dbcca" md-raised-button
+                <button class="full-width  mb-1 mat-raised-button" style="background-color: #9dbcca" mat-raised-button
                         (click)="saveFishingPage()">
                   <span class="mat-button-wrapper" style="color: white">{{ 'fishing_page.save' | translate}}</span>
                 </button>

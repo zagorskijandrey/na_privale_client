@@ -7,40 +7,40 @@
           <p class="text-muted">{{ 'signin.entry'| translate }}</p>
         </div>
         <form autocomplete="off">
-          <md-input-container class="full-width mat-input-container">
+          <mat-input-container class="full-width mat-input-container">
             <div class="mat-input-wrapper">
-              <input class="mat-input-element" type="text" mdInput [(ngModel)]="user.username" name="username"
+              <input class="mat-input-element" type="text" matInput [(ngModel)]="user.username" name="username"
                      placeholder="Username" required="" value="" id="username" aria-invalid="false">
             </div>
-          </md-input-container>
+          </mat-input-container>
           <small class="form-error-msg" *ngIf="!user.username">{{ 'signin.entry_account'| translate }}</small>
           <br>
           <br>
 
-          <md-input-container class="full-width mat-input-container">
+          <mat-input-container class="full-width mat-input-container">
             <div class="mat-input-wrapper">
-              <input class="mat-input-element" type="password" mdInput [(ngModel)]="user.password" name="password"
+              <input class="mat-input-element" type="password" matInput [(ngModel)]="user.password" name="password"
                      placeholder="Password" required="" value="" id="signinPassword" aria-invalid="false" readonly
                      onfocus="if (this.hasAttribute('readonly')) { this.removeAttribute('readonly');
                         this.blur();this.focus();}"/>
             </div>
-          </md-input-container>
+          </mat-input-container>
           <small class="form-error-msg" *ngIf="!user.password">{{ 'signin.entry_password'| translate }}</small>
 
           <br>
           <br>
           <div class="pb-1">
-            <md-checkbox class="pb-1 mat-checkbox mat-accent" name="rememberMe">
+            <mat-checkbox class="pb-1 mat-checkbox mat-accent" name="rememberMe">
               <label class="mat-checkbox-layout">
                   <span class="mat-checkbox-label">
                     <span style="display:none">&nbsp;
                     </span>{{ 'signin.save_for_device'| translate }}
                   </span>
               </label>
-            </md-checkbox>
+            </mat-checkbox>
           </div>
 
-          <button class="full-width  mb-1 mat-raised-button" style="background-color: #9dbcca" md-raised-button
+          <button class="full-width  mb-1 mat-raised-button" style="background-color: #9dbcca" mat-raised-button
                   (click)="login()"
                   [disabled]="!isValidUsername || !isValidPassword">
             <span class="mat-button-wrapper" style="color: white">{{ 'signin.submit'| translate }}</span>

@@ -6,17 +6,17 @@ import {Injectable, ViewContainerRef} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
 import {NavigationStart, Router} from '@angular/router';
 import {Observable} from 'rxjs/Observable';
-import {MdDialog, MdDialogConfig, MdDialogRef} from '@angular/material';
+import {MatDialog, MatDialogConfig, MatDialogRef} from '@angular/material';
 import {DialogComponent} from '../../layout/dialog/dialog.component';
 
 @Injectable()
 export class ErrorHandlerService {
 
-  constructor(private dialog: MdDialog) { }
+  constructor(private dialog: MatDialog) { }
 
   public confirm(title: string, message: string): Observable<boolean> {
 
-    let dialogRef: MdDialogRef<DialogComponent>;
+    let dialogRef: MatDialogRef<DialogComponent>;
 
     dialogRef = this.dialog.open(DialogComponent);
 

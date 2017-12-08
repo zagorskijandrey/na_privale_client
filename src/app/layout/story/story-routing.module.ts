@@ -5,8 +5,8 @@ import {StoryDescribeComponent} from './story-describe/story-describe.component'
 
 const routes: Routes = [
   {path: '', component: StoryListComponent },
-  {path: 'describe', component: StoryDescribeComponent },
-  {path: 'describe/:id', component: StoryDescribeComponent }
+  {path: 'describe', component: StoryDescribeComponent},
+  {path: 'describe/:id', component: StoryDescribeComponent}
 ];
 
 @NgModule({

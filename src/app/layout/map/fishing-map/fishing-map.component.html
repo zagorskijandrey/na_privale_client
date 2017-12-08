@@ -11,13 +11,13 @@
   </div>
   <div fxFlex="25%" *ngIf="isClosedSidenavRight" (click)="clickSidenavRight()" id="hamlet-description">
     <p align="center">{{hamletName}}</p>
-    <md-card class="hamlet-desc-card" *ngFor="let hamletDesc of hamletsDescription">
-      <md-card-header>
-        <md-card-title *ngIf="hamletsDescription"><em>{{hamletDesc.date | date : 'dd.MM.yyyy'}}</em></md-card-title>
-      </md-card-header>
-      <md-card-content>
+    <mat-card class="hamlet-desc-card" *ngFor="let hamletDesc of hamletsDescription">
+      <mat-card-header>
+        <mat-card-title *ngIf="hamletsDescription"><em>{{hamletDesc.date | date : 'dd.MM.yyyy'}}</em></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
         <p *ngIf="hamletsDescription">{{hamletDesc.comment}}</p>
-      </md-card-content>
-    </md-card>
+      </mat-card-content>
+    </mat-card>
   </div>
 </div>

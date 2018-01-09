@@ -12,11 +12,12 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import {AuthHttp} from 'angular2-jwt';
 import {Router} from '@angular/router';
+import {LoaderService} from "./loader.service";
 
 @Injectable()
 export class RegionService extends ExtractService {
-  constructor(protected authHttp: AuthHttp, protected router: Router) {
-    super(router);
+  constructor(protected authHttp: AuthHttp, protected router: Router, protected loader: LoaderService) {
+    super(router, loader);
   }
 
   getRegions(): Observable<Array<Region>> {

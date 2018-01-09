@@ -19,6 +19,8 @@ import {RegistrationService} from './shared/services/registration.service';
 import {PagerService} from './shared/services/pager.service';
 import {LocationService} from './shared/services/location.service';
 import {SharedModule} from './shared/shared.module';
+import {LoaderComponent} from "./loader/loader.component";
+import {LoaderService} from "./shared/services/loader.service";
 
 // hammerjs is a required import for some of the features in Angular Material
 
@@ -42,7 +44,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoaderComponent
   ],
   providers: [
     AuthGuard,
@@ -52,14 +55,15 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     {
       provide: AuthHttp,
       useFactory: authHttpServiceFactory,
-      deps: [Http, RequestOptions]
+      deps: [Http, RequestOptions, LoaderService]
     },
     ErrorHandlerService,
     FishingPageService,
     NumberPickerService,
     RegistrationService,
     PagerService,
-    LocationService
+    LocationService,
+    LoaderService
   ],
   imports: [
     BrowserModule,

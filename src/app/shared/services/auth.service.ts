@@ -7,13 +7,14 @@ import 'rxjs/add/operator/catch';
 import {Observable} from 'rxjs/Observable';
 import {User} from '../models/user';
 import {Router} from '@angular/router';
+import {LoaderService} from "./loader.service";
 /**
  * Created by AZagorskyi on 11.07.2017.
  */
 @Injectable()
 export class AuthService extends ExtractService {
-  constructor (protected http: Http, protected router: Router) {
-    super(router);
+  constructor (protected http: Http, protected router: Router, protected loader: LoaderService) {
+    super(router, loader);
   }
 
   login(username: string, password: string): Observable <User> {

@@ -11,14 +11,19 @@ import 'rxjs/add/operator/catch';
 import {ExtractService} from './extract.service';
 import {Router} from '@angular/router';
 import {Page} from '../models/page';
+import {LoaderService} from "./loader.service";
 
 @Injectable()
 export class StoryService extends ExtractService {
-  constructor(protected http: Http, protected router: Router) {
-    super(router);
+  constructor(protected http: Http, protected router: Router, protected loader: LoaderService) {
+    super(router, loader);
   }
 
   getFishingStories(page: Page): Observable<any> {
+    this.loader.show();
+    // setTimeout(() => {
+    //   this.loader.hide();
+    // }, 5000);
     const searchParams = new URLSearchParams();
     searchParams.set('page_params', JSON.stringify(page));
     const options = new RequestOptions({params: searchParams});
@@ -60,5 +65,10 @@ export class StoryService extends ExtractService {
       arrayStory.push(Object.assign(new Story(), body[i]));
     }
     return arrayStory;
+  }
+
+  private responseComplete(self: any): any {
+    this.loader.hide();
+    this.getResponseBody.bind(self);
   }
 }

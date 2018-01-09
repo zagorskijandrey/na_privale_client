@@ -6,15 +6,13 @@
       </div>
     </ng-template>
   </mat-tab>
-  <div (click)="selectedTab = 1; choicePath()">
   <mat-tab id="hunter" aria-controls="tab1-content">
     <ng-template mat-tab-label>
-      <!--<div (click)="selectedTab = 1; choicePath()">-->
+      <div (click)="selectedTab = 1; choicePath()">
         <div class="tab"><em>{{ 'header.tab_group.fish_hunter'| translate }}</em></div>
-      <!--</div>-->
+      </div>
     </ng-template>
   </mat-tab>
-  </div>
   <mat-tab id="owner" aria-controls="tab3-content">
     <ng-template mat-tab-label>
       <div (click)="selectedTab = 2; choicePath()">

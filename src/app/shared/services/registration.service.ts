@@ -11,11 +11,12 @@ import {Observable} from 'rxjs/Observable';
 import {environment} from '../../../environments/environment';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import {LoaderService} from "./loader.service";
 
 @Injectable()
 export class RegistrationService extends ExtractService {
-  constructor(protected http: Http, protected router: Router) {
-    super(router);
+  constructor(protected http: Http, protected router: Router, protected loader: LoaderService) {
+    super(router, loader);
   }
 
   registration(user: User): Observable<User> {

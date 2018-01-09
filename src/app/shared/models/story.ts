@@ -6,4 +6,5 @@ export class Story {
   name: string;
   text: string;
   author: string;
+  link: string;
 }

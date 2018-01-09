@@ -6,13 +6,17 @@ import {isArray, isString} from 'util';
 import {Observable} from 'rxjs/Observable';
 import {NavigationExtras, Router} from '@angular/router';
 import 'rxjs/add/observable/throw';
+import {LoaderService} from "./loader.service";
 
 export abstract class ExtractService {
 
-  constructor(protected router: Router) {
+  constructor(protected router: Router, protected loader: LoaderService) {
   }
 
   protected getResponseBody(response: Response): any {
+    setTimeout(() => {
+      this.loader.hide();
+    }, 5000);
     let message = '';
     if (response.ok && response.text()) {
       const data = response.json();

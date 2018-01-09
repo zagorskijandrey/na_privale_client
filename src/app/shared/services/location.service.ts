@@ -11,11 +11,12 @@ import 'rxjs/add/operator/catch';
 import {environment} from '../../../environments/environment';
 import {AuthHttp} from 'angular2-jwt';
 import {Hamlet} from '../models/hamlet';
+import {LoaderService} from "./loader.service";
 
 @Injectable()
 export class LocationService extends ExtractService {
-  constructor(protected authHttp: AuthHttp, protected http: Http, protected router: Router) {
-    super(router);
+  constructor(protected authHttp: AuthHttp, protected http: Http, protected router: Router, protected loader: LoaderService) {
+    super(router, loader);
   }
 
   getCountries(): Observable<Array<any>> {

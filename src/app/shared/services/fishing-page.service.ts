@@ -11,12 +11,13 @@ import {environment} from '../../../environments/environment';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import {Http, Headers, URLSearchParams, RequestOptions, Response} from '@angular/http';
+import {LoaderService} from "./loader.service";
 
 @Injectable()
 export class FishingPageService extends ExtractService {
 
-  constructor(protected authHttp: AuthHttp, protected router: Router, protected http: Http) {
-    super(router);
+  constructor(protected authHttp: AuthHttp, protected router: Router, protected http: Http, protected loader: LoaderService) {
+    super(router, loader);
   }
   
   public getFishingPage(id: number): Observable<any/*FishingPage*/> {

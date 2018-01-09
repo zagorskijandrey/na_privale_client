@@ -9,11 +9,13 @@
         </div>
       </div>
       <div fxFlex align="right">
-        <mat-select class="owner-font" placeholder="На странице" matInput [(ngModel)]="pageAmount" (ngModelChange)="handlePageAmount(null)">
-          <mat-option class="owner-font" *ngFor="let amount of storiesCounter" [value]="amount">
-            {{ amount }}
-          </mat-option>
-        </mat-select>
+        <mat-form-field>
+          <mat-select class="owner-font" placeholder="На странице" matInput [(ngModel)]="pageAmount" (ngModelChange)="handlePageAmount(null)">
+            <mat-option class="owner-font" *ngFor="let amount of storiesCounter" [value]="amount">
+              {{ amount }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
     </div>
   </h4>
@@ -28,8 +30,13 @@
       {{story.text}}
     </div>
     <span><hr flex/></span>
-    <div>
-      <button class="owner-font" [routerLink]="['describe', story.id]" mat-raised-button>Дальше...</button>
+    <div fxLayout="row" fxLayoutAlign="start center">
+      <div fxFlex="50%">
+        <button class="owner-font" [routerLink]="['describe', story.id]" mat-raised-button>Дальше...</button>
+      </div>
+      <div fxFlex align="right" class="owner-font">
+        <h6>{{story.link}}</h6>
+      </div>
     </div>
   </div>
   <div>

@@ -18,3 +18,8 @@ button .mat-raised-button{
   font-size: 20px;
   justify-content: space-between;
 }
+
+h6 {
+  color: #848484;
+  margin-top: inherit;
+}
